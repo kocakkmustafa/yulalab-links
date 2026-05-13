@@ -449,9 +449,9 @@ const SOCIALS = [
 ];
 
 const STAMP_BRAND_META = {
-  bl: { num:'01', title:['BRAAVO','LABS.'], urlSub:'Platform · Demo · Free plan' },
-  bf: { num:'02', title:['BURUN','FARKI.'], urlSub:'Main platform · Free tier · 18+' },
-  lo: { num:'03', title:['LIFE','OS.'],     urlSub:'Coming soon · Waitlist' },
+  lo: { num:'01', title:['LIFE','OS.'],     urlSub:'Coming soon · Waitlist' },
+  bl: { num:'02', title:['BRAAVO','LABS.'], urlSub:'Platform · Demo · Free plan' },
+  bf: { num:'03', title:['BURUN','FARKI.'], urlSub:'Main platform · Free tier · 18+' },
 };
 
 // ─── HELPERS ──────────────────────────────────────────────────────────
@@ -492,7 +492,8 @@ function gridHTML(brand){
 
 // ─── HOLDING PAGE ────────────────────────────────────────────────────
 function holdingHTML(){
-  const products = [BRANDS.bl, BRANDS.bf, BRANDS.lo];
+  // Portfolio order: 01 LifeOS · 02 Braavolabs · 03 Burun Farkı
+  const products = [BRANDS.lo, BRANDS.bl, BRANDS.bf];
   return `<div class="sb-root">
     <div class="sb-band">
       <span>● YULA / LAB</span>
@@ -505,7 +506,19 @@ function holdingHTML(){
         <p class="sb-tag">${esc(BRANDS.yula.tagline)}</p>
       </div>
 
-      <div class="sb-section"><span class="sb-num">01</span><span>Portfolio</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">01</span><span>Channels</span><span class="sb-rule"></span></div>
+
+      <a class="sb-url" href="https://yulalab.com" target="_blank" rel="noopener" aria-label="yulalab.com">
+        <div>
+          <div class="sb-url-name">yulalab.com</div>
+          <div class="sb-url-sub">Home · Manifesto · Portfolio</div>
+        </div>
+        <span style="font-size:22px" aria-hidden="true">→</span>
+      </a>
+
+      ${gridHTML(BRANDS.yula)}
+
+      <div class="sb-section"><span class="sb-num">02</span><span>Portfolio</span><span class="sb-rule"></span></div>
 
       ${products.map((p, i) => {
         const slug = p === BRANDS.bl ? 'braavolabs' : p === BRANDS.bf ? 'burunfarki' : 'lifeos';
@@ -524,18 +537,6 @@ function holdingHTML(){
           </div>
         </a>`;
       }).join('')}
-
-      <div class="sb-section"><span class="sb-num">02</span><span>Channels</span><span class="sb-rule"></span></div>
-
-      <a class="sb-url" href="https://yulalab.com" target="_blank" rel="noopener" aria-label="yulalab.com">
-        <div>
-          <div class="sb-url-name">yulalab.com</div>
-          <div class="sb-url-sub">Home · Manifesto · Portfolio</div>
-        </div>
-        <span style="font-size:22px" aria-hidden="true">→</span>
-      </a>
-
-      ${gridHTML(BRANDS.yula)}
     </div>
     <div class="sb-foot">
       <span>© 2026</span>
