@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#06080F">
+<meta name="color-scheme" content="dark">
+<title>YULA Lab — Links</title>
+<meta name="description" content="YULA Lab — AI-native venture studio. Braavolabs · Burun Farkı · LifeOS. Tüm sosyal medya, ürün ve indirme bağlantıları tek sayfada.">
+<meta name="robots" content="index,follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://links.yulalab.com/">
+<meta property="og:title" content="YULA Lab — Links">
+<meta property="og:description" content="AI-Native Venture Studio. Braavolabs · Burun Farkı · LifeOS — tüm bağlantılar.">
+<meta property="og:image" content="https://yulalab.com/brand/yulalab-banner.png">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yulalab">
+<meta name="twitter:title" content="YULA Lab — Links">
+<meta name="twitter:description" content="AI-Native Venture Studio. Braavolabs · Burun Farkı · LifeOS.">
+<meta name="twitter:image" content="https://yulalab.com/brand/yulalab-banner.png">
+
+<!-- Favicon (inline SVG → tüm tarayıcılar) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E8EAF0'/%3E%3Ctext x='50' y='66' font-family='Manrope,sans-serif' font-size='52' font-weight='900' text-anchor='middle' fill='%2306080F' letter-spacing='-3'%3EYL%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E8EAF0'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-size='52' font-weight='900' text-anchor='middle' fill='%2306080F' letter-spacing='-3'%3EYL%3C/text%3E%3C/svg%3E">
+
+<!-- Fonts: preconnect + preload -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{min-height:100%;font-family:'Manrope',system-ui,-apple-system,sans-serif;background:#06080F;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{color:#E8EAF0;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* Focus state — a11y */
+a:focus-visible,button:focus-visible{outline:2px solid rgba(232,234,240,.55);outline-offset:2px;border-radius:6px}
+
+/* ── Pages ────────────────────────────────────── */
+.page{display:none;min-height:100vh;padding:0 0 60px;position:relative}
+.page.active{display:block;animation:slideUp .28s cubic-bezier(.4,0,.2,1)}
+@keyframes slideUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.pg-yl{background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(200,200,210,.12) 0%, #06080F 65%)}
+.pg-bl{background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,209,255,.10) 0%, #06080F 65%)}
+.pg-bf{background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(250,184,31,.12) 0%, #06080F 65%)}
+.pg-lo{background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(195,244,0,.10) 0%, #06080F 65%)}
+.pg-holding{background:radial-gradient(ellipse 90% 60% at 50% 0%, rgba(120,120,140,.10) 0%, #06080F 70%)}
+
+.card{max-width:440px;margin:0 auto;padding:0 16px}
+
+.back-row{padding:18px 16px 0;max-width:440px;margin:0 auto}
+.back-btn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:10px 16px;color:rgba(255,255,255,.55);font-size:13px;font-weight:600;cursor:pointer;transition:background .15s;letter-spacing:.3px;min-height:44px}
+.back-btn:active{background:rgba(255,255,255,.12)}
+
+.hero{padding:32px 0 24px;text-align:center}
+.avatar{width:76px;height:76px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;letter-spacing:-1px;margin:0 auto 16px;border:1.5px solid rgba(255,255,255,.12);position:relative}
+.brand-name{font-size:25px;font-weight:900;letter-spacing:-0.7px;margin-bottom:6px;line-height:1}
+.brand-tagline{font-size:13px;color:rgba(255,255,255,.45);line-height:1.55;max-width:290px;margin:0 auto 14px}
+.brand-stats{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;padding:0 4px}
+.stat-pill{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);background:rgba(255,255,255,.04);letter-spacing:.3px}
+
+.section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.25);padding:20px 0 8px}
+
+/* Touch-optimised link button — min 56px tall */
+.link-btn{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:12px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:16px;margin-bottom:8px;cursor:pointer;text-decoration:none;transition:background .15s,transform .12s;position:relative;overflow:hidden;color:inherit}
+.link-btn:hover{background:rgba(255,255,255,.08)}
+.link-btn:active{background:rgba(255,255,255,.1);transform:scale(.985)}
+.link-btn::after{content:'↗';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:13px;color:rgba(255,255,255,.18)}
+.licon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.lbody{text-align:left;flex:1;min-width:0;padding-right:20px}
+.lname{font-size:14px;font-weight:700;color:rgba(255,255,255,.88);margin-bottom:2px;line-height:1.2}
+.lsub{font-size:11px;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Coming soon: visual cue for placeholder links (href="#") */
+.link-btn.soon{opacity:.55;cursor:not-allowed}
+.link-btn.soon:hover{background:rgba(255,255,255,.05)}
+.link-btn.soon::after{content:'Yakında';font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.06);padding:3px 7px;border-radius:6px;top:50%;right:14px;transform:translateY(-50%);text-transform:uppercase}
+
+.brand-card{display:flex;align-items:center;gap:14px;width:100%;min-height:72px;padding:14px 16px;border-radius:16px;margin-bottom:10px;cursor:pointer;text-decoration:none;transition:background .15s,transform .12s;border:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;background:rgba(255,255,255,.03)}
+.brand-card:hover{background:rgba(255,255,255,.05)}
+.brand-card:active{background:rgba(255,255,255,.07);transform:scale(.985)}
+.bcard-icon{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;flex-shrink:0;letter-spacing:-0.5px}
+.bcard-body{flex:1;min-width:0}
+.bcard-name{font-size:16px;font-weight:800;margin-bottom:3px;letter-spacing:-0.2px}
+.bcard-tl{font-size:12px;color:rgba(255,255,255,.35);line-height:1.4}
+.bcard-type{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.7px;margin-top:5px}
+.bcard-arrow{font-size:20px;color:rgba(255,255,255,.2);flex-shrink:0}
+
+.holding-header{padding:44px 0 28px;text-align:center}
+.holding-logo{width:72px;height:72px;background:#E8EAF0;border-radius:20px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#06080F;letter-spacing:-1px}
+.holding-name{font-size:28px;font-weight:900;letter-spacing:-0.8px;color:#E8EAF0;margin-bottom:6px}
+.holding-sub{font-size:14px;color:rgba(255,255,255,.35);margin-bottom:4px}
+.holding-tagline{font-size:12px;font-style:italic;color:rgba(255,255,255,.22)}
+
+.divider{height:1px;background:rgba(255,255,255,.06);margin:8px 0 16px}
+
+.footer{text-align:center;padding:36px 0 0;font-size:11px;color:rgba(255,255,255,.15);font-family:'JetBrains Mono',monospace}
+.footer a{color:rgba(255,255,255,.25);text-decoration:none;cursor:pointer}
+.footer a:hover{color:rgba(255,255,255,.45)}
+
+.legal-note{font-size:10px;color:rgba(255,255,255,.2);text-align:center;padding:16px 0 0;line-height:1.7}
+.legal-note a{color:rgba(250,184,31,.4)}
+.legal-note a:hover{color:rgba(250,184,31,.7)}
+
+/* Print: tüm sayfaları sırayla göster */
+@media print{
+  body{background:#fff;color:#000}
+  .page{display:block!important;page-break-after:always;background:#fff!important;color:#000}
+  .back-row,.bcard-arrow,.link-btn::after{display:none!important}
+  .link-btn,.brand-card{border-color:#ddd;background:#fff}
+  .lname,.bcard-name,.brand-name,.holding-name{color:#000!important}
+  .lsub,.bcard-tl,.brand-tagline,.section-label,.footer,.holding-sub,.holding-tagline{color:#666!important}
+}
+
+/* No-JS fallback */
+.noscript-warn{display:none;background:#FAB81F;color:#06080F;text-align:center;padding:12px;font-size:13px;font-weight:700}
+</style>
+</head>
+<body>
+
+<noscript><div class="noscript-warn" style="display:block">Bu site JavaScript gerektirir. Lütfen tarayıcınızda etkinleştirin.</div></noscript>
+
+<!-- ═══════════════════════════════════ -->
+<!--  HOLDING — YULA Lab                 -->
+<!-- ═══════════════════════════════════ -->
+<div id="pg-holding" class="page pg-holding active" role="region" aria-label="YULA Lab ana sayfa">
+  <div class="card">
+    <div class="holding-header">
+      <div class="holding-logo" aria-hidden="true">YL</div>
+      <h1 class="holding-name">YULA Lab</h1>
+      <div class="holding-sub">AI-Native Venture Studio</div>
+      <div class="holding-tagline">"We design tomorrow's products today."</div>
+    </div>
+
+    <div class="section-label">Products</div>
+
+    <a class="brand-card" onclick="go('bl')" role="link" aria-label="Braavolabs sayfasına git" style="border-color:rgba(0,209,255,.15)">
+      <div class="bcard-icon" style="background:rgba(0,209,255,.1);color:#00D1FF">Bl</div>
+      <div class="bcard-body">
+        <div class="bcard-name" style="color:#00D1FF">Braavolabs</div>
+        <div class="bcard-tl">Autonomous AI Company OS — 9 primitives · 12 LLMs</div>
+        <div class="bcard-type">B2B SaaS · Global · Beta</div>
+      </div>
+      <div class="bcard-arrow" aria-hidden="true">›</div>
+    </a>
+
+    <a class="brand-card" onclick="go('bf')" role="link" aria-label="Burun Farkı sayfasına git" style="border-color:rgba(250,184,31,.15)">
+      <div class="bcard-icon" style="background:rgba(250,184,31,.1);color:#FAB81F">BF</div>
+      <div class="bcard-body">
+        <div class="bcard-name" style="color:#FAB81F">Burun Farkı</div>
+        <div class="bcard-tl">Turkey's first transparent AI horse racing analytics</div>
+        <div class="bcard-type">B2C · Turkey 18+ · Live</div>
+      </div>
+      <div class="bcard-arrow" aria-hidden="true">›</div>
+    </a>
+
+    <a class="brand-card" onclick="go('lo')" role="link" aria-label="LifeOS sayfasına git" style="border-color:rgba(195,244,0,.15)">
+      <div class="bcard-icon" style="background:rgba(195,244,0,.1);color:#C3F400">LO</div>
+      <div class="bcard-body">
+        <div class="bcard-name" style="color:#C3F400">LifeOS</div>
+        <div class="bcard-tl">5 life domains · On-device AI · Zero ads</div>
+        <div class="bcard-type">B2C · Global · Coming Soon</div>
+      </div>
+      <div class="bcard-arrow" aria-hidden="true">›</div>
+    </a>
+
+    <div class="divider"></div>
+    <div class="section-label">YULA Lab</div>
+
+    <a class="link-btn" href="https://yulalab.com" target="_blank" rel="noopener" aria-label="yulalab.com web sitesi">
+      <div class="licon" style="background:rgba(232,234,240,.07)" aria-hidden="true">🌐</div>
+      <div class="lbody"><div class="lname">yulalab.com</div><div class="lsub">Home · Manifesto · Portfolio</div></div>
+    </a>
+
+    <!-- STANDARD SOCIAL ORDER: TikTok · Instagram · X · YouTube · Reddit · Facebook · Discord · Telegram · LinkedIn · GitHub -->
+
+    <a class="link-btn" href="https://www.tiktok.com/@yulalab" target="_blank" rel="noopener" aria-label="TikTok @yulalab">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
+      <div class="lbody"><div class="lname">TikTok</div><div class="lsub">@yulalab</div></div>
+    </a>
+
+    <a class="link-btn" href="https://www.instagram.com/yulalabai" target="_blank" rel="noopener" aria-label="Instagram @yulalabai">
+      <div class="licon" style="background:rgba(225,48,108,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="url(#ig_yl)"><defs><linearGradient id="ig_yl" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+      <div class="lbody"><div class="lname">Instagram</div><div class="lsub">@yulalabai</div></div>
+    </a>
+
+    <a class="link-btn" href="https://x.com/yulalab" target="_blank" rel="noopener" aria-label="X @yulalab">
+      <div class="licon" style="background:rgba(232,234,240,.06)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(232,234,240,.75)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+      <div class="lbody"><div class="lname">X (Twitter)</div><div class="lsub">@yulalab</div></div>
+    </a>
+
+    <a class="link-btn" href="https://youtube.com/@yulalab" target="_blank" rel="noopener" aria-label="YouTube @yulalab">
+      <div class="licon" style="background:rgba(255,0,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      <div class="lbody"><div class="lname">YouTube</div><div class="lsub">@yulalab</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Reddit — yakında">
+      <div class="licon" style="background:rgba(255,69,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></div>
+      <div class="lbody"><div class="lname">Reddit</div><div class="lsub">u/yulalab</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Facebook — yakında">
+      <div class="licon" style="background:rgba(24,119,242,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+      <div class="lbody"><div class="lname">Facebook</div><div class="lsub">facebook.com/yulalab</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Discord — yakında">
+      <div class="licon" style="background:rgba(88,101,242,.15)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></div>
+      <div class="lbody"><div class="lname">Discord</div><div class="lsub">discord.gg/yulalab</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Telegram — yakında">
+      <div class="licon" style="background:rgba(0,136,204,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0088CC"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+      <div class="lbody"><div class="lname">Telegram</div><div class="lsub">@yulalab</div></div>
+    </a>
+
+    <a class="link-btn" href="https://linkedin.com/company/yulalab" target="_blank" rel="noopener" aria-label="LinkedIn YULA Lab">
+      <div class="licon" style="background:rgba(10,102,194,.15)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+      <div class="lbody"><div class="lname">LinkedIn</div><div class="lsub">linkedin.com/company/yulalab</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="GitHub — yakında">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+      <div class="lbody"><div class="lname">GitHub</div><div class="lsub">github.com/yulalab</div></div>
+    </a>
+
+    <div class="footer">yulalab.com · Mustafa Kaan Koçak<br>© 2026 YULA Lab</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!--  BRAAVOLABS                         -->
+<!-- ═══════════════════════════════════ -->
+<div id="pg-bl" class="page pg-bl" role="region" aria-label="Braavolabs sayfası">
+  <div class="back-row"><button class="back-btn" onclick="go('holding')" aria-label="YULA Lab ana sayfasına dön">← YULA Lab</button></div>
+  <div class="card">
+    <div class="hero">
+      <div class="avatar" style="background:rgba(0,209,255,.08);color:#00D1FF;border-color:rgba(0,209,255,.2)" aria-hidden="true">Bl</div>
+      <h1 class="brand-name" style="color:#00D1FF">Braavolabs</h1>
+      <div class="brand-tagline">Your AI company, built in 10 minutes.<br>9 primitives · 12 LLMs · 6 languages</div>
+      <div class="brand-stats">
+        <span class="stat-pill">9 Primitives</span>
+        <span class="stat-pill">12 LLMs</span>
+        <span class="stat-pill">6 Languages</span>
+        <span class="stat-pill">Free Plan</span>
+        <span class="stat-pill">Beta</span>
+      </div>
+    </div>
+
+    <div class="section-label">Platform</div>
+
+    <a class="link-btn" href="https://braavolabs.com" target="_blank" rel="noopener" aria-label="braavolabs.com">
+      <div class="licon" style="background:rgba(0,209,255,.08)" aria-hidden="true">🌐</div>
+      <div class="lbody"><div class="lname">braavolabs.com</div><div class="lsub">Platform · Demo · Free plan</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="App Store — yakında">
+      <div class="licon" style="background:rgba(255,255,255,.06)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.7)"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg></div>
+      <div class="lbody"><div class="lname">App Store</div><div class="lsub">iOS · Coming Soon</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Google Play — yakında">
+      <div class="licon" style="background:rgba(52,168,83,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="url(#gp_bl)"><defs><linearGradient id="gp_bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4285F4"/><stop offset="50%" stop-color="#34A853"/><stop offset="100%" stop-color="#FBBC05"/></linearGradient></defs><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 010 2.594zM1.337.924a1.49 1.49 0 00-.342.978v19.2c0 .363.13.696.342.978l12.19-12.19L1.337.924zm10.318 10.318L1.48 21.398c.283.168.611.268.962.268.37 0 .717-.11 1.008-.3l13.946-7.892-5.741-2.232zm0-2.484l5.741-2.232L3.45.878C3.159.688 2.812.578 2.442.578c-.351 0-.679.1-.962.268l10.175 10.11z"/></svg></div>
+      <div class="lbody"><div class="lname">Google Play</div><div class="lsub">Android · Coming Soon</div></div>
+    </a>
+
+    <div class="section-label">Social Media</div>
+
+    <a class="link-btn" href="https://www.tiktok.com/@braavolabs" target="_blank" rel="noopener" aria-label="TikTok @braavolabs">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
+      <div class="lbody"><div class="lname">TikTok</div><div class="lsub">@braavolabs</div></div>
+    </a>
+
+    <a class="link-btn" href="https://www.instagram.com/braavolabs" target="_blank" rel="noopener" aria-label="Instagram @braavolabs">
+      <div class="licon" style="background:rgba(225,48,108,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="url(#ig_bl)"><defs><linearGradient id="ig_bl" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+      <div class="lbody"><div class="lname">Instagram</div><div class="lsub">@braavolabs</div></div>
+    </a>
+
+    <a class="link-btn" href="https://x.com/braavolabs" target="_blank" rel="noopener" aria-label="X @braavolabs">
+      <div class="licon" style="background:rgba(232,234,240,.06)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(232,234,240,.75)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+      <div class="lbody"><div class="lname">X (Twitter)</div><div class="lsub">@braavolabs</div></div>
+    </a>
+
+    <a class="link-btn" href="https://youtube.com/@braavolabs" target="_blank" rel="noopener" aria-label="YouTube @braavolabs">
+      <div class="licon" style="background:rgba(255,0,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      <div class="lbody"><div class="lname">YouTube</div><div class="lsub">@braavolabs · Build sessions</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Reddit — yakında">
+      <div class="licon" style="background:rgba(255,69,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></div>
+      <div class="lbody"><div class="lname">Reddit</div><div class="lsub">r/braavolabs</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Facebook — yakında">
+      <div class="licon" style="background:rgba(24,119,242,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+      <div class="lbody"><div class="lname">Facebook</div><div class="lsub">facebook.com/braavolabs</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Discord — yakında">
+      <div class="licon" style="background:rgba(88,101,242,.15)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></div>
+      <div class="lbody"><div class="lname">Discord</div><div class="lsub">discord.gg/braavolabs · Dev community</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Telegram — yakında">
+      <div class="licon" style="background:rgba(0,136,204,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0088CC"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+      <div class="lbody"><div class="lname">Telegram</div><div class="lsub">@braavolabs</div></div>
+    </a>
+
+    <a class="link-btn" href="https://linkedin.com/company/braavolabs" target="_blank" rel="noopener" aria-label="LinkedIn Braavolabs">
+      <div class="licon" style="background:rgba(10,102,194,.15)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+      <div class="lbody"><div class="lname">LinkedIn</div><div class="lsub">linkedin.com/company/braavolabs</div></div>
+    </a>
+
+    <a class="link-btn" href="https://github.com/kocakkmustafa/braavolabs" target="_blank" rel="noopener" aria-label="GitHub Braavolabs">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+      <div class="lbody"><div class="lname">GitHub</div><div class="lsub">github.com/kocakkmustafa/braavolabs</div></div>
+    </a>
+
+    <div class="footer">braavolabs.com · by <a onclick="go('holding')">YULA Lab</a></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!--  BURUN FARKI                        -->
+<!-- ═══════════════════════════════════ -->
+<div id="pg-bf" class="page pg-bf" role="region" aria-label="Burun Farkı sayfası">
+  <div class="back-row"><button class="back-btn" onclick="go('holding')" aria-label="YULA Lab ana sayfasına dön">← YULA Lab</button></div>
+  <div class="card">
+    <div class="hero">
+      <div class="avatar" style="background:rgba(250,184,31,.08);color:#FAB81F;border-color:rgba(250,184,31,.22)" aria-hidden="true">BF</div>
+      <h1 class="brand-name" style="color:#FAB81F">Burun Farkı</h1>
+      <div class="brand-tagline">Turkey's first transparent AI horse racing analytics.<br>Numbers over hunches.</div>
+      <div class="brand-stats">
+        <span class="stat-pill">40.8% Top-1</span>
+        <span class="stat-pill">72.2% Top-3</span>
+        <span class="stat-pill">Brier 0.098</span>
+        <span class="stat-pill">13,587 races</span>
+        <span class="stat-pill">18+</span>
+      </div>
+    </div>
+
+    <div class="section-label">Platform</div>
+
+    <a class="link-btn" href="https://burunfark.com" target="_blank" rel="noopener" aria-label="burunfark.com">
+      <div class="licon" style="background:rgba(250,184,31,.08)" aria-hidden="true">🌐</div>
+      <div class="lbody"><div class="lname">burunfark.com</div><div class="lsub">Main platform · Free tier available · 18+</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="App Store — yakında">
+      <div class="licon" style="background:rgba(255,255,255,.06)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.7)"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg></div>
+      <div class="lbody"><div class="lname">App Store</div><div class="lsub">iOS · Coming Soon</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Google Play — yakında">
+      <div class="licon" style="background:rgba(52,168,83,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="url(#gp_bf)"><defs><linearGradient id="gp_bf" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4285F4"/><stop offset="50%" stop-color="#34A853"/><stop offset="100%" stop-color="#FBBC05"/></linearGradient></defs><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 010 2.594zM1.337.924a1.49 1.49 0 00-.342.978v19.2c0 .363.13.696.342.978l12.19-12.19L1.337.924zm10.318 10.318L1.48 21.398c.283.168.611.268.962.268.37 0 .717-.11 1.008-.3l13.946-7.892-5.741-2.232zm0-2.484l5.741-2.232L3.45.878C3.159.688 2.812.578 2.442.578c-.351 0-.679.1-.962.268l10.175 10.11z"/></svg></div>
+      <div class="lbody"><div class="lname">Google Play</div><div class="lsub">Android · Coming Soon</div></div>
+    </a>
+
+    <div class="section-label">Social Media</div>
+
+    <a class="link-btn" href="https://www.tiktok.com/@burunfark.com" target="_blank" rel="noopener" aria-label="TikTok @burunfark.com">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
+      <div class="lbody"><div class="lname">TikTok</div><div class="lsub">@burunfark.com</div></div>
+    </a>
+
+    <a class="link-btn" href="https://www.instagram.com/burunfark" target="_blank" rel="noopener" aria-label="Instagram @burunfark">
+      <div class="licon" style="background:rgba(225,48,108,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="url(#ig_bf)"><defs><linearGradient id="ig_bf" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+      <div class="lbody"><div class="lname">Instagram</div><div class="lsub">@burunfark</div></div>
+    </a>
+
+    <a class="link-btn" href="https://x.com/burunfarkk" target="_blank" rel="noopener" aria-label="X @burunfarkk">
+      <div class="licon" style="background:rgba(232,234,240,.06)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(232,234,240,.75)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+      <div class="lbody"><div class="lname">X (Twitter)</div><div class="lsub">@burunfarkk · Live race day</div></div>
+    </a>
+
+    <a class="link-btn" href="https://youtube.com/@burunfarki" target="_blank" rel="noopener" aria-label="YouTube @burunfarki">
+      <div class="licon" style="background:rgba(255,0,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      <div class="lbody"><div class="lname">YouTube</div><div class="lsub">@burunfarki · Race analysis & education</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Reddit — yakında">
+      <div class="licon" style="background:rgba(255,69,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></div>
+      <div class="lbody"><div class="lname">Reddit</div><div class="lsub">r/burunfarki</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Facebook — yakında">
+      <div class="licon" style="background:rgba(24,119,242,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+      <div class="lbody"><div class="lname">Facebook</div><div class="lsub">facebook.com/burunfarki</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Discord — yakında">
+      <div class="licon" style="background:rgba(88,101,242,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></div>
+      <div class="lbody"><div class="lname">Discord</div><div class="lsub">discord.gg/burunfarki</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Telegram — yakında">
+      <div class="licon" style="background:rgba(0,136,204,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0088CC"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+      <div class="lbody"><div class="lname">Telegram</div><div class="lsub">@burunfarki · Public channel</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="LinkedIn — yakında">
+      <div class="licon" style="background:rgba(10,102,194,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+      <div class="lbody"><div class="lname">LinkedIn</div><div class="lsub">linkedin.com/company/burunfarki</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="GitHub — yakında">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+      <div class="lbody"><div class="lname">GitHub</div><div class="lsub">github.com/burunfarki</div></div>
+    </a>
+
+    <div class="legal-note">18+ · Burun Farkı bir analiz platformudur, bahis sitesi değildir.<br>Sorumlu oyun: <a href="https://yesilay.org.tr" target="_blank" rel="noopener">Yeşilay 182 · yesilay.org.tr</a></div>
+    <div class="footer">burunfark.com · by <a onclick="go('holding')">YULA Lab</a></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!--  LIFEOS                             -->
+<!-- ═══════════════════════════════════ -->
+<div id="pg-lo" class="page pg-lo" role="region" aria-label="LifeOS sayfası">
+  <div class="back-row"><button class="back-btn" onclick="go('holding')" aria-label="YULA Lab ana sayfasına dön">← YULA Lab</button></div>
+  <div class="card">
+    <div class="hero">
+      <div class="avatar" style="background:rgba(195,244,0,.07);color:#C3F400;border-color:rgba(195,244,0,.2)" aria-hidden="true">LO</div>
+      <h1 class="brand-name" style="color:#C3F400">LifeOS</h1>
+      <div class="brand-tagline">5 life domains · On-device AI · Zero ads.<br>Run your life like a system.</div>
+      <div class="brand-stats">
+        <span class="stat-pill">Health</span>
+        <span class="stat-pill">Finance</span>
+        <span class="stat-pill">Education</span>
+        <span class="stat-pill">Life</span>
+        <span class="stat-pill">Vehicle</span>
+        <span class="stat-pill">AES-256</span>
+      </div>
+    </div>
+
+    <div class="section-label">Platform</div>
+
+    <a class="link-btn soon" href="#" aria-label="App Store — yakında">
+      <div class="licon" style="background:rgba(255,255,255,.06)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.7)"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/></svg></div>
+      <div class="lbody"><div class="lname">App Store</div><div class="lsub">iOS · Coming Soon</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Google Play — yakında">
+      <div class="licon" style="background:rgba(52,168,83,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="url(#gp_lo)"><defs><linearGradient id="gp_lo" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4285F4"/><stop offset="50%" stop-color="#34A853"/><stop offset="100%" stop-color="#FBBC05"/></linearGradient></defs><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 010 2.594zM1.337.924a1.49 1.49 0 00-.342.978v19.2c0 .363.13.696.342.978l12.19-12.19L1.337.924zm10.318 10.318L1.48 21.398c.283.168.611.268.962.268.37 0 .717-.11 1.008-.3l13.946-7.892-5.741-2.232zm0-2.484l5.741-2.232L3.45.878C3.159.688 2.812.578 2.442.578c-.351 0-.679.1-.962.268l10.175 10.11z"/></svg></div>
+      <div class="lbody"><div class="lname">Google Play</div><div class="lsub">Android · Coming Soon</div></div>
+    </a>
+
+    <div class="section-label">Social Media</div>
+
+    <a class="link-btn" href="https://www.tiktok.com/@lifeos_yula" target="_blank" rel="noopener" aria-label="TikTok @lifeos_yula">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
+      <div class="lbody"><div class="lname">TikTok</div><div class="lsub">@lifeos_yula · 60-day glow up</div></div>
+    </a>
+
+    <a class="link-btn" href="https://www.instagram.com/lifeos_yula" target="_blank" rel="noopener" aria-label="Instagram @lifeos_yula">
+      <div class="licon" style="background:rgba(225,48,108,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="url(#ig_lo)"><defs><linearGradient id="ig_lo" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+      <div class="lbody"><div class="lname">Instagram</div><div class="lsub">@lifeos_yula · Daily growth content</div></div>
+    </a>
+
+    <a class="link-btn" href="https://x.com/lifeos_yula" target="_blank" rel="noopener" aria-label="X @lifeos_yula">
+      <div class="licon" style="background:rgba(232,234,240,.06)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(232,234,240,.75)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+      <div class="lbody"><div class="lname">X (Twitter)</div><div class="lsub">@lifeos_yula</div></div>
+    </a>
+
+    <a class="link-btn" href="https://youtube.com/@lifeos_yula" target="_blank" rel="noopener" aria-label="YouTube @lifeos_yula">
+      <div class="licon" style="background:rgba(255,0,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+      <div class="lbody"><div class="lname">YouTube</div><div class="lsub">@lifeos_yula · Z-Report showcase</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Reddit — yakında">
+      <div class="licon" style="background:rgba(255,69,0,.1)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></div>
+      <div class="lbody"><div class="lname">Reddit</div><div class="lsub">u/lifeosapp · r/QuantifiedSelf</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Facebook — yakında">
+      <div class="licon" style="background:rgba(24,119,242,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+      <div class="lbody"><div class="lname">Facebook</div><div class="lsub">facebook.com/lifeosapp</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Discord — yakında">
+      <div class="licon" style="background:rgba(88,101,242,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></div>
+      <div class="lbody"><div class="lname">Discord</div><div class="lsub">discord.gg/lifeos</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="Telegram — yakında">
+      <div class="licon" style="background:rgba(0,136,204,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0088CC"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+      <div class="lbody"><div class="lname">Telegram</div><div class="lsub">@lifeosapp</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="LinkedIn — yakında">
+      <div class="licon" style="background:rgba(10,102,194,.12)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+      <div class="lbody"><div class="lname">LinkedIn</div><div class="lsub">linkedin.com/company/lifeos</div></div>
+    </a>
+
+    <a class="link-btn soon" href="#" aria-label="GitHub — yakında">
+      <div class="licon" style="background:rgba(255,255,255,.05)" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+      <div class="lbody"><div class="lname">GitHub</div><div class="lsub">github.com/lifeos</div></div>
+    </a>
+
+    <div class="footer">lifeos.app · by <a onclick="go('holding')">YULA Lab</a></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Hash → page id map
+  var HASH_MAP = {
+    '':         'holding',
+    'holding':  'holding',
+    'yulalab':  'holding',
+    'braavolabs':'bl',
+    'bl':       'bl',
+    'burunfarki':'bf',
+    'bf':       'bf',
+    'lifeos':   'lo',
+    'lo':       'lo'
+  };
+  var REVERSE_MAP = {
+    'holding': '',
+    'bl':      'braavolabs',
+    'bf':      'burunfarki',
+    'lo':      'lifeos'
+  };
+
+  function setPage(page, pushHash){
+    var t = document.getElementById('pg-' + page);
+    if(!t) return;
+    document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+    t.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+    if(pushHash){
+      var h = REVERSE_MAP[page];
+      var url = h ? '#' + h : window.location.pathname + window.location.search;
+      try { history.pushState({page:page}, '', url); } catch(e){ window.location.hash = h; }
+    }
+    // Update document title for context
+    var titles = {
+      holding: 'YULA Lab — Links',
+      bl:      'Braavolabs — YULA Lab',
+      bf:      'Burun Farkı — YULA Lab',
+      lo:      'LifeOS — YULA Lab'
+    };
+    document.title = titles[page] || 'YULA Lab — Links';
+  }
+
+  // Expose global go()
+  window.go = function(page){ setPage(page, true); };
+
+  // Initial route from URL hash
+  function routeFromHash(){
+    var h = (window.location.hash || '').replace('#','').toLowerCase();
+    setPage(HASH_MAP[h] || 'holding', false);
+  }
+  routeFromHash();
+
+  // Browser back/forward
+  window.addEventListener('popstate', routeFromHash);
+  window.addEventListener('hashchange', routeFromHash);
+
+  // Prevent default on placeholder links (soon)
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.link-btn.soon');
+    if(t){ e.preventDefault(); }
+  });
+})();
+</script>
+</body>
+</html>
