@@ -16,3 +16,17 @@ Thumbs.db
 .tmp/
 .cache/
 .vercel
+
+# Secrets / credentials (defense-in-depth — this repo is PUBLIC)
+.env
+.env.*
+!.env.example
+*.p8
+*.pem
+*.jks
+*.keystore
+secrets.json
+
+# macOS iCloud sync conflict duplicates
+* 2.*
+* 3.*
