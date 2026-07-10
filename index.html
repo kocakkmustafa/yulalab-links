@@ -385,6 +385,7 @@ const BRANDS = {
     color: '#E8EAF0',
     handles: { instagram: 'yulalab', github: 'kocakkmustafa/YULA-Lab' },
     active: ['tiktok','instagram','x','youtube','reddit','linkedin','github'],
+    stores: { ios: null, android: null },
   },
   bl: {
     short: 'Bl',
@@ -399,6 +400,7 @@ const BRANDS = {
     type: 'B2B SaaS · Beta',
     handles: { github: 'kocakkmustafa/braavolabs' },
     active: ['tiktok','instagram','x','youtube','reddit','linkedin','github'],
+    stores: { ios: 'https://apps.apple.com/us/app/braavolabs/id6771440905', android: null },
   },
   bf: {
     short: 'BF',
@@ -419,6 +421,7 @@ const BRANDS = {
     },
     active: ['tiktok','instagram','x','youtube','reddit','github'],
     legal: '18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir.',
+    stores: { ios: null, android: null },
   },
   lo: {
     short: 'LO',
@@ -429,10 +432,10 @@ const BRANDS = {
     url: 'yulalab.com/projects/lifeos',
     color: '#C3F400',
     stats: ['Health','Finance','Education','Vehicle'],
-    type: 'B2C · Coming Soon',
+    type: 'B2C · iOS Live',
     handles: { reddit: 'lifeosyula', github: 'kocakkmustafa/lifeos' },
     active: ['tiktok','instagram','x','youtube','reddit','github'],
-    soonProduct: true,
+    stores: { ios: 'https://apps.apple.com/app/id6771527233', android: null },
   },
 };
 
@@ -451,7 +454,7 @@ const SOCIALS = [
 ];
 
 const STAMP_BRAND_META = {
-  lo: { num:'01', title:['LIFE','OS.'],     urlSub:'Coming soon · Waitlist' },
+  lo: { num:'01', title:['LIFE','OS.'],     urlSub:'iOS · App Store' },
   bl: { num:'02', title:['BRAAVO','LABS.'], urlSub:'Platform · Demo · Free plan' },
   bf: { num:'03', title:['BURUN','FARKI.'], urlSub:'Main platform · Free tier · 18+' },
 };
@@ -549,6 +552,31 @@ function holdingHTML(){
 }
 
 // ─── BRAND PAGE ──────────────────────────────────────────────────────
+function platBtnHTML(kind, url){
+  const isIOS = kind === 'ios';
+  const icon = isIOS ? ICON.apple : ICON.play;
+  const n = isIOS ? 'iOS' : 'Android';
+  if(url){
+    const label = isIOS ? 'App Store' : 'Google Play';
+    return `<a class="sb-platbtn" href="${url}" target="_blank" rel="noopener" aria-label="${label}">
+      <span class="sb-platbtn-icon" aria-hidden="true">${icon}</span>
+      <div class="sb-platbtn-text">
+        <div class="sb-platbtn-n">${n}</div>
+        <div class="sb-platbtn-s">${label}</div>
+      </div>
+    </a>`;
+  }
+  const ariaLabel = isIOS ? 'App Store — yakında' : 'Google Play — yakında';
+  const subText = isIOS ? 'App Store · Soon' : 'Play Store · Soon';
+  return `<div class="sb-platbtn soon" aria-label="${ariaLabel}">
+    <span class="sb-platbtn-icon" aria-hidden="true">${icon}</span>
+    <div class="sb-platbtn-text">
+      <div class="sb-platbtn-n">${n}</div>
+      <div class="sb-platbtn-s">${subText}</div>
+    </div>
+  </div>`;
+}
+
 function brandHTML(brandKey){
   const b = BRANDS[brandKey];
   const meta = STAMP_BRAND_META[brandKey];
@@ -581,20 +609,8 @@ function brandHTML(brandKey){
       </a>
 
       <div class="sb-plat">
-        <div class="sb-platbtn soon" aria-label="App Store — yakında">
-          <span class="sb-platbtn-icon" aria-hidden="true">${ICON.apple}</span>
-          <div class="sb-platbtn-text">
-            <div class="sb-platbtn-n">iOS</div>
-            <div class="sb-platbtn-s">App Store · Soon</div>
-          </div>
-        </div>
-        <div class="sb-platbtn soon" aria-label="Google Play — yakında">
-          <span class="sb-platbtn-icon" aria-hidden="true">${ICON.play}</span>
-          <div class="sb-platbtn-text">
-            <div class="sb-platbtn-n">Android</div>
-            <div class="sb-platbtn-s">Play Store · Soon</div>
-          </div>
-        </div>
+        ${platBtnHTML('ios', b.stores && b.stores.ios)}
+        ${platBtnHTML('android', b.stores && b.stores.android)}
       </div>
 
       <div class="sb-section"><span class="sb-num">02</span><span>Social</span><span class="sb-rule"></span></div>
