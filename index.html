@@ -437,6 +437,83 @@ const BRANDS = {
     active: ['tiktok','instagram','x','youtube','reddit','github'],
     stores: { ios: 'https://apps.apple.com/app/id6771527233', android: null },
   },
+  // ── Yula Motion ailesi — hazırlık aşaması (2026-07-26 eklendi) ──
+  // Sosyal medya bilinçli KİLİTLİ (active: []) — ilerde açılacak. Store'lar henüz submit edilmedi.
+  lissom: {
+    short: 'LI',
+    slug: 'lissom',
+    name: 'Lissom',
+    sub: 'Mobility, flexibility & yoga coach',
+    tagline: 'Measure. Train. Remeasure.',
+    url: 'yulalab.com/projects/lissom',
+    color: '#B8A9FF',
+    stats: ['Mobility + Yoga','Coming Soon'],
+    type: 'B2C · Coming Soon',
+    handles: {},
+    active: [],
+    stores: { ios: null, android: null },
+    soonProduct: true,
+  },
+  jablab: {
+    short: 'JB',
+    slug: 'jablab',
+    name: 'JabLab',
+    sub: 'Solo shadow boxing coach',
+    tagline: "Shadow box like someone's watching your form.",
+    url: 'yulalab.com/projects/jablab',
+    color: '#FF3B5C',
+    stats: ['Shadow Boxing','Coming Soon'],
+    type: 'B2C · Coming Soon',
+    handles: {},
+    active: [],
+    stores: { ios: null, android: null },
+    soonProduct: true,
+  },
+  gravita: {
+    short: 'GR',
+    slug: 'gravita',
+    name: 'Gravita',
+    sub: 'Camera-based skills & strength coach',
+    tagline: 'Master your bodyweight, one rep at a time.',
+    url: 'yulalab.com/projects/gravita',
+    color: '#FF6B4A',
+    stats: ['Skills + Strength','Coming Soon'],
+    type: 'B2C · Coming Soon',
+    handles: {},
+    active: [],
+    stores: { ios: null, android: null },
+    soonProduct: true,
+  },
+  ostinato: {
+    short: 'OS',
+    slug: 'ostinato',
+    name: 'Ostinato',
+    sub: 'Music practice coach',
+    tagline: 'Practice smarter, not just longer.',
+    url: 'yulalab.com/projects/ostinato',
+    color: '#38BDF8',
+    stats: ['Music Practice','Coming Soon'],
+    type: 'B2C · Coming Soon',
+    handles: {},
+    active: [],
+    stores: { ios: null, android: null },
+    soonProduct: true,
+  },
+  choreia: {
+    short: 'CH',
+    slug: 'choreia',
+    name: 'Choreia',
+    sub: 'Learn to dance coach',
+    tagline: "Learn to dance like your teacher's right there.",
+    url: 'yulalab.com/projects/choreia',
+    color: '#F472B6',
+    stats: ['Learn to Dance','Coming Soon'],
+    type: 'B2C · Coming Soon',
+    handles: {},
+    active: [],
+    stores: { ios: null, android: null },
+    soonProduct: true,
+  },
 };
 
 // ─── SOCIAL PLATFORM DEFINITIONS ─────────────────────────────────────
@@ -457,7 +534,13 @@ const STAMP_BRAND_META = {
   lo: { num:'01', title:['LIFE','OS.'],     urlSub:'iOS · App Store' },
   bl: { num:'02', title:['BRAAVO','LABS.'], urlSub:'Platform · Demo · Free plan' },
   bf: { num:'03', title:['BURUN','FARKI.'], urlSub:'Main platform · Free tier · 18+' },
+  lissom:   { num:'04', title:['LIS','SOM.'],     urlSub:'Product page · Coming Soon' },
+  jablab:   { num:'05', title:['JAB','LAB.'],     urlSub:'Product page · Coming Soon' },
+  gravita:  { num:'06', title:['GRAVI','TA.'],    urlSub:'Product page · Coming Soon' },
+  ostinato: { num:'07', title:['OSTIN','ATO.'],   urlSub:'Product page · Coming Soon' },
+  choreia:  { num:'08', title:['CHOR','EIA.'],    urlSub:'Product page · Coming Soon' },
 };
+const TOTAL_PRODUCTS = Object.keys(STAMP_BRAND_META).length;
 
 // ─── HELPERS ──────────────────────────────────────────────────────────
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
@@ -497,8 +580,7 @@ function gridHTML(brand){
 
 // ─── HOLDING PAGE ────────────────────────────────────────────────────
 function holdingHTML(){
-  // Portfolio order: 01 LifeOS · 02 Braavolabs · 03 Burun Farkı
-  const products = [BRANDS.lo, BRANDS.bl, BRANDS.bf];
+  // Portfolio sırası: PORTFOLIO_ORDER'dan (canlı 3 + Motion ailesi 5) — bkz. routing bölümü
   return `<div class="sb-root">
     <div class="sb-band">
       <span>● YULA / LAB</span>
@@ -506,7 +588,7 @@ function holdingHTML(){
     </div>
     <div class="sb-pad">
       <div class="sb-hero">
-        <div class="sb-eyebrow"><span>Venture Studio</span><span>03 Brands</span></div>
+        <div class="sb-eyebrow"><span>Venture Studio</span><span>${String(TOTAL_PRODUCTS).padStart(2,'0')} Products</span></div>
         <h1 class="sb-name">YULA<br><span class="sb-slash">/</span>LAB.</h1>
         <p class="sb-tag">${esc(BRANDS.yula.tagline)}</p>
       </div>
@@ -525,8 +607,9 @@ function holdingHTML(){
 
       <div class="sb-section"><span class="sb-num">02</span><span>Portfolio</span><span class="sb-rule"></span></div>
 
-      ${products.map((p, i) => {
-        const slug = p === BRANDS.bl ? 'braavolabs' : p === BRANDS.bf ? 'burunfarki' : 'lifeos';
+      ${PORTFOLIO_ORDER.map((key, i) => {
+        const p = BRANDS[key];
+        const slug = REVERSE_MAP[key] || key;
         const soonBadge = p.soonProduct ? `<span class="sb-prod-soon" style="--c:${p.color}">Yakında</span>` : '';
         return `<a class="sb-prod" data-nav="${slug}" href="#${slug}" style="--c:${p.color};background:${p.color};color:#0A0A0A" aria-label="${esc(p.name)} sayfasına git">
           ${soonBadge}
@@ -585,7 +668,7 @@ function brandHTML(brandKey){
   return `<div class="sb-root" style="--accent:${b.color}">
     <div class="sb-band" style="background:${b.color};color:#0A0A0A">
       <span>● ${esc(upperName)}</span>
-      <span>NO · ${esc(meta.num)} / 03</span>
+      <span>NO · ${esc(meta.num)} / ${String(TOTAL_PRODUCTS).padStart(2,'0')}</span>
     </div>
     <div class="sb-pad">
       <div class="sb-brandhero">
@@ -633,29 +716,42 @@ const HASH_MAP = {
   'braavolabs':'bl', 'bl':'bl',
   'burunfarki':'bf', 'bf':'bf', 'burunfark':'bf',
   'lifeos':'lo', 'lo':'lo',
+  'lissom':'lissom', 'li':'lissom',
+  'jablab':'jablab', 'jb':'jablab',
+  'gravita':'gravita', 'gr':'gravita',
+  'ostinato':'ostinato', 'os':'ostinato',
+  'choreia':'choreia', 'ch':'choreia',
 };
 const REVERSE_MAP = {
   'holding':'',
   'bl':'braavolabs',
   'bf':'burunfarki',
   'lo':'lifeos',
+  'lissom':'lissom',
+  'jablab':'jablab',
+  'gravita':'gravita',
+  'ostinato':'ostinato',
+  'choreia':'choreia',
 };
 const TITLES = {
   'holding':'YULA Lab — Links',
   'bl':'Braavolabs — YULA Lab',
   'bf':'Burun Farkı — YULA Lab',
   'lo':'LifeOS — YULA Lab',
+  'lissom':'Lissom — YULA Lab',
+  'jablab':'JabLab — YULA Lab',
+  'gravita':'Gravita — YULA Lab',
+  'ostinato':'Ostinato — YULA Lab',
+  'choreia':'Choreia — YULA Lab',
 };
+// Portföy kartı sırası (registry sıra tavsiyesi: Lissom→JabLab→Gravita→Ostinato→Choreia)
+const PORTFOLIO_ORDER = ['lo','bl','bf','lissom','jablab','gravita','ostinato','choreia'];
 
 const app = document.getElementById('app');
 
 function buildAllPages(){
-  const pages = {
-    holding: holdingHTML(),
-    bl: brandHTML('bl'),
-    bf: brandHTML('bf'),
-    lo: brandHTML('lo'),
-  };
+  const pages = { holding: holdingHTML() };
+  PORTFOLIO_ORDER.forEach(function(key){ pages[key] = brandHTML(key); });
   app.innerHTML = Object.keys(pages).map(key =>
     `<div id="pg-${key}" class="page" role="region" aria-label="${esc(TITLES[key])}">${pages[key]}</div>`
   ).join('');
