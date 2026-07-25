@@ -87,7 +87,7 @@ Diğer tüm platformlar (TikTok, YouTube, Reddit, Facebook, Discord, Telegram, G
 `links.yulalab.com` alt domaini açılır, içerik bu klasörden serve edilir.
 
 **Vercel:**
-1. Yeni proje, root directory: `Projects/Web Sites/links.yulalab.com`
+1. Yeni proje, root directory: `ventures/yulalab-com/links`
 2. Framework Preset: **Other** (build komutu yok)
 3. Domain: `links.yulalab.com` ekle
 4. DNS: `links` CNAME → `cname.vercel-dns.com`
