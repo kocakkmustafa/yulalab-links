@@ -34,6 +34,11 @@
     { "source": "/burunfarki", "destination": "/#burunfarki", "permanent": false },
     { "source": "/bf", "destination": "/#burunfarki", "permanent": false },
     { "source": "/lifeos", "destination": "/#lifeos", "permanent": false },
-    { "source": "/lo", "destination": "/#lifeos", "permanent": false }
+    { "source": "/lo", "destination": "/#lifeos", "permanent": false },
+    { "source": "/lissom", "destination": "/#lissom", "permanent": false },
+    { "source": "/jablab", "destination": "/#jablab", "permanent": false },
+    { "source": "/gravita", "destination": "/#gravita", "permanent": false },
+    { "source": "/ostinato", "destination": "/#ostinato", "permanent": false },
+    { "source": "/choreia", "destination": "/#choreia", "permanent": false }
   ]
 }
