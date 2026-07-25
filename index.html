@@ -125,6 +125,12 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 }
 .sb-section .sb-rule{flex:1;height:2px;background:var(--ink)}
 
+/* Product grid — 2 sütun (2026-07-26: 8 üründe tek-sütun çok uzun oldu) */
+.sb-prod-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:14px;
+}
+
 /* Product card */
 .sb-prod{
   display:block;text-decoration:none;
@@ -163,6 +169,28 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
   border-top:1.5px dashed currentColor;
   padding-top:10px;
   opacity:.8;
+}
+
+/* Grid içinde kompakt varyant — 2 sütunda taşma olmasın */
+.sb-prod-grid .sb-prod{
+  padding:14px 12px 12px;
+  margin-bottom:0;
+  box-shadow:3px 3px 0 var(--ink);
+}
+.sb-prod-grid .sb-prod:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.sb-prod-grid .sb-prod-head{margin-bottom:8px}
+.sb-prod-grid .sb-prod-tag{font-size:7.5px;padding:3px 6px}
+.sb-prod-grid .sb-prod-mark{font-size:16px}
+.sb-prod-grid .sb-prod-name{font-size:22px;margin-bottom:5px;word-break:break-word}
+.sb-prod-grid .sb-prod-sub{font-size:9.5px;line-height:1.3;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sb-prod-grid .sb-prod-foot{
+  flex-direction:column;align-items:flex-start;gap:3px;
+  font-size:7px;letter-spacing:.08em;padding-top:8px;
+}
+.sb-prod-grid .sb-prod-foot span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sb-prod-grid .sb-prod-soon{right:12px;font-size:7.5px;padding:3px 6px}
+@media (max-width:340px){
+  .sb-prod-grid{grid-template-columns:1fr}
 }
 
 /* URL pill */
@@ -607,6 +635,7 @@ function holdingHTML(){
 
       <div class="sb-section"><span class="sb-num">02</span><span>Portfolio</span><span class="sb-rule"></span></div>
 
+      <div class="sb-prod-grid">
       ${PORTFOLIO_ORDER.map((key, i) => {
         const p = BRANDS[key];
         const slug = REVERSE_MAP[key] || key;
@@ -625,6 +654,7 @@ function holdingHTML(){
           </div>
         </a>`;
       }).join('')}
+      </div>
     </div>
     <div class="sb-foot">
       <span>© 2026</span>
