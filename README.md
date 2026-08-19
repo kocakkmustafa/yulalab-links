@@ -1,6 +1,6 @@
 # links.yulalab.com
 
-YULA Lab Holding + 3 ürün için tek sayfalık, tek dosyalık (vanilla HTML/CSS/JS) Linktree-style sosyal bağlantı sitesi. **Sıfır bağımlılık, sıfır build, sıfır framework.** Çift tıkla aç, çalışır.
+YULA Lab Holding + ürünleri (8 ürün) için tek sayfalık, tek dosyalık (vanilla HTML/CSS/JS) Linktree-style sosyal bağlantı sitesi. **Sıfır bağımlılık, sıfır build, sıfır framework.** Çift tıkla aç, çalışır.
 
 > Kaynak tasarım: `Downloads/yulalab-links-v3.html` — Mustafa Kaan tarafından farklı araçlarda parça parça hazırlandı, bu sürümde birleştirildi + URL routing, a11y, OG, print desteği eklendi.
 
@@ -10,7 +10,7 @@ YULA Lab Holding + 3 ürün için tek sayfalık, tek dosyalık (vanilla HTML/CSS
 
 | Hash URL | Sayfa | İçerik |
 |----------|-------|--------|
-| `/` veya `#holding` | YULA Lab (Holding) | 3 ürün kartı + YULA Lab sosyal medya |
+| `/` veya `#holding` | YULA Lab (Holding) | 8 ürün kartı + YULA Lab sosyal medya |
 | `#braavolabs` | Braavolabs | B2B AI Şirket OS · 9 primitives · 12 LLMs |
 | `#burunfarki` | Burun Farkı | TR 18+ at yarışı AI analiz platformu |
 | `#lifeos` | LifeOS | 5 hayat alanı · cihaz-üstü AI · sıfır reklam |
@@ -124,8 +124,8 @@ Tek bir HTML olduğu için herhangi bir static bucket yeterli.
 
 Paylaşım metni örneği (X/LinkedIn):
 ```
-YULA Lab — AI-Native Venture Studio.
-3 ürün, 1 stüdyo, sıfır kara kutu.
+YULA Lab — Bağımsız AI Ürün Laboratuvarı.
+8 ürün, 1 laboratuvar, sıfır kara kutu.
 ↳ links.yulalab.com
 ```
 
