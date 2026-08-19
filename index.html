@@ -664,7 +664,7 @@ function holdingHTML(){
            switched on) posts funnel events to yulalab.com/api/events. It had
            no notice of its own, and the site's notice was scoped by name to
            yulalab.com — so this surface collected without disclosing. -->
-      <span><a href="https://yulalab.com/tr/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">GİZLİLİK</a></span>
+      <span><a href="https://yulalab.com/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">GİZLİLİK</a></span>
     </div>
   </div>`;
 }
@@ -1025,8 +1025,19 @@ window.go = navigate;
   // vocabulary; filing it as 'product_primary_cta' would inflate that
   // metric with clicks that mean something else entirely. Untracked is the
   // honest answer for anything not listed here.
-  var PRODUCT_HOSTS = ['braavolabs.com','burunfark.com','lifeos-legal.vercel.app','yulalab.com','www.yulalab.com'];
+  // Our own surfaces. Navigating from this hub to yulalab.com is internal
+  // movement, not an outbound to a product — filing it as
+  // product_primary_cta attributed the click to whichever brand page you
+  // happened to be on.
+  var FIRST_PARTY = ['links.yulalab.com','yulalab.com','www.yulalab.com'];
+  // NOTE: a hardcoded second list, and the server derives its own allowlist
+  // from the registry precisely because two lists drift. Collapsing this
+  // into the fetched registry (each record's own surface hosts) belongs with
+  // Y-P1-005's links-registry migration; until then a product URL change
+  // silently stops hub tracking with no failing test.
+  var PRODUCT_HOSTS = ['braavolabs.com','burunfark.com','lifeos-legal.vercel.app'];
   function classify(host){
+    if(FIRST_PARTY.indexOf(host) !== -1) return null;
     if(host === 'apps.apple.com' || host === 'play.google.com') return 'store';
     if(PRODUCT_HOSTS.indexOf(host) !== -1) return 'product';
     return null;
@@ -1034,7 +1045,6 @@ window.go = navigate;
 
   function reportOutbound(a){
     var url = new URL(a.href);
-    if(url.host === 'links.yulalab.com') return; // internal
     var kind = classify(url.host);
     if(!kind) return; // not a funnel step — see classify()
     track(kind === 'store' ? 'store_outbound' : 'product_primary_cta', {
