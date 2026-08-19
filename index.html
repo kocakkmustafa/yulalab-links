@@ -660,6 +660,11 @@ function holdingHTML(){
       <span>© 2026</span>
       <span>M. K. KOÇAK</span>
       <span>YULALAB.COM</span>
+      <!-- This hub writes two sessionStorage keys and (when attribution is
+           switched on) posts funnel events to yulalab.com/api/events. It had
+           no notice of its own, and the site's notice was scoped by name to
+           yulalab.com — so this surface collected without disclosing. -->
+      <span><a href="https://yulalab.com/tr/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">GİZLİLİK</a></span>
     </div>
   </div>`;
 }
@@ -799,6 +804,13 @@ function showPage(key, push){
     try { history.pushState({page:key}, '', url); } catch(e){ window.location.hash = h; }
   }
   document.title = TITLES[key] || 'YULA Lab — Links';
+  // The funnel's view event is reported from HERE, not from a hashchange
+  // listener. showPage uses history.pushState, and pushState does NOT fire
+  // hashchange — so an in-hub card click produced an outbound event with no
+  // preceding product_view, leaving "view -> outbound" with no denominator
+  // and a ratio unbounded above 100%. This is also why the router itself
+  // listens on popstate AND hashchange below.
+  if (window.__yulaReportView) window.__yulaReportView(key);
 }
 
 function routeFromHash(){
@@ -911,6 +923,167 @@ document.addEventListener('click', function(e){
 
 // Expose for inline onclick / debugging
 window.go = navigate;
+
+// ─── ATTRIBUTION (Y-P0-004) ───────────────────────────────────────────
+// The links hub and the main site share ONE event contract, posted to
+// yulalab.com/api/events. Two independent analytics vocabularies is how a
+// funnel ends up with a product-view count that cannot be reconciled with
+// its outbound count.
+//
+// Everything below is written to fail silently. This hub's entire job is
+// to forward people to products; an analytics error must never cost a
+// click. Every branch is wrapped, sendBeacon is feature-detected, and no
+// handler ever calls preventDefault on an outbound link.
+(function(){
+  // Off by default, mirroring the main site's NEXT_PUBLIC_ATTRIBUTION_ENABLED.
+  // No attribution database is provisioned yet, so /api/events answers 503
+  // for every post; sending beacons at it would be a guaranteed-failing
+  // request on every outbound click. Flip to true in the same change that
+  // provisions storage, so the two surfaces switch on together.
+  var ENABLED = false;
+  var ENDPOINT = 'https://yulalab.com/api/events';
+  // Hash keys are this file's own shorthand; the event contract speaks
+  // registry slugs. Mapping here (rather than renaming the routes) keeps
+  // existing short links working.
+  var SLUG = { lo:'lifeos', bl:'braavolabs', bf:'burunfarki', lissom:'lissom',
+               jablab:'jablab', gravita:'gravita', ostinato:'ostinato', choreia:'choreia' };
+  var UTM_OK = /^[A-Za-z0-9_\-.]{1,64}$/;
+  var SESSION_KEY = 'yula.session', UTM_KEY = 'yula.utm';
+
+  function token(){
+    try {
+      var b = new Uint8Array(16);
+      crypto.getRandomValues(b);
+      return Array.prototype.map.call(b, function(x){ return ('0'+x.toString(16)).slice(-2); }).join('');
+    } catch(e){ return null; }
+  }
+  function session(){
+    try {
+      var v = sessionStorage.getItem(SESSION_KEY);
+      if(v && /^[a-f0-9]{32}$/.test(v)) return v;
+      var t = token();
+      if(t) sessionStorage.setItem(SESSION_KEY, t);
+      return t;
+    } catch(e){ return token(); }
+  }
+  function utm(){
+    try {
+      var q = new URLSearchParams(window.location.search), out = {}, found = false;
+      [['utm_source','source'],['utm_medium','medium'],['utm_campaign','campaign'],['utm_content','content']]
+        .forEach(function(pair){
+          var v = q.get(pair[0]);
+          if(v && UTM_OK.test(v)){ out[pair[1]] = v; found = true; }
+        });
+      if(found){ sessionStorage.setItem(UTM_KEY, JSON.stringify(out)); return out; }
+      var stored = sessionStorage.getItem(UTM_KEY);
+      return stored ? JSON.parse(stored) : {};
+    } catch(e){ return {}; }
+  }
+  function slugForKey(key){ return SLUG[key] || undefined; }
+  function currentSlug(){
+    var h = (window.location.hash || '').replace('#','').toLowerCase();
+    return SLUG[HASH_MAP[h]] || SLUG[h] || undefined;
+  }
+  // Normalised to the registry slug, never the short link. '#lo' and
+  // '#lifeos' are the same page; emitting '/lo' and '/lifeos' would split
+  // one denominator into two. The 'links:' prefix keeps hub pages distinct
+  // from the main site's own '/projects/lifeos'.
+  function currentPage(){
+    var slug = currentSlug();
+    return slug ? '/links/' + slug : '/links';
+  }
+
+  function send(body){
+    try {
+      var json = JSON.stringify(body);
+      // text/plain keeps this a CORS-simple request: no preflight, and the
+      // response is ignored anyway. The route reads the raw body, so the
+      // declared type is irrelevant to parsing.
+      if(navigator && typeof navigator.sendBeacon === 'function'){
+        navigator.sendBeacon(ENDPOINT, new Blob([json], {type:'text/plain'}));
+        return;
+      }
+      if(typeof fetch === 'function'){
+        fetch(ENDPOINT, {method:'POST', body:json, mode:'no-cors', keepalive:true}).catch(function(){});
+      }
+    } catch(e){ /* never surface an analytics failure to a visitor */ }
+  }
+
+  function track(event, extra){
+    if(!ENABLED) return;
+    var s = session();
+    if(!s) return;
+    var body = { v:1, event:event, locale:'tr', page:currentPage(), session:s };
+    var u = utm();
+    ['source','medium','campaign','content'].forEach(function(k){ if(u[k]) body[k] = u[k]; });
+    if(extra) Object.keys(extra).forEach(function(k){ if(extra[k] !== undefined) body[k] = extra[k]; });
+    send(body);
+  }
+
+  // Hosts the funnel actually asks about. A Discord invite or a Yeşilay
+  // helpline is a real link but not a step in the roadmap's 13-event
+  // vocabulary; filing it as 'product_primary_cta' would inflate that
+  // metric with clicks that mean something else entirely. Untracked is the
+  // honest answer for anything not listed here.
+  var PRODUCT_HOSTS = ['braavolabs.com','burunfark.com','lifeos-legal.vercel.app','yulalab.com','www.yulalab.com'];
+  function classify(host){
+    if(host === 'apps.apple.com' || host === 'play.google.com') return 'store';
+    if(PRODUCT_HOSTS.indexOf(host) !== -1) return 'product';
+    return null;
+  }
+
+  function reportOutbound(a){
+    var url = new URL(a.href);
+    if(url.host === 'links.yulalab.com') return; // internal
+    var kind = classify(url.host);
+    if(!kind) return; // not a funnel step — see classify()
+    track(kind === 'store' ? 'store_outbound' : 'product_primary_cta', {
+      // Origin + path only; the server strips query/fragment anyway, and
+      // sending them would put data in a payload that has no business
+      // carrying it.
+      target: url.origin + url.pathname,
+      targetCategory: kind === 'store' ? 'store' : 'web',
+      product: currentSlug()
+    });
+  }
+
+  // Delegated, capture-phase: runs before any other handler and, crucially,
+  // before the browser starts the navigation. Never calls preventDefault.
+  document.addEventListener('click', function(e){
+    try {
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="https://"]') : null;
+      if(a) reportOutbound(a);
+    } catch(err){ /* a broken tracker must not break a link */ }
+  }, true);
+
+  // Middle-click opens a new tab without firing click in some browsers.
+  // The main site's TrackedLink already covers this; without the same
+  // handling here the two surfaces would bias the same metric differently.
+  document.addEventListener('auxclick', function(e){
+    try {
+      if(e.button !== 1) return;
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="https://"]') : null;
+      if(a) reportOutbound(a);
+    } catch(err){ /* same */ }
+  }, true);
+
+  // A brand page becoming visible is this hub's product_view. Called from
+  // showPage() so pushState navigation counts; lastView is reset whenever a
+  // non-product page is shown, otherwise lifeos -> holding -> lifeos would
+  // drop the second, real visit as a duplicate.
+  var lastView = null;
+  window.__yulaReportView = function(key){
+    try {
+      var slug = slugForKey(key);
+      if(!slug){ lastView = null; return; }
+      if(slug === lastView) return;
+      lastView = slug;
+      track('product_view', { product: slug });
+    } catch(err){ /* never break routing */ }
+  };
+  window.addEventListener('popstate', function(){ window.__yulaReportView(HASH_MAP[(window.location.hash||'').replace('#','').toLowerCase()] || 'holding'); });
+  window.__yulaReportView(HASH_MAP[(window.location.hash||'').replace('#','').toLowerCase()] || 'holding');
+})();
 })();
 </script>
 </body>
