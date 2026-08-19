@@ -421,10 +421,10 @@ const BRANDS = {
     name: 'Braavolabs',
     sub: 'Autonomous AI Company OS',
     tagline: 'Your AI company, built in 10 minutes.',
-    line2: '9 primitives · 12 LLMs · 6 languages',
+    line2: '9 primitives · 14 LLMs · 6 languages',
     url: 'braavolabs.com',
     color: '#00D1FF',
-    stats: ['9 Primitives','12 LLMs','6 Languages','Beta'],
+    stats: ['9 Primitives','14 LLMs','6 Languages','Beta'],
     type: 'B2B SaaS · Beta',
     handles: { github: 'kocakkmustafa/braavolabs' },
     active: ['tiktok','instagram','x','youtube','reddit','linkedin','github'],
@@ -814,6 +814,89 @@ routeFromHash();
 
 window.addEventListener('popstate', routeFromHash);
 window.addEventListener('hashchange', routeFromHash);
+
+// ─── PUBLIC REGISTRY SYNC (Y-P0-003) ──────────────────────────────────
+// The store URLs baked into BRANDS above are a last-known-good snapshot
+// from this file's own last deploy. On load, try to refresh just the
+// store surface data from yulalab.com's public registry (single source of
+// truth, updated independently of this repo's own deploys) — without
+// blocking first paint, which already happened above. If the fetch fails
+// (offline, CORS misconfigured, yulalab.com down), this page keeps working
+// exactly as it does today with the baked-in snapshot; it does not fail
+// silently — a visible, dismissible notice says the store status shown may
+// not be current.
+const REGISTRY_URL = 'https://yulalab.com/portfolio-registry.json';
+const SLUG_TO_BRAND_KEY = {
+  braavolabs: 'bl', burunfarki: 'bf', lifeos: 'lo',
+  lissom: 'lissom', jablab: 'jablab', gravita: 'gravita',
+  ostinato: 'ostinato', choreia: 'choreia',
+};
+
+function showRegistryStaleNotice(){
+  if(document.getElementById('sb-stale-notice')) return;
+  const notice = document.createElement('div');
+  notice.id = 'sb-stale-notice';
+  notice.setAttribute('role', 'status');
+  notice.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:999;'
+    + 'font:11px/1.5 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.03em;'
+    + 'background:#2a1c00;color:#ffcf6b;padding:9px 16px;text-align:center;'
+    + 'display:flex;align-items:center;justify-content:center;gap:10px;'
+    + 'border-top:1px solid rgba(255,207,107,.35)';
+  const text = document.createElement('span');
+  text.textContent = 'Canlı mağaza durumu şu an doğrulanamadı — bu sayfadaki son bilinen bilgi gösteriliyor.';
+  const dismiss = document.createElement('button');
+  dismiss.type = 'button';
+  dismiss.setAttribute('aria-label', 'Uyarıyı kapat');
+  dismiss.textContent = '✕';
+  dismiss.style.cssText = 'background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0 4px';
+  dismiss.onclick = function(){ notice.remove(); };
+  notice.appendChild(text);
+  notice.appendChild(dismiss);
+  document.body.appendChild(notice);
+}
+
+// AbortSignal.timeout is a 2022 API — Safari <16 and some older in-app
+// WebViews don't have it. Evaluating it unguarded inside the fetch() call
+// below would throw synchronously, OUTSIDE the .then/.catch chain, which
+// would abort the rest of this IIFE (breaking data-nav navigation and
+// window.go for the whole page, not just the registry sync) — the exact
+// opposite of the graceful-degradation this block exists for. Feature-
+// detect first; on browsers without it, just skip the timeout.
+const fetchOptions = { mode: 'cors' };
+if(typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function'){
+  try { fetchOptions.signal = AbortSignal.timeout(6000); } catch(e){ /* no-op — fetch proceeds without a timeout */ }
+}
+
+fetch(REGISTRY_URL, fetchOptions)
+  .then(function(res){
+    if(!res.ok) throw new Error('registry fetch: HTTP ' + res.status);
+    return res.json();
+  })
+  .then(function(data){
+    const products = (data && data.products) || [];
+    let changed = false;
+    products.forEach(function(record){
+      const key = SLUG_TO_BRAND_KEY[record.slug];
+      const brand = key && BRANDS[key];
+      if(!brand || !Array.isArray(record.surfaces)) return;
+      const ios = record.surfaces.find(function(s){ return s.kind === 'ios'; });
+      const android = record.surfaces.find(function(s){ return s.kind === 'android'; });
+      const newIos = (ios && ios.url) || null;
+      const newAndroid = (android && android.url) || null;
+      if(brand.stores.ios !== newIos || brand.stores.android !== newAndroid){
+        brand.stores = { ios: newIos, android: newAndroid };
+        changed = true;
+      }
+    });
+    // Only rebuild the DOM if something actually differs from the baked-in
+    // snapshot — the common case (nothing changed since this file's last
+    // deploy) stays a silent no-op with zero visible re-render.
+    if(changed){
+      buildAllPages();
+      routeFromHash();
+    }
+  })
+  .catch(function(){ showRegistryStaleNotice(); });
 
 // Delegated click for internal nav (data-nav attribute)
 document.addEventListener('click', function(e){
