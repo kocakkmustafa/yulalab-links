@@ -1,185 +1,58 @@
 # links.yulalab.com
 
-YULA Lab Holding + ürünleri (8 ürün) için tek sayfalık, tek dosyalık (vanilla HTML/CSS/JS) Linktree-style sosyal bağlantı sitesi. **Sıfır bağımlılık, sıfır build, sıfır framework.** Çift tıkla aç, çalışır.
+YULA Lab ürün dizini ve doğrulanmış bağlantı hub'ı. Vanilla HTML/CSS/JS kullanır; build ve çalışma zamanı bağımlılığı yoktur. Görsel STAMP düzeni dondurulmuştur.
 
-> Kaynak tasarım: `Downloads/yulalab-links-v3.html` — Mustafa Kaan tarafından farklı araçlarda parça parça hazırlandı, bu sürümde birleştirildi + URL routing, a11y, OG, print desteği eklendi.
+## Public truth sözleşmesi
 
----
+- Ürün adı, lifecycle, güncel web/store yüzeyleri ve gösterilen sayısal claim'ler `https://yulalab.com/portfolio-registry.json` kaynağından gelir.
+- Canlı/beta ürünler önce; araştırma ürünleri açıkça `Araştırma` olarak render edilir. Archived kayıtlar gösterilmez.
+- Ağ cevabı JSON değilse, Vercel Attack Challenge içeriyorsa, tarih/şema/URL doğrulaması geçmiyorsa veya fetch başarısızsa sayfa fail-closed son bilinen snapshot'a döner.
+- Fallback bildirimi son doğrulama tarihini ve kaynak registry SHA-256 özetini görünür gösterir. Tarihi dolmuş web/store yüzeyi `current/live` kabul edilmez ve dış CTA olarak render edilmez.
+- Registry metni HTML olarak işlenmez; text escape edilir. Yüzey URL'leri ürün + yüzey türü bazlı HTTPS host allowlist'inden geçer. Registry sosyal hesap üretemez.
+- Doğrulanmış sosyal allowlist yalnız YULA Lab X ve Instagram hesaplarını içerir. Diğer kutular güvenli `SOON` durumundadır.
 
-## Sayfalar
+Son bilinen canonical snapshot:
 
-| Hash URL | Sayfa | İçerik |
-|----------|-------|--------|
-| `/` veya `#holding` | YULA Lab (Holding) | 8 ürün kartı + YULA Lab sosyal medya |
-| `#braavolabs` | Braavolabs | B2B AI Şirket OS · 9 primitives · 12 LLMs |
-| `#burunfarki` | Burun Farkı | TR 18+ at yarışı AI analiz platformu |
-| `#lifeos` | LifeOS | 5 hayat alanı · cihaz-üstü AI · sıfır reklam |
-
-**URL routing:** `links.yulalab.com/#braavolabs` paylaşılabilir, browser back/forward çalışır, document.title her sayfada güncellenir.
-
----
-
-## Tasarım Sistemi
-
-| Marka | Accent | Background gradient | Avatar bg |
-|-------|--------|---------------------|-----------|
-| YULA Lab | `#E8EAF0` (ink-white) | radial 12% gray → `#06080F` | `#E8EAF0` solid |
-| Braavolabs | `#00D1FF` (cyan) | radial 10% cyan → `#06080F` | cyan glass |
-| Burun Farkı | `#FAB81F` (gold) | radial 12% gold → `#06080F` | gold glass |
-| LifeOS | `#C3F400` (neon yeşil) | radial 10% green → `#06080F` | neon green glass |
-
-**Tipografi:** Manrope (400-900) + JetBrains Mono (400-600), Google Fonts.
-
-**Bileşenler:**
-- `.brand-card` — 72px+ hero ürün kartı (Holding sayfasında)
-- `.link-btn` — 56px+ touch-optimized sosyal/platform linki
-- `.link-btn.soon` — Henüz aktif olmayan platformlar için "Yakında" rozeti (placeholder linkler otomatik bu state'e geçer)
-- `.stat-pill` — Marka metrik rozetleri (örn. "%40.8 Top-1", "9 Primitives")
-
----
-
-## Linkler — Mevcut Durum
-
-Aşağıdaki linkler **gerçek hesaplarla** bağlı:
-
-**YULA Lab** ✅
-- yulalab.com (web)
-- instagram.com/yulalab
-- x.com/yulalab
-- linkedin.com/company/yulalab
-
-**Braavolabs** ✅
-- braavolabs.com
-- x.com/braavolabs
-- linkedin.com/company/braavolabs
-- github.com/kocakkmustafa/braavolabs
-
-**Burun Farkı** ✅
-- burunfark.com
-- instagram.com/burunfarki
-- x.com/burunfarki
-- youtube.com/@burunfarki
-
-**LifeOS** — Tüm linkler **Yakında** durumunda (App Store/Play Store onayı sonrası açılacak).
-
-Diğer tüm platformlar (TikTok, YouTube, Reddit, Facebook, Discord, Telegram, GitHub vb.) **placeholder** olarak yer alıyor — hesaplar açıldıkça `href="#"` ve `.soon` sınıfı silinerek aktif edilecek.
-
-### Link nasıl aktif edilir?
-
-`index.html` içinde ilgili `<a class="link-btn soon" href="#" ...>` bloğunu bul, **iki değişiklik yap**:
-
-```html
-<!-- önce -->
-<a class="link-btn soon" href="#" aria-label="TikTok — yakında">
-
-<!-- sonra -->
-<a class="link-btn" href="https://tiktok.com/@yulalab" target="_blank" rel="noopener" aria-label="TikTok @yulalab">
+```text
+verifiedAt: 2026-08-21
+source registry SHA-256: 95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab
 ```
 
-`soon` sınıfı silindiği anda buton tıklanabilir hale gelir ve "Yakında" rozeti kaybolur. `target="_blank"` ve `rel="noopener"` güvenlik için zorunlu.
+## Rotalar
 
----
+| Canonical route | Hash route | Lifecycle |
+|---|---|---|
+| `/braavolabs` | `#braavolabs` | Beta |
+| `/burunfarki` | `#burunfarki` | Canlı · Türkiye 18+ |
+| `/lifeos` | `#lifeos` | Canlı |
+| `/gravita` | `#gravita` | Araştırma |
+| `/lissom` | `#lissom` | Araştırma |
+| `/jablab` | `#jablab` | Araştırma |
+| `/ostinato` | `#ostinato` | Araştırma |
+| `/choreia` | `#choreia` | Araştırma |
 
-## Deploy
+Kısa alias'lar `vercel.json` içinde hash rotalarına yönlenir. Router browser back/forward, keyboard navigation ve ürün bazlı `document.title` davranışını korur.
 
-### Seçenek A — Subdomain (önerilen)
+## Güvenlik ve dayanıklılık
 
-`links.yulalab.com` alt domaini açılır, içerik bu klasörden serve edilir.
+- CSP header ve eşdeğer meta policy; inline JavaScript SHA-256 ile sabittir.
+- `frame-src`, `object-src`, `base-uri`, `form-action` ve `frame-ancestors` fail-closed; yalnız canonical registry/event origin'i için `connect-src` açıktır.
+- Attribution varsayılan kapalıdır. Açıldığında UTM session sözleşmesi, `product_view`, `product_primary_cta` ve `store_outbound` event sınıflandırması korunur; ürün host allowlist'i güncel registry yüzeylerinden türetilir.
+- JavaScript kapalıyken güvenli YULA ürün sayfaları, snapshot tarihi ve hash görünür. Offline/fetch-failure durumunda aynı deterministic renderer fallback snapshot'ını kullanır.
+- `prefers-reduced-motion`, 320 px tek-sütun davranışı, görünür focus ve ana içerik landmark'ı desteklenir.
 
-**Vercel:**
-1. Yeni proje, root directory: `ventures/yulalab-com/links`
-2. Framework Preset: **Other** (build komutu yok)
-3. Domain: `links.yulalab.com` ekle
-4. DNS: `links` CNAME → `cname.vercel-dns.com`
+## Lokal doğrulama
 
-**Netlify / Cloudflare Pages:** aynı mantık, sadece root directory ayarı yeterli.
-
-**GitHub Pages:** `gh-pages` branch'e push, `links.yulalab.com` custom domain ayarla.
-
-### Seçenek B — yulalab.com/links route
-
-Dosya zaten `Web Sites/yulalab.com/public/links/index.html` konumuna kopyalandı. Next.js otomatik olarak `public/` altındaki static dosyaları serve eder.
-
-```
-https://yulalab.com/links     →  bu sayfayı açar
-https://yulalab.com/links/    →  aynı sayfa
-```
-
-Bu varyant alt domain DNS değişikliği gerektirmez — sadece bir sonraki Vercel deploy ile canlıya gelir.
-
-### Seçenek C — Cloudflare R2 / S3
-
-Tek bir HTML olduğu için herhangi bir static bucket yeterli.
-
----
-
-## SEO & Sosyal Paylaşım
-
-- **OG image:** `https://yulalab.com/brand/yulalab-banner.png` (mevcut)
-- **Twitter card:** `summary_large_image`
-- **Locale:** `tr_TR` (primary), `en_US` (alternate)
-- **Description:** 160 karakter altında, marka manifesto cümlesi
-- **Theme color:** `#06080F` (mobil tarayıcı chrome rengi)
-- **Favicon:** Inline SVG ("YL" monogramı) — sıfır external request
-
-Paylaşım metni örneği (X/LinkedIn):
-```
-YULA Lab — Bağımsız AI Ürün Laboratuvarı.
-8 ürün, 1 laboratuvar, sıfır kara kutu.
-↳ links.yulalab.com
-```
-
----
-
-## A11y & Performans
-
-- ✅ Tüm interaktif öğelerde `aria-label`
-- ✅ `:focus-visible` outline
-- ✅ Semantic `<h1>` her sayfada bir tane
-- ✅ Touch target min 44×44 px (Apple HIG)
-- ✅ `prefers-reduced-motion` respected (sadece tek geçiş animasyonu, hafif)
-- ✅ No-JS fallback uyarısı
-- ✅ Print stylesheet (tüm sayfalar PDF export'ta görünür)
-
-**Lighthouse beklenen skorlar:**
-- Performance: 99-100 (zero JS framework, inline CSS, Google Fonts swap)
-- Accessibility: 95+
-- Best Practices: 100
-- SEO: 100
-
----
-
-## Dosya Yapısı
-
-```
-links.yulalab.com/
-├── index.html        # Tek dosya, 66 KB, self-contained
-└── README.md         # Bu dosya
-```
-
-`yulalab.com/public/links/index.html` aynı dosyanın kopyası — birini güncellediğinde diğerini de senkron tut (veya symlink kur):
+Basit kök sunucu:
 
 ```bash
-# Symlink (geliştirme sırasında)
-ln -sf "$(pwd)/links.yulalab.com/index.html" \
-       "$(pwd)/yulalab.com/public/links/index.html"
+python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
----
+HTML doğrulaması repo/site dependency ağacını değiştirmeden, task-owned geçici ortamda pinned `html-validate` ile yapılır. Üretim paketi veya lockfile eklenmez.
 
-## Değişiklik Takibi
+Beklenen kontroller: canonical registry parity, fallback/challenge/malformed payload negatifleri, tüm canonical/alias rotalar, dış CTA + UTM/event sınıflandırması, keyboard, 320 px, reduced-motion, no-JS, offline, CSP console/network ve `git diff --check`.
 
-- **v3 (kaynak):** Mustafa Kaan tarafından birleştirildi (Downloads/yulalab-links-v3.html)
-- **v3.1 (bu sürüm, 2026-05-13):** Klasör yapısı + README + URL hash routing + browser history + meta/OG/Twitter + favicon SVG + a11y aria-label'ları + `.soon` rozet sistemi + print stylesheet + no-JS fallback
+## Deploy sınırı
 
----
-
-## Sıradaki Adımlar
-
-- [ ] DNS kaydı: `links.yulalab.com` CNAME oluştur
-- [ ] Vercel'de subdomain projesi aç ve bu klasörü bağla
-- [ ] Open Graph banner görselini son haline getir (`yulalab.com/brand/yulalab-banner.png` — boyut 1200×630)
-- [ ] Açılan sosyal medya hesaplarının URL'lerini `index.html` içinde `.soon` sınıfından çıkararak aktif et
-- [ ] LifeOS App Store + Play Store linkleri yayınlandığında ilgili `<a class="link-btn soon">` bloklarını aktif et
-- [ ] (Opsiyonel) Analytics ekle — Plausible script (KVKK uyumlu, çerez yok)
-- [ ] (Opsiyonel) UTM parameter desteği — her dış link `?utm_source=links&utm_medium=biolink&utm_campaign=<marka>`
+Lokal inceleme manuel gate gerektirmez. `develop` push, Vercel preview veya production deploy yalnız `MANUAL-YULA-DEPLOY` ile yapılır. Bu repo için production dış sistem mutasyonu otomatik değildir.

@@ -7,7 +7,8 @@
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Content-Security-Policy", "value": "default-src 'none'; script-src 'sha256-eseI92nKZxQG4pYLIVa1k2YxYGCpwkhBRY5Y5A3DC9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests" },
+        { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
         { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
@@ -32,13 +33,19 @@
     { "source": "/braavolabs", "destination": "/#braavolabs", "permanent": false },
     { "source": "/bl", "destination": "/#braavolabs", "permanent": false },
     { "source": "/burunfarki", "destination": "/#burunfarki", "permanent": false },
+    { "source": "/burunfark", "destination": "/#burunfarki", "permanent": false },
     { "source": "/bf", "destination": "/#burunfarki", "permanent": false },
     { "source": "/lifeos", "destination": "/#lifeos", "permanent": false },
     { "source": "/lo", "destination": "/#lifeos", "permanent": false },
     { "source": "/lissom", "destination": "/#lissom", "permanent": false },
+    { "source": "/li", "destination": "/#lissom", "permanent": false },
     { "source": "/jablab", "destination": "/#jablab", "permanent": false },
+    { "source": "/jb", "destination": "/#jablab", "permanent": false },
     { "source": "/gravita", "destination": "/#gravita", "permanent": false },
+    { "source": "/gr", "destination": "/#gravita", "permanent": false },
     { "source": "/ostinato", "destination": "/#ostinato", "permanent": false },
-    { "source": "/choreia", "destination": "/#choreia", "permanent": false }
+    { "source": "/os", "destination": "/#ostinato", "permanent": false },
+    { "source": "/choreia", "destination": "/#choreia", "permanent": false },
+    { "source": "/ch", "destination": "/#choreia", "permanent": false }
   ]
 }

@@ -6,14 +6,15 @@
 <meta name="theme-color" content="#F5F3EE">
 <meta name="color-scheme" content="light">
 <title>YULA Lab — Links</title>
-<meta name="description" content="YULA Lab — Independent AI Product Lab. Braavolabs · Burun Farkı · LifeOS. Tüm sosyal medya, ürün ve indirme bağlantıları tek sayfada.">
+<meta name="description" content="YULA Lab ürün dizini: canlı ve beta ürünler önce, araştırma ürünleri açık etiketle, doğrulanmış bağlantılar tek sayfada.">
 <meta name="robots" content="index,follow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eseI92nKZxQG4pYLIVa1k2YxYGCpwkhBRY5Y5A3DC9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://links.yulalab.com/">
 <meta property="og:title" content="YULA Lab — Links">
-<meta property="og:description" content="Independent AI Product Lab. Braavolabs · Burun Farkı · LifeOS — tüm bağlantılar.">
+<meta property="og:description" content="YULA Lab ürün dizini — canlı, beta ve araştırma durumlarıyla doğrulanmış bağlantılar.">
 <meta property="og:image" content="https://yulalab.com/brand/yulalab-banner.png">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:locale:alternate" content="en_US">
@@ -22,7 +23,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@yulalab">
 <meta name="twitter:title" content="YULA Lab — Links">
-<meta name="twitter:description" content="Independent AI Product Lab. Braavolabs · Burun Farkı · LifeOS.">
+<meta name="twitter:description" content="YULA Lab ürün dizini — doğrulanmış ürün ve mağaza bağlantıları.">
 <meta name="twitter:image" content="https://yulalab.com/brand/yulalab-banner.png">
 
 <!-- Favicon (inline SVG: YL stamp) -->
@@ -53,6 +54,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 .page{display:none;width:100%;min-height:100vh;animation:fadein .25s cubic-bezier(.4,0,.2,1)}
 .page.active{display:block}
 @keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sb-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .sb-root{
   --bg:#F5F3EE;
@@ -363,6 +365,11 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
   .sb-tile-name{font-size:16px}
 }
 
+@media (prefers-reduced-motion:reduce){
+  html:focus-within{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
 /* Print */
 @media print{
   body{background:#fff}
@@ -373,13 +380,35 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 
 /* No-JS fallback */
 .noscript-warn{display:none;background:#FAB81F;color:#0A0A0A;text-align:center;padding:12px;font-size:13px;font-weight:700;border-bottom:2px solid #0A0A0A}
+.noscript-links{max-width:440px;margin:0 auto;padding:24px;font:13px/1.6 'Inter',system-ui,sans-serif}
+.noscript-links ul{list-style:none;margin:16px 0;padding:0}
+.noscript-links li{border-top:1px solid #0A0A0A;padding:10px 0;display:flex;justify-content:space-between;gap:12px}
+.noscript-links a{text-decoration:underline;text-underline-offset:2px}
+.noscript-meta{font:10px/1.6 'JetBrains Mono',ui-monospace,monospace;word-break:break-all;color:#595550}
 </style>
 </head>
 <body>
 
-<noscript><div class="noscript-warn" style="display:block">Bu site JavaScript gerektirir.</div></noscript>
+<noscript>
+  <div class="noscript-warn" style="display:block">JavaScript kapalı — güvenli son bilinen ürün dizini gösteriliyor.</div>
+  <section class="noscript-links" aria-labelledby="noscript-title">
+    <h1 id="noscript-title">YULA / LAB.</h1>
+    <p>Canlı/beta ürünler önce, araştırma ürünleri açık etiketle listelenir. Güncel mağaza durumu için ürün sayfasını kullanın.</p>
+    <ul>
+      <li><a href="https://yulalab.com/projects/braavolabs">Braavolabs</a><span>Beta</span></li>
+      <li><a href="https://yulalab.com/projects/burunfarki">Burun Farkı</a><span>Canlı · 18+</span></li>
+      <li><a href="https://yulalab.com/projects/lifeos">LifeOS</a><span>Canlı</span></li>
+      <li><a href="https://yulalab.com/projects/gravita">Gravita</a><span>Araştırma</span></li>
+      <li><a href="https://yulalab.com/projects/lissom">Lissom</a><span>Araştırma</span></li>
+      <li><a href="https://yulalab.com/projects/jablab">JabLab</a><span>Araştırma</span></li>
+      <li><a href="https://yulalab.com/projects/ostinato">Ostinato</a><span>Araştırma</span></li>
+      <li><a href="https://yulalab.com/projects/choreia">Choreia</a><span>Araştırma</span></li>
+    </ul>
+    <p class="noscript-meta">Son doğrulama: 2026-08-21 · Kaynak registry SHA-256: 95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab</p>
+  </section>
+</noscript>
 
-<div id="app"></div>
+<main id="app" tabindex="-1"><p class="sb-sr-only" role="status">Ürün dizini yükleniyor.</p></main>
 
 <script>
 (function(){
@@ -401,148 +430,57 @@ const ICON = {
   play: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.748 1.592a1 1 0 010 1.756l-2.748 1.592-2.303-2.302 2.303-2.638zM5.864 2.658L16.802 8.99l-2.302 2.303-8.636-8.635z"/></svg>',
 };
 
-// ─── BRAND DATA (gerçek handle'lar — platform bazında override edilebilir) ───
-const BRANDS = {
-  yula: {
-    short: 'YL',
-    slug: 'yulalab',           // default handle
-    name: 'YULA Lab',
-    sub: 'Independent AI Product Lab',
-    tagline: "An independent product lab shipping AI-first products. Eight products, one workbench.",
-    url: 'yulalab.com',
-    color: '#E8EAF0',
-    handles: { instagram: 'yulalab', github: 'kocakkmustafa/YULA-Lab' },
-    active: ['tiktok','instagram','x','youtube','reddit','linkedin','github'],
-    stores: { ios: null, android: null },
-  },
-  bl: {
-    short: 'Bl',
-    slug: 'braavolabs',
-    name: 'Braavolabs',
-    sub: 'Autonomous AI Company OS',
-    tagline: 'Your AI company, built in 10 minutes.',
-    line2: '9 primitives · 14 LLMs · 6 languages',
-    url: 'braavolabs.com',
-    color: '#00D1FF',
-    stats: ['9 Primitives','14 LLMs','6 Languages','Beta'],
-    type: 'B2B SaaS · Beta',
-    handles: { github: 'kocakkmustafa/braavolabs' },
-    active: ['tiktok','instagram','x','youtube','reddit','linkedin','github'],
-    stores: { ios: 'https://apps.apple.com/us/app/braavolabs/id6771440905', android: null },
-  },
-  bf: {
-    short: 'BF',
-    slug: 'burunfarki',
-    name: 'Burun Farkı',
-    sub: "Transparent AI horse racing analytics",
-    tagline: 'Numbers over hunches.',
-    url: 'burunfark.com',
-    color: '#FAB81F',
-    stats: ['~30% Top-1','~61% Top-3','13,587 races','18+'],
-    type: 'B2C · Turkey 18+',
-    handles: {
-      tiktok: 'burunfark.com',
-      instagram: 'burunfarki',
-      x: 'burunfarki',
-      reddit: 'burunfark',
-      github: 'kocakkmustafa/burunfark-web',
-    },
-    active: ['tiktok','instagram','x','youtube','reddit','github'],
-    legal: '18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir.',
-    stores: { ios: null, android: null },
-  },
-  lo: {
-    short: 'LO',
-    slug: 'lifeos_yula',
-    name: 'LifeOS',
-    sub: 'Run your life like a system',
-    tagline: '5 life domains · On-device AI · Zero ads.',
-    url: 'yulalab.com/projects/lifeos',
-    color: '#C3F400',
-    stats: ['Health','Finance','Education','Vehicle'],
-    type: 'B2C · iOS Live',
-    handles: { reddit: 'lifeosyula', github: 'kocakkmustafa/lifeos' },
-    active: ['tiktok','instagram','x','youtube','reddit','github'],
-    stores: { ios: 'https://apps.apple.com/app/id6771527233', android: null },
-  },
-  // ── Yula Motion ailesi — hazırlık aşaması (2026-07-26 eklendi) ──
-  // Sosyal medya bilinçli KİLİTLİ (active: []) — ilerde açılacak. Store'lar henüz submit edilmedi.
-  lissom: {
-    short: 'LI',
-    slug: 'lissom',
-    name: 'Lissom',
-    sub: 'Mobility, flexibility & yoga coach',
-    tagline: 'Measure. Train. Remeasure.',
-    url: 'yulalab.com/projects/lissom',
-    color: '#B8A9FF',
-    stats: ['Mobility + Yoga','Coming Soon'],
-    type: 'B2C · Coming Soon',
-    handles: {},
-    active: [],
-    stores: { ios: null, android: null },
-    soonProduct: true,
-  },
-  jablab: {
-    short: 'JB',
-    slug: 'jablab',
-    name: 'JabLab',
-    sub: 'Solo shadow boxing coach',
-    tagline: "Shadow box like someone's watching your form.",
-    url: 'yulalab.com/projects/jablab',
-    color: '#FF3B5C',
-    stats: ['Shadow Boxing','Coming Soon'],
-    type: 'B2C · Coming Soon',
-    handles: {},
-    active: [],
-    stores: { ios: null, android: null },
-    soonProduct: true,
-  },
-  gravita: {
-    short: 'GR',
-    slug: 'gravita',
-    name: 'Gravita',
-    sub: 'Camera-based skills & strength coach',
-    tagline: 'Master your bodyweight, one rep at a time.',
-    url: 'yulalab.com/projects/gravita',
-    color: '#FF6B4A',
-    stats: ['Skills + Strength','Coming Soon'],
-    type: 'B2C · Coming Soon',
-    handles: {},
-    active: [],
-    stores: { ios: null, android: null },
-    soonProduct: true,
-  },
-  ostinato: {
-    short: 'OS',
-    slug: 'ostinato',
-    name: 'Ostinato',
-    sub: 'Music practice coach',
-    tagline: 'Practice smarter, not just longer.',
-    url: 'yulalab.com/projects/ostinato',
-    color: '#38BDF8',
-    stats: ['Music Practice','Coming Soon'],
-    type: 'B2C · Coming Soon',
-    handles: {},
-    active: [],
-    stores: { ios: null, android: null },
-    soonProduct: true,
-  },
-  choreia: {
-    short: 'CH',
-    slug: 'choreia',
-    name: 'Choreia',
-    sub: 'Learn to dance coach',
-    tagline: "Learn to dance like your teacher's right there.",
-    url: 'yulalab.com/projects/choreia',
-    color: '#F472B6',
-    stats: ['Learn to Dance','Coming Soon'],
-    type: 'B2C · Coming Soon',
-    handles: {},
-    active: [],
-    stores: { ios: null, android: null },
-    soonProduct: true,
-  },
+// ─── FROZEN PRESENTATION + CANONICAL PUBLIC TRUTH ───────────────────
+// Colours, taglines and card geometry belong to this frozen visual surface.
+// Names, lifecycle, current URLs, store availability and measured figures do
+// not: those fields are derived from the public registry below and refreshed
+// from the canonical generated artifact at runtime.
+const LAB_PRESENTATION = {
+  slug: 'yulalab', name: 'YULA Lab',
+  tagline: 'An independent product lab shipping AI-first products. Eight products, one workbench.',
+  handles: { x:'yulalab', instagram:'yulalab' },
+  active: ['x','instagram'],
 };
+const PRESENTATION = {
+  braavolabs: { key:'bl', sub:'Autonomous AI Company OS', tagline:'Build and operate an AI-first company workspace.', color:'#00D1FF', category:'B2B SaaS' },
+  burunfarki: { key:'bf', sub:'Transparent AI horse racing analytics', tagline:'Numbers over hunches.', color:'#FAB81F', category:'B2C · Türkiye 18+', legal:'18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir.' },
+  lifeos: { key:'lo', sub:'Run your life like a system', tagline:'A system-oriented personal life workspace.', color:'#C3F400', category:'B2C' },
+  gravita: { key:'gravita', sub:'Camera-based skills & strength coach', tagline:'Master your bodyweight, one rep at a time.', color:'#FF6B4A', category:'Skills + Strength' },
+  lissom: { key:'lissom', sub:'Mobility, flexibility & yoga coach', tagline:'Measure. Train. Remeasure.', color:'#B8A9FF', category:'Mobility + Yoga' },
+  jablab: { key:'jablab', sub:'Solo shadow boxing coach', tagline:"Shadow box like someone's watching your form.", color:'#FF3B5C', category:'Shadow Boxing' },
+  ostinato: { key:'ostinato', sub:'Music practice coach', tagline:'Practice smarter, not just longer.', color:'#38BDF8', category:'Music Practice' },
+  choreia: { key:'choreia', sub:'Learn to dance coach', tagline:"Learn to dance like your teacher's right there.", color:'#F472B6', category:'Dance' },
+};
+const REQUIRED_SLUGS = Object.freeze(Object.keys(PRESENTATION));
+const FALLBACK_REGISTRY_META = Object.freeze({
+  sha256:'95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab',
+  verifiedAt:'2026-08-21',
+  source:'canonical-fallback',
+});
+const FALLBACK_REGISTRY = Object.freeze({ products:[
+  {slug:'braavolabs',name:'Braavolabs',lifecycle:'beta',updatedAt:'2026-08-21',surfaces:[
+    {kind:'web',url:'https://braavolabs.com',status:'live',source:'https://braavolabs.com',verifiedAt:'2026-08-21',expiresAt:'2026-08-22'},
+    {kind:'ios',url:'https://apps.apple.com/us/app/braavolabs/id6771440905',status:'live',source:'https://itunes.apple.com/lookup?country=us&id=6771440905',verifiedAt:'2026-08-21',expiresAt:'2026-08-22'}],claims:[
+    {id:'braavolabs-primitive-count',figures:['9'],source:'ventures/braavolabs/platform/packages/core/src/constants/primitives.ts',verifiedAt:'2026-08-19',expiresAt:'2026-09-18'},
+    {id:'braavolabs-provider-count',figures:['14'],source:'ventures/braavolabs/platform/packages/api/src/services/ai-client.ts',verifiedAt:'2026-08-19',expiresAt:'2026-09-18'}]},
+  {slug:'burunfarki',name:'Burun Farkı',lifecycle:'live',updatedAt:'2026-08-21',surfaces:[
+    {kind:'web',url:'https://burunfark.com',status:'live',source:'https://burunfark.com',verifiedAt:'2026-08-21',expiresAt:'2026-08-22'}],claims:[
+    {id:'burunfarki-topk-accuracy',figures:['~%30','~%61'],source:'https://burunfark.com/model-performance',verifiedAt:'2026-07-23',expiresAt:'2026-08-22'}]},
+  {slug:'lifeos',name:'LifeOS',lifecycle:'live',updatedAt:'2026-08-21',surfaces:[
+    {kind:'ios',url:'https://apps.apple.com/app/id6771527233',status:'live',source:'https://itunes.apple.com/lookup?country=us&id=6771527233',verifiedAt:'2026-08-21',expiresAt:'2026-08-22'},
+    {kind:'android',url:'',status:'coming-soon',source:'ventures/yulalab-com/site/src/data/projects/lifeos.ts',verifiedAt:'2026-08-19',expiresAt:'2026-09-18'}],claims:[
+    {id:'lifeos-on-device-encryption',figures:['AES-256'],source:'ventures/lifeos/app/lib/core/database/encryption_key_manager.dart',verifiedAt:'2026-08-19',expiresAt:'2026-09-18'}]},
+  {slug:'gravita',name:'Gravita',lifecycle:'research',updatedAt:'2026-08-19',surfaces:[],claims:[]},
+  {slug:'lissom',name:'Lissom',lifecycle:'research',updatedAt:'2026-08-19',surfaces:[],claims:[]},
+  {slug:'jablab',name:'JabLab',lifecycle:'research',updatedAt:'2026-08-19',surfaces:[],claims:[]},
+  {slug:'ostinato',name:'Ostinato',lifecycle:'research',updatedAt:'2026-08-19',surfaces:[],claims:[]},
+  {slug:'choreia',name:'Choreia',lifecycle:'research',updatedAt:'2026-08-19',surfaces:[],claims:[]},
+]});
+
+let PRODUCT_MODELS = [];
+let PRODUCTS_BY_KEY = {};
+let PORTFOLIO_ORDER = [];
+let registryMeta = FALLBACK_REGISTRY_META;
 
 // ─── SOCIAL PLATFORM DEFINITIONS ─────────────────────────────────────
 const SOCIALS = [
@@ -573,10 +511,153 @@ const TOTAL_PRODUCTS = Object.keys(STAMP_BRAND_META).length;
 // ─── HELPERS ──────────────────────────────────────────────────────────
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
 function handleFor(brand, platformKey){
-  return brand.handles[platformKey] || brand.slug;
+  return brand.handles[platformKey] || '';
 }
 function isActive(brand, platformKey){
-  return brand.active.indexOf(platformKey) !== -1;
+  return brand.active.indexOf(platformKey) !== -1 && Boolean(handleFor(brand, platformKey));
+}
+
+const LIFECYCLES = Object.freeze(['live','beta','research','archived']);
+const SURFACE_STATUS = Object.freeze(['live','beta','coming-soon']);
+const SURFACE_HOSTS = Object.freeze({
+  braavolabs: { web:['braavolabs.com'], ios:['apps.apple.com'] },
+  burunfarki: { web:['burunfark.com'] },
+  lifeos: { ios:['apps.apple.com'], android:['play.google.com'] },
+});
+const USED_CLAIMS = Object.freeze({
+  braavolabs:['braavolabs-primitive-count','braavolabs-provider-count'],
+  burunfarki:['burunfarki-topk-accuracy'],
+  lifeos:['lifeos-on-device-encryption'],
+});
+
+function canonicalDate(value){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) return false;
+  const parts = value.split('-').map(Number);
+  const date = new Date(Date.UTC(parts[0], parts[1]-1, parts[2]));
+  return date.getUTCFullYear() === parts[0]
+    && date.getUTCMonth()+1 === parts[1]
+    && date.getUTCDate() === parts[2];
+}
+function siteDate(now){
+  return new Intl.DateTimeFormat('en-CA', {timeZone:'Europe/Istanbul',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+}
+function currentDateWindow(verifiedAt, expiresAt, asOf){
+  return canonicalDate(verifiedAt) && canonicalDate(expiresAt)
+    && verifiedAt <= expiresAt && verifiedAt <= asOf && asOf <= expiresAt;
+}
+function safeRegistryUrl(slug, kind, value){
+  const hosts = SURFACE_HOSTS[slug] && SURFACE_HOSTS[slug][kind];
+  if(!hosts || typeof value !== 'string' || !value) return null;
+  try {
+    const parsed = new URL(value);
+    if(parsed.protocol !== 'https:' || parsed.username || parsed.password) return null;
+    if(hosts.indexOf(parsed.hostname) === -1) return null;
+    return parsed.href;
+  } catch(e){ return null; }
+}
+function normaliseSurface(slug, surface, asOf){
+  if(!surface || typeof surface !== 'object') throw new Error(slug + ': invalid surface');
+  if(!SURFACE_STATUS.includes(surface.status)) throw new Error(slug + ': invalid surface status');
+  if(!canonicalDate(surface.verifiedAt) || !canonicalDate(surface.expiresAt)) throw new Error(slug + ': invalid surface date');
+  if(surface.verifiedAt > surface.expiresAt || surface.verifiedAt > asOf) throw new Error(slug + ': impossible surface date window');
+  if((surface.status === 'live' || surface.status === 'beta') && !surface.source) throw new Error(slug + ': current surface lacks source');
+  if(surface.status === 'coming-soon' && !surface.url){
+    return {kind:surface.kind,status:surface.status,url:null,verifiedAt:surface.verifiedAt,expiresAt:surface.expiresAt,current:false};
+  }
+  const url = safeRegistryUrl(slug, surface.kind, surface.url);
+  if(!url) throw new Error(slug + ': disallowed surface URL');
+  return {kind:surface.kind,status:surface.status,url:url,verifiedAt:surface.verifiedAt,expiresAt:surface.expiresAt,current:currentDateWindow(surface.verifiedAt,surface.expiresAt,asOf)};
+}
+function normaliseClaim(slug, claim, asOf){
+  if(!claim || typeof claim !== 'object' || !claim.source) throw new Error(slug + ': invalid claim');
+  if(!currentDateWindow(claim.verifiedAt, claim.expiresAt, asOf)) return null;
+  const figures = Array.isArray(claim.figures) ? claim.figures.map(function(value){
+    if(typeof value !== 'string' || !/^[~%A-Za-z0-9.+\-]{1,16}$/.test(value)) throw new Error(slug + ': invalid claim figure');
+    return value;
+  }) : [];
+  return {id:claim.id,figures:figures};
+}
+function claimFigures(record, id){
+  const claim = record.claims.find(function(item){ return item && item.id === id; });
+  return claim ? claim.figures : [];
+}
+function percentLabel(value){
+  const match = /^~%([0-9]+)$/.exec(value || '');
+  return match ? '~' + match[1] + '%' : value;
+}
+function productStats(record){
+  if(record.lifecycle === 'research') return [PRESENTATION[record.slug].category, 'Araştırma'];
+  if(record.slug === 'braavolabs'){
+    const primitive = claimFigures(record, 'braavolabs-primitive-count')[0];
+    const provider = claimFigures(record, 'braavolabs-provider-count')[0];
+    return [primitive && primitive + ' Primitives', provider && provider + ' LLMs', record.lifecycle === 'beta' ? 'Beta' : 'Canlı'].filter(Boolean);
+  }
+  if(record.slug === 'burunfarki'){
+    const figures = claimFigures(record, 'burunfarki-topk-accuracy');
+    return [figures[0] && percentLabel(figures[0]) + ' Top-1', figures[1] && percentLabel(figures[1]) + ' Top-3', '18+'].filter(Boolean);
+  }
+  if(record.slug === 'lifeos'){
+    const encryption = claimFigures(record, 'lifeos-on-device-encryption')[0];
+    return [encryption, 'iOS', 'Canlı'].filter(Boolean);
+  }
+  return [record.lifecycle === 'beta' ? 'Beta' : 'Canlı'];
+}
+function normaliseProduct(record, asOf){
+  if(!record || typeof record !== 'object' || !PRESENTATION[record.slug]) throw new Error('unknown product');
+  if(typeof record.name !== 'string' || !record.name.trim() || record.name.length > 80) throw new Error(record.slug + ': invalid name');
+  if(!LIFECYCLES.includes(record.lifecycle) || record.lifecycle === 'archived') throw new Error(record.slug + ': unsupported lifecycle');
+  if(!canonicalDate(record.updatedAt) || record.updatedAt > asOf) throw new Error(record.slug + ': invalid updatedAt');
+  if(!Array.isArray(record.surfaces) || !Array.isArray(record.claims)) throw new Error(record.slug + ': invalid registry arrays');
+  const allowedClaims = USED_CLAIMS[record.slug] || [];
+  const claims = record.claims.filter(function(claim){ return allowedClaims.indexOf(claim.id) !== -1; })
+    .map(function(claim){ return normaliseClaim(record.slug, claim, asOf); }).filter(Boolean);
+  const surfaces = record.surfaces.map(function(surface){ return normaliseSurface(record.slug, surface, asOf); });
+  const current = surfaces.filter(function(surface){ return surface.current && (surface.status === 'live' || surface.status === 'beta'); });
+  const web = current.find(function(surface){ return surface.kind === 'web'; });
+  const ios = current.find(function(surface){ return surface.kind === 'ios'; });
+  const android = current.find(function(surface){ return surface.kind === 'android'; });
+  const p = PRESENTATION[record.slug];
+  const internalUrl = 'https://yulalab.com/projects/' + record.slug;
+  const currentLabel = record.lifecycle === 'research' ? 'Araştırma' : (record.lifecycle === 'beta' ? 'Beta' : 'Canlı');
+  const hasCurrentSurface = record.lifecycle === 'research' || current.length > 0;
+  const model = {
+    key:p.key, slug:record.slug, name:record.name.trim(), sub:p.sub, tagline:p.tagline,
+    color:p.color, legal:p.legal || null, lifecycle:record.lifecycle,
+    type:p.category + ' · ' + (hasCurrentSurface ? currentLabel : 'Doğrulama gerekli'),
+    soonProduct:record.lifecycle === 'research', stats:[], handles:{}, active:[],
+    stores:{ios:ios ? ios.url : null,android:android ? android.url : null},
+    url:web ? web.url : internalUrl,
+    displayUrl:web ? new URL(web.url).hostname : 'yulalab.com/projects/' + record.slug,
+    urlSub:web ? 'Doğrulanmış web yüzeyi · ' + web.verifiedAt : (record.lifecycle === 'research' ? 'Ürün sayfası · Araştırma' : 'YULA ürün sayfası · Son bilinen'),
+    currentHosts:current.map(function(surface){ return new URL(surface.url).hostname; }),
+    updatedAt:record.updatedAt,
+  };
+  model.stats = productStats({slug:record.slug,lifecycle:record.lifecycle,claims:claims});
+  return model;
+}
+function normaliseRegistry(data, now){
+  if(!data || !Array.isArray(data.products)) throw new Error('registry products missing');
+  const asOf = siteDate(now);
+  const seen = new Set();
+  const known = [];
+  data.products.forEach(function(record){
+    if(!record || !PRESENTATION[record.slug]) return; // future products need presentation review before rendering
+    if(seen.has(record.slug)) throw new Error('duplicate registry slug');
+    seen.add(record.slug);
+    known.push(normaliseProduct(record, asOf));
+  });
+  if(REQUIRED_SLUGS.some(function(slug){ return !seen.has(slug); })) throw new Error('registry product set incomplete');
+  return known.sort(function(a,b){
+    const rank = {live:0,beta:0,research:1};
+    return rank[a.lifecycle] - rank[b.lifecycle];
+  });
+}
+function applyRegistry(data, meta){
+  PRODUCT_MODELS = normaliseRegistry(data, new Date());
+  PRODUCTS_BY_KEY = Object.create(null);
+  PRODUCT_MODELS.forEach(function(product){ PRODUCTS_BY_KEY[product.key] = product; });
+  PORTFOLIO_ORDER = PRODUCT_MODELS.map(function(product){ return product.key; });
+  registryMeta = meta;
 }
 
 // ─── TILE RENDERERS ──────────────────────────────────────────────────
@@ -584,7 +665,7 @@ function tileHTML(brand, social){
   const active = isActive(brand, social.key);
   const handle = handleFor(brand, social.key);
   if(active){
-    return `<a class="sb-tile" href="${esc(social.url(handle))}" target="_blank" rel="noopener" aria-label="${esc(social.name)} ${esc(social.handle(handle))}">
+    return `<a class="sb-tile" href="${esc(social.url(handle))}" target="_blank" rel="noopener noreferrer" aria-label="${esc(social.name)} ${esc(social.handle(handle))}">
       <span class="sb-tile-icon" aria-hidden="true">${ICON[social.key]}</span>
       <span class="sb-tile-text">
         <span class="sb-tile-name">${esc(social.name)}</span>
@@ -618,12 +699,12 @@ function holdingHTML(){
       <div class="sb-hero">
         <div class="sb-eyebrow"><span>Product Lab</span><span>${String(TOTAL_PRODUCTS).padStart(2,'0')} Products</span></div>
         <h1 class="sb-name">YULA<br><span class="sb-slash">/</span>LAB.</h1>
-        <p class="sb-tag">${esc(BRANDS.yula.tagline)}</p>
+        <p class="sb-tag">${esc(LAB_PRESENTATION.tagline)}</p>
       </div>
 
       <div class="sb-section"><span class="sb-num">01</span><span>Channels</span><span class="sb-rule"></span></div>
 
-      <a class="sb-url" href="https://yulalab.com" target="_blank" rel="noopener" aria-label="yulalab.com">
+      <a class="sb-url" href="https://yulalab.com" target="_blank" rel="noopener noreferrer" aria-label="yulalab.com">
         <div>
           <div class="sb-url-name">yulalab.com</div>
           <div class="sb-url-sub">Home · Manifesto · Portfolio</div>
@@ -631,13 +712,13 @@ function holdingHTML(){
         <span style="font-size:22px" aria-hidden="true">→</span>
       </a>
 
-      ${gridHTML(BRANDS.yula)}
+      ${gridHTML(LAB_PRESENTATION)}
 
       <div class="sb-section"><span class="sb-num">02</span><span>Portfolio</span><span class="sb-rule"></span></div>
 
       <div class="sb-prod-grid">
       ${PORTFOLIO_ORDER.map((key, i) => {
-        const p = BRANDS[key];
+        const p = PRODUCTS_BY_KEY[key];
         const slug = REVERSE_MAP[key] || key;
         const soonBadge = p.soonProduct ? `<span class="sb-prod-soon" style="--c:${p.color}">Yakında</span>` : '';
         return `<a class="sb-prod" data-nav="${slug}" href="#${slug}" style="--c:${p.color};background:${p.color};color:#0A0A0A" aria-label="${esc(p.name)} sayfasına git">
@@ -650,7 +731,7 @@ function holdingHTML(){
           <div class="sb-prod-sub">${esc(p.sub)}</div>
           <div class="sb-prod-foot">
             <span>${esc(p.type)}</span>
-            <span>${esc(p.url)}</span>
+            <span>${esc(p.displayUrl)}</span>
           </div>
         </a>`;
       }).join('')}
@@ -664,7 +745,7 @@ function holdingHTML(){
            switched on) posts funnel events to yulalab.com/api/events. It had
            no notice of its own, and the site's notice was scoped by name to
            yulalab.com — so this surface collected without disclosing. -->
-      <span><a href="https://yulalab.com/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">GİZLİLİK</a></span>
+      <span><a href="https://yulalab.com/privacy" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">GİZLİLİK</a></span>
     </div>
   </div>`;
 }
@@ -676,7 +757,7 @@ function platBtnHTML(kind, url){
   const n = isIOS ? 'iOS' : 'Android';
   if(url){
     const label = isIOS ? 'App Store' : 'Google Play';
-    return `<a class="sb-platbtn" href="${url}" target="_blank" rel="noopener" aria-label="${label}">
+    return `<a class="sb-platbtn" href="${esc(url)}" target="_blank" rel="noopener noreferrer" aria-label="${label}">
       <span class="sb-platbtn-icon" aria-hidden="true">${icon}</span>
       <div class="sb-platbtn-text">
         <div class="sb-platbtn-n">${n}</div>
@@ -696,7 +777,7 @@ function platBtnHTML(kind, url){
 }
 
 function brandHTML(brandKey){
-  const b = BRANDS[brandKey];
+  const b = PRODUCTS_BY_KEY[brandKey];
   const meta = STAMP_BRAND_META[brandKey];
   const upperName = b.name.toUpperCase();
   const tagline = b.line2 ? esc(b.tagline) + '<br>' + esc(b.line2) : esc(b.tagline);
@@ -718,10 +799,10 @@ function brandHTML(brandKey){
 
       <div class="sb-section"><span class="sb-num">01</span><span>Platform</span><span class="sb-rule"></span></div>
 
-      <a class="sb-url" href="https://${esc(b.url)}" target="_blank" rel="noopener" style="background:${b.color};color:#0A0A0A" aria-label="${esc(b.url)}">
+      <a class="sb-url" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer" style="background:${b.color};color:#0A0A0A" aria-label="${esc(b.displayUrl)}">
         <div>
-          <div class="sb-url-name">${esc(b.url)}</div>
-          <div class="sb-url-sub" style="opacity:.65">${esc(meta.urlSub)}</div>
+          <div class="sb-url-name">${esc(b.displayUrl)}</div>
+          <div class="sb-url-sub" style="opacity:.65">${esc(b.urlSub)}</div>
         </div>
         <span style="font-size:22px" aria-hidden="true">→</span>
       </a>
@@ -735,10 +816,10 @@ function brandHTML(brandKey){
 
       ${gridHTML(b)}
 
-      ${b.legal ? `<div class="sb-legal">${esc(b.legal)}<span class="sb-legal-2">Yeşilay 182 · <a href="https://yesilay.org.tr" target="_blank" rel="noopener">yesilay.org.tr</a></span></div>` : ''}
+      ${b.legal ? `<div class="sb-legal">${esc(b.legal)}<span class="sb-legal-2">Yeşilay 182 · <a href="https://yesilay.org.tr" target="_blank" rel="noopener noreferrer">yesilay.org.tr</a></span></div>` : ''}
     </div>
     <div class="sb-foot" style="background:${b.color};color:#0A0A0A">
-      <span>${esc(b.url.toUpperCase())}</span>
+      <span>${esc(b.displayUrl.toUpperCase())}</span>
       <span>BY <a data-nav="holding" href="#" style="color:inherit;opacity:1">YULA LAB</a></span>
     </div>
   </div>`;
@@ -779,16 +860,13 @@ const TITLES = {
   'ostinato':'Ostinato — YULA Lab',
   'choreia':'Choreia — YULA Lab',
 };
-// Portföy kartı sırası (registry sıra tavsiyesi: Lissom→JabLab→Gravita→Ostinato→Choreia)
-const PORTFOLIO_ORDER = ['lo','bl','bf','lissom','jablab','gravita','ostinato','choreia'];
-
 const app = document.getElementById('app');
 
 function buildAllPages(){
   const pages = { holding: holdingHTML() };
   PORTFOLIO_ORDER.forEach(function(key){ pages[key] = brandHTML(key); });
   app.innerHTML = Object.keys(pages).map(key =>
-    `<div id="pg-${key}" class="page" role="region" aria-label="${esc(TITLES[key])}">${pages[key]}</div>`
+    `<section id="pg-${key}" class="page" aria-labelledby="pg-${key}-title"><h2 id="pg-${key}-title" class="sb-sr-only">${esc(TITLES[key])}</h2>${pages[key]}</section>`
   ).join('');
 }
 
@@ -797,7 +875,9 @@ function showPage(key, push){
   if(!el) return;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
-  window.scrollTo({ top:0, behavior:'smooth' });
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top:0, behavior:reduceMotion ? 'auto' : 'smooth' });
+  app.focus({preventScroll:true});
   if(push){
     const h = REVERSE_MAP[key];
     const url = h ? '#' + h : window.location.pathname + window.location.search;
@@ -821,30 +901,21 @@ function routeFromHash(){
 function navigate(key){ showPage(key, true); }
 
 // ─── INIT ────────────────────────────────────────────────────────────
+applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
 buildAllPages();
 routeFromHash();
 
 window.addEventListener('popstate', routeFromHash);
 window.addEventListener('hashchange', routeFromHash);
 
-// ─── PUBLIC REGISTRY SYNC (Y-P0-003) ──────────────────────────────────
-// The store URLs baked into BRANDS above are a last-known-good snapshot
-// from this file's own last deploy. On load, try to refresh just the
-// store surface data from yulalab.com's public registry (single source of
-// truth, updated independently of this repo's own deploys) — without
-// blocking first paint, which already happened above. If the fetch fails
-// (offline, CORS misconfigured, yulalab.com down), this page keeps working
-// exactly as it does today with the baked-in snapshot; it does not fail
-// silently — a visible, dismissible notice says the store status shown may
-// not be current.
+// ─── PUBLIC REGISTRY SYNC (Y-P1-005) ──────────────────────────────────
+// Both the canonical response and the safe baked snapshot enter through
+// normaliseRegistry/applyRegistry. There is one renderer and one trust
+// boundary: a challenge page, malformed JSON, impossible date or unknown
+// URL can never become an href or an asserted current status.
 const REGISTRY_URL = 'https://yulalab.com/portfolio-registry.json';
-const SLUG_TO_BRAND_KEY = {
-  braavolabs: 'bl', burunfarki: 'bf', lifeos: 'lo',
-  lissom: 'lissom', jablab: 'jablab', gravita: 'gravita',
-  ostinato: 'ostinato', choreia: 'choreia',
-};
 
-function showRegistryStaleNotice(){
+function showRegistryStaleNotice(reason){
   if(document.getElementById('sb-stale-notice')) return;
   const notice = document.createElement('div');
   notice.id = 'sb-stale-notice';
@@ -855,7 +926,9 @@ function showRegistryStaleNotice(){
     + 'display:flex;align-items:center;justify-content:center;gap:10px;'
     + 'border-top:1px solid rgba(255,207,107,.35)';
   const text = document.createElement('span');
-  text.textContent = 'Canlı mağaza durumu şu an doğrulanamadı — bu sayfadaki son bilinen bilgi gösteriliyor.';
+  const shortHash = registryMeta.sha256 ? registryMeta.sha256.slice(0,12) : 'hesaplanamadı';
+  text.textContent = 'Registry doğrulanamadı (' + reason + '). Güvenli son bilinen kayıt gösteriliyor · son doğrulama '
+    + registryMeta.verifiedAt + ' · SHA-256 ' + shortHash + '…';
   const dismiss = document.createElement('button');
   dismiss.type = 'button';
   dismiss.setAttribute('aria-label', 'Uyarıyı kapat');
@@ -867,6 +940,16 @@ function showRegistryStaleNotice(){
   document.body.appendChild(notice);
 }
 
+function sha256Text(value){
+  if(typeof crypto === 'undefined' || !crypto.subtle || typeof TextEncoder === 'undefined') return Promise.resolve(null);
+  return crypto.subtle.digest('SHA-256', new TextEncoder().encode(value)).then(function(buffer){
+    return Array.from(new Uint8Array(buffer)).map(function(byte){ return byte.toString(16).padStart(2,'0'); }).join('');
+  });
+}
+function registryVerifiedAt(data){
+  return data.products.map(function(product){ return product.updatedAt; }).filter(canonicalDate).sort().pop() || 'bilinmiyor';
+}
+
 // AbortSignal.timeout is a 2022 API — Safari <16 and some older in-app
 // WebViews don't have it. Evaluating it unguarded inside the fetch() call
 // below would throw synchronously, OUTSIDE the .then/.catch chain, which
@@ -874,7 +957,7 @@ function showRegistryStaleNotice(){
 // window.go for the whole page, not just the registry sync) — the exact
 // opposite of the graceful-degradation this block exists for. Feature-
 // detect first; on browsers without it, just skip the timeout.
-const fetchOptions = { mode: 'cors' };
+const fetchOptions = { mode:'cors', credentials:'omit', cache:'no-store', referrerPolicy:'no-referrer' };
 if(typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function'){
   try { fetchOptions.signal = AbortSignal.timeout(6000); } catch(e){ /* no-op — fetch proceeds without a timeout */ }
 }
@@ -882,33 +965,31 @@ if(typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'functio
 fetch(REGISTRY_URL, fetchOptions)
   .then(function(res){
     if(!res.ok) throw new Error('registry fetch: HTTP ' + res.status);
-    return res.json();
+    const contentType = (res.headers.get('content-type') || '').toLowerCase();
+    if(contentType.indexOf('application/json') === -1) throw new Error('non-JSON or attack challenge response');
+    return res.text();
   })
-  .then(function(data){
-    const products = (data && data.products) || [];
-    let changed = false;
-    products.forEach(function(record){
-      const key = SLUG_TO_BRAND_KEY[record.slug];
-      const brand = key && BRANDS[key];
-      if(!brand || !Array.isArray(record.surfaces)) return;
-      const ios = record.surfaces.find(function(s){ return s.kind === 'ios'; });
-      const android = record.surfaces.find(function(s){ return s.kind === 'android'; });
-      const newIos = (ios && ios.url) || null;
-      const newAndroid = (android && android.url) || null;
-      if(brand.stores.ios !== newIos || brand.stores.android !== newAndroid){
-        brand.stores = { ios: newIos, android: newAndroid };
-        changed = true;
-      }
-    });
-    // Only rebuild the DOM if something actually differs from the baked-in
-    // snapshot — the common case (nothing changed since this file's last
-    // deploy) stays a silent no-op with zero visible re-render.
-    if(changed){
-      buildAllPages();
-      routeFromHash();
+  .then(function(raw){
+    if(/^\s*</.test(raw) || /vercel.*(?:attack|challenge)/i.test(raw)) throw new Error('attack challenge response');
+    let data;
+    try { data = JSON.parse(raw); } catch(e){ throw new Error('malformed registry JSON'); }
+    return sha256Text(raw).then(function(hash){ return {data:data,hash:hash}; });
+  })
+  .then(function(result){
+    applyRegistry(result.data, {sha256:result.hash,verifiedAt:registryVerifiedAt(result.data),source:'network'});
+    buildAllPages();
+    routeFromHash();
+    if(PRODUCT_MODELS.some(function(product){ return /Doğrulama gerekli/.test(product.type); })){
+      showRegistryStaleNotice('güncellik penceresi dolmuş');
     }
   })
-  .catch(function(){ showRegistryStaleNotice(); });
+  .catch(function(error){
+    applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
+    buildAllPages();
+    routeFromHash();
+    const reason = /challenge|non-JSON/.test(error.message) ? 'challenge/non-JSON' : 'ağ veya veri hatası';
+    showRegistryStaleNotice(reason);
+  });
 
 // Delegated click for internal nav (data-nav attribute)
 document.addEventListener('click', function(e){
@@ -1035,11 +1116,16 @@ window.go = navigate;
   // into the fetched registry (each record's own surface hosts) belongs with
   // Y-P1-005's links-registry migration; until then a product URL change
   // silently stops hub tracking with no failing test.
-  var PRODUCT_HOSTS = ['braavolabs.com','burunfark.com','lifeos-legal.vercel.app'];
+  function productHosts(){
+    return PRODUCT_MODELS.reduce(function(hosts, product){
+      product.currentHosts.forEach(function(host){ if(hosts.indexOf(host) === -1) hosts.push(host); });
+      return hosts;
+    }, []);
+  }
   function classify(host){
     if(FIRST_PARTY.indexOf(host) !== -1) return null;
     if(host === 'apps.apple.com' || host === 'play.google.com') return 'store';
-    if(PRODUCT_HOSTS.indexOf(host) !== -1) return 'product';
+    if(productHosts().indexOf(host) !== -1) return 'product';
     return null;
   }
 
