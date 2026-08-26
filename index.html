@@ -8,7 +8,7 @@
 <title>YULA Lab — Links</title>
 <meta name="description" content="YULA Lab ürün dizini: canlı ve beta ürünler önce, araştırma ürünleri açık etiketle, doğrulanmış bağlantılar tek sayfada.">
 <meta name="robots" content="index,follow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eseI92nKZxQG4pYLIVa1k2YxYGCpwkhBRY5Y5A3DC9c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-RkNN/dYcAF9/FejCdhchtSy8XoOzvvQXKQBkfnfnZgY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -644,6 +644,8 @@ function normaliseRegistry(data, now){
     if(!record || !PRESENTATION[record.slug]) return; // future products need presentation review before rendering
     if(seen.has(record.slug)) throw new Error('duplicate registry slug');
     seen.add(record.slug);
+    if(!LIFECYCLES.includes(record.lifecycle)) throw new Error(record.slug + ': unsupported lifecycle');
+    if(record.lifecycle === 'archived') return;
     known.push(normaliseProduct(record, asOf));
   });
   if(REQUIRED_SLUGS.some(function(slug){ return !seen.has(slug); })) throw new Error('registry product set incomplete');
