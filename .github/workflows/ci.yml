@@ -45,7 +45,7 @@ jobs:
         assert workflow['on'] == expected_triggers
         assert workflow['permissions'] == {'contents': 'read'}
         assert workflow['concurrency'] == {
-            'group': 'links-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}',
+            'group': 'links-ci-${' + '{ github.workflow }}-${' + '{ github.event.pull_request.number || github.ref }}',
             'cancel-in-progress': True,
         }
         assert list(workflow['jobs']) == ['static-contract']
@@ -72,7 +72,7 @@ jobs:
         assert steps[0]['with'] == {'fetch-depth': 0, 'persist-credentials': False}
         assert all(step.get('shell') == 'bash' for step in steps[1:])
         assert steps[2]['env'] == {
-            'BASE_SHA': '${{ github.event.pull_request.base.sha || github.event.before }}',
+            'BASE_SHA': '${' + '{ github.event.pull_request.base.sha || github.event.before }}',
         }
 
         def strings(value):
