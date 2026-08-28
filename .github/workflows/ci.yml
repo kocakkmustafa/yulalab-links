@@ -1,0 +1,399 @@
+name: Links static contract
+'on':
+  pull_request:
+    branches:
+    - develop
+  push:
+    branches:
+    - develop
+permissions:
+  contents: read
+concurrency:
+  group: links-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  static-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+    - name: Checkout exact revision
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+    - name: Validate workflow policy
+      shell: bash
+      run: |-
+        set -euo pipefail
+        WORKFLOW_JSON="$(ruby -rjson -ryaml -e 'document = YAML.safe_load(File.read(".github/workflows/ci.yml"), permitted_classes: [], permitted_symbols: [], aliases: false); print JSON.generate(document)')"
+        export WORKFLOW_JSON
+        python3 - <<'PY'
+        from pathlib import Path
+        import ast
+        import json
+        import os
+
+        path = Path('.github/workflows/ci.yml')
+        workflow = json.loads(os.environ['WORKFLOW_JSON'])
+        expected_checkout = 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683'
+        expected_triggers = {
+            'pull_request': {'branches': ['develop']},
+            'push': {'branches': ['develop']},
+        }
+        assert set(workflow) == {'name', 'on', 'permissions', 'concurrency', 'jobs'}
+        assert workflow['name'] == 'Links static contract'
+        assert workflow['on'] == expected_triggers
+        assert workflow['permissions'] == {'contents': 'read'}
+        assert workflow['concurrency'] == {
+            'group': 'links-ci-${' + '{ github.workflow }}-${' + '{ github.event.pull_request.number || github.ref }}',
+            'cancel-in-progress': True,
+        }
+        assert list(workflow['jobs']) == ['static-contract']
+        job = workflow['jobs']['static-contract']
+        assert set(job) == {'runs-on', 'timeout-minutes', 'steps'}
+        assert job['runs-on'] == 'ubuntu-24.04'
+        assert job['timeout-minutes'] == 5
+        steps = job['steps']
+        assert [step['name'] for step in steps] == [
+            'Checkout exact revision',
+            'Validate workflow policy',
+            'Validate changed-line whitespace',
+            'Validate static Links contract',
+        ]
+        expected_step_keys = (
+            {'name', 'uses', 'with'},
+            {'name', 'shell', 'run'},
+            {'name', 'shell', 'env', 'run'},
+            {'name', 'shell', 'run'},
+        )
+        for step, expected_keys in zip(steps, expected_step_keys):
+            assert set(step) == expected_keys, f"unexpected keys for {step.get('name')}: {sorted(set(step) - expected_keys)}"
+        assert steps[0]['uses'] == expected_checkout
+        assert steps[0]['with'] == {'fetch-depth': 0, 'persist-credentials': False}
+        assert all(step.get('shell') == 'bash' for step in steps[1:])
+        assert steps[2]['env'] == {
+            'BASE_SHA': '${' + '{ github.event.pull_request.base.sha || github.event.before }}',
+        }
+
+        def strings(value):
+            if isinstance(value, str):
+                yield value
+            elif isinstance(value, dict):
+                for key, item in value.items():
+                    yield str(key)
+                    yield from strings(item)
+            elif isinstance(value, list):
+                for item in value:
+                    yield from strings(item)
+
+        text = '\n'.join(strings(workflow)).lower()
+        secret_marker = '${' + '{' + ' secrets.'
+        token_marker = '${' + '{' + ' github.token'
+        assert secret_marker not in text
+        assert token_marker not in text
+        shell_blocked = (
+            'c' + 'url ', 'w' + 'get ', 'p' + 'ip install', 'n' + 'pm ',
+            'p' + 'npm ', 'y' + 'arn ', 'a' + 'pt-get', 'b' + 'rew install',
+            'g' + 'h ', 's' + 'sh ', 's' + 'cp ', 'v' + 'ercel deploy',
+            'v' + 'ercel --prod',
+        )
+        allowed_imports = {
+            1: {'ast', 'json', 'os', 'pathlib'},
+            3: {'datetime', 'html.parser', 'json', 'pathlib', 're', 'subprocess', 'urllib.parse', 'xml.etree.ElementTree'},
+        }
+        protected_names = {
+            1: {
+                'Path', 'all', 'ast', 'call_name', 'enumerate', 'isinstance', 'json',
+                'len', 'list', 'os', 'print', 'python_source', 'set', 'sorted', 'str',
+                'strings', 'validate_python', 'validate_subprocess_run', 'zip',
+                'bound_names',
+            },
+            3: {
+                'ContractParser', 'ET', 'HTMLParser', 'Path', 'date', 'dict', 'json',
+                'len', 'print', 're', 'set', 'sorted', 'subprocess', 'super',
+                'urlparse',
+            },
+        }
+        allowed_definitions = {
+            1: {'bound_names', 'call_name', 'python_source', 'strings', 'validate_python', 'validate_subprocess_run'},
+            3: {'ContractParser'},
+        }
+        allowed_calls = {
+            1: {
+                'Path', 'all', 'arguments.append', 'ast.iter_child_nodes', 'ast.parse', 'ast.walk',
+                'bound_names', 'call_name', 'enumerate', 'isinstance', 'join',
+                'join().lower', 'json.loads', 'len', 'lines.count', 'list',
+                'parent.get', 'path.read_text', 'print', 'python_source',
+                'run.splitlines', 'set', 'shell_surface.lower', 'sorted', 'step.get',
+                'str', 'strings', 'token.strip', 'validate_python',
+                'validate_subprocess_run', 'value.items', 'zip',
+            },
+            3: {
+                'ContractParser', 'ET.parse', 'ET.parse().getroot', 'Path',
+                'Path().is_file', 'Path().read_text', 'attrs.get',
+                'date.fromisoformat', 'destination.startswith', 'dict',
+                'href.split', 'href.startswith', 'items', 'json.loads', 'len',
+                'parser.close', 'parser.feed', 'path.is_file', 'path.stat', 'print',
+                're.escape', 're.search', 'redirect_fragments.add', 'relative.lstrip',
+                'root.findall', 'self.duplicate_ids.add', 'self.hrefs.append',
+                'self.ids.add', 'set', 'sorted', 'split', 'subprocess.run', 'super',
+                'super().__init__', 'urlparse', 'values.get',
+            },
+        }
+        dangerous_calls = {
+            '__import__', 'compile', 'delattr', 'eval', 'exec', 'getattr',
+            'globals', 'locals', 'open', 'setattr', 'vars',
+        }
+        dangerous_attributes = {
+            'connect', 'request', 'send', 'sendall', 'system', 'unlink', 'urlopen',
+            'urlretrieve', 'write_bytes', 'write_text',
+        }
+
+        def python_source(run):
+            lines = run.splitlines()
+            policy_preamble = [
+                'set -euo pipefail',
+                "WORKFLOW_JSON=\"$(ruby -rjson -ryaml -e 'document = YAML.safe_load(File.read(\".github/workflows/ci.yml\"), permitted_classes: [], permitted_symbols: [], aliases: false); print JSON.generate(document)')\"",
+                'export WORKFLOW_JSON',
+            ]
+            if lines[:3] == policy_preamble:
+                lines = lines[3:]
+            if not lines or lines[0] != "python3 - <<'PY'":
+                return None
+            assert lines[-1] == 'PY' and lines.count('PY') == 1, 'unsealed Python heredoc'
+            return '\n'.join(lines[1:-1])
+
+        def call_name(node):
+            if isinstance(node, ast.Name):
+                return node.id
+            if isinstance(node, ast.Attribute):
+                base = call_name(node.value)
+                return f'{base}.{node.attr}' if base else node.attr
+            if isinstance(node, ast.Call):
+                return call_name(node.func) + '()'
+            return ''
+
+        def bound_names(target):
+            if isinstance(target, ast.Name):
+                yield target.id
+            else:
+                for child in ast.iter_child_nodes(target):
+                    yield from bound_names(child)
+
+        def validate_subprocess_run(node, step_index):
+            assert step_index == 3
+            assert len(node.args) == 1 and isinstance(node.args[0], ast.List)
+            elements = node.args[0].elts
+            assert len(elements) == 4
+            assert [element.value for element in elements[:3] if isinstance(element, ast.Constant)] == [
+                'git', 'ls-files', '--error-unmatch',
+            ]
+            assert isinstance(elements[3], ast.Name) and elements[3].id == 'name'
+            keywords = {keyword.arg: keyword.value for keyword in node.keywords}
+            assert set(keywords) == {'check', 'stdout'}
+            assert isinstance(keywords['check'], ast.Constant) and keywords['check'].value is True
+            stdout = keywords['stdout']
+            assert isinstance(stdout, ast.Attribute) and stdout.attr == 'DEVNULL'
+            assert isinstance(stdout.value, ast.Name) and stdout.value.id == 'subprocess'
+
+        def validate_python(step_index, source):
+            tree = ast.parse(source)
+            parent = {
+                child: node
+                for node in ast.walk(tree)
+                for child in ast.iter_child_nodes(node)
+            }
+            for node in ast.walk(tree):
+                if isinstance(node, ast.Import):
+                    for alias in node.names:
+                        assert alias.name in allowed_imports[step_index], f'forbidden import: {alias.name}'
+                        assert alias.asname is None or (alias.name == 'xml.etree.ElementTree' and alias.asname == 'ET')
+                elif isinstance(node, ast.ImportFrom):
+                    assert node.module != 'subprocess', 'ImportFrom subprocess forbidden'
+                    assert node.module in allowed_imports[step_index], f'forbidden import-from: {node.module}'
+                    assert all(alias.asname is None for alias in node.names), 'import alias forbidden'
+                elif isinstance(node, (ast.Assign, ast.AnnAssign, ast.NamedExpr)):
+                    targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+                    for target in targets:
+                        for name in bound_names(target):
+                            assert name not in protected_names[step_index], f'protected name rebinding: {name}'
+                elif isinstance(node, (ast.For, ast.AsyncFor, ast.comprehension)):
+                    for name in bound_names(node.target):
+                        assert name not in protected_names[step_index], f'protected iteration binding: {name}'
+                elif isinstance(node, ast.ExceptHandler) and node.name:
+                    assert node.name not in protected_names[step_index], f'protected exception binding: {node.name}'
+                elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                    if node.name in protected_names[step_index]:
+                        assert node.name in allowed_definitions[step_index], f'protected definition rebinding: {node.name}'
+                    if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                        arguments = [*node.args.posonlyargs, *node.args.args, *node.args.kwonlyargs]
+                        if node.args.vararg:
+                            arguments.append(node.args.vararg)
+                        if node.args.kwarg:
+                            arguments.append(node.args.kwarg)
+                        for argument in arguments:
+                            assert argument.arg not in protected_names[step_index], f'protected argument binding: {argument.arg}'
+                elif isinstance(node, ast.Call):
+                    target = call_name(node.func)
+                    assert target in allowed_calls[step_index], f'forbidden call target: {target}'
+                    if isinstance(node.func, ast.Name):
+                        assert node.func.id not in dangerous_calls, f'forbidden dynamic call: {node.func.id}'
+                    if target == 'subprocess.run':
+                        validate_subprocess_run(node, step_index)
+                elif isinstance(node, ast.Attribute):
+                    is_dunder = node.attr[:2] == '__' and node.attr[-2:] == '__'
+                    if is_dunder:
+                        owner = parent.get(node)
+                        assert node.attr == '__init__' and isinstance(owner, ast.Call) and call_name(owner.func) == 'super().__init__', f'forbidden dunder attribute: {node.attr}'
+                    assert node.attr not in dangerous_attributes, f'forbidden attribute: {node.attr}'
+                    if isinstance(node.value, ast.Name) and node.value.id == 'subprocess':
+                        if node.attr == 'run':
+                            owner = parent.get(node)
+                            assert isinstance(owner, ast.Call) and owner.func is node, 'subprocess.run alias forbidden'
+                        else:
+                            assert node.attr == 'DEVNULL', f'forbidden subprocess attribute: {node.attr}'
+
+        for step_index, step in enumerate(steps[1:], start=1):
+            run = step['run']
+            source = python_source(run)
+            if source is not None:
+                validate_python(step_index, source)
+                shell_surface = '\n'.join(run.splitlines()[:3]) if step_index == 1 else run.splitlines()[0]
+            else:
+                shell_surface = run
+            for token in shell_blocked:
+                assert token not in shell_surface.lower(), f'network/package/deploy command forbidden: {token.strip()}'
+        print('workflow-policy: PASS')
+        PY
+    - name: Validate changed-line whitespace
+      shell: bash
+      env:
+        BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+      run: |-
+        set -euo pipefail
+        case "$BASE_SHA" in
+          ''|0000000000000000000000000000000000000000) echo 'invalid event base SHA' >&2; exit 1 ;;
+        esac
+        git cat-file -e "$BASE_SHA^{commit}"
+        git cat-file -e "$GITHUB_SHA^{commit}"
+        git diff --check "$BASE_SHA" "$GITHUB_SHA"
+        echo 'diff-check: PASS'
+    - name: Validate static Links contract
+      shell: bash
+      run: |-
+        python3 - <<'PY'
+        from datetime import date
+        from html.parser import HTMLParser
+        from pathlib import Path
+        from urllib.parse import urlparse
+        import json
+        import re
+        import subprocess
+        import xml.etree.ElementTree as ET
+
+        expected_files = ('README.md', 'index.html', 'robots.txt', 'sitemap.xml', 'vercel.json')
+        for name in expected_files:
+            path = Path(name)
+            assert path.is_file() and path.stat().st_size > 0, f'missing or empty: {name}'
+            subprocess.run(['git', 'ls-files', '--error-unmatch', name], check=True, stdout=subprocess.DEVNULL)
+
+        slugs = ('braavolabs', 'burunfarki', 'lifeos', 'gravita', 'lissom', 'jablab', 'ostinato', 'choreia')
+        fragments = {'holding', *slugs}
+        html_text = Path('index.html').read_text(encoding='utf-8')
+        readme_text = Path('README.md').read_text(encoding='utf-8')
+        robots_text = Path('robots.txt').read_text(encoding='utf-8')
+
+        class ContractParser(HTMLParser):
+            def __init__(self):
+                super().__init__(convert_charrefs=True)
+                self.ids = set()
+                self.hrefs = []
+                self.duplicate_ids = set()
+
+            def handle_starttag(self, tag, attrs):
+                values = dict(attrs)
+                element_id = values.get('id')
+                if element_id:
+                    if element_id in self.ids:
+                        self.duplicate_ids.add(element_id)
+                    self.ids.add(element_id)
+                if 'href' in values:
+                    self.hrefs.append((tag, values['href'], values))
+
+            handle_startendtag = handle_starttag
+
+        parser = ContractParser()
+        parser.feed(html_text)
+        parser.close()
+        assert not parser.duplicate_ids, f'duplicate ids: {sorted(parser.duplicate_ids)}'
+        assert {'app', 'noscript-title'} <= parser.ids
+        assert '<main id="app"' in html_text
+        assert '<title>YULA Lab — Links</title>' in html_text
+
+        external_hrefs = {href for _, href, _ in parser.hrefs if href.startswith('https://')}
+        for slug in slugs:
+            assert f'https://yulalab.com/projects/{slug}' in external_hrefs
+            assert f'/{slug}' in readme_text and f'#{slug}' in readme_text
+            assert re.search(rf'^\s*{re.escape(slug)}\s*:', html_text, re.MULTILINE), f'missing presentation key: {slug}'
+        assert 'href="https://yulalab.com/privacy"' in html_text
+        assert 'href="https://yulalab.com"' in html_text
+
+        for tag, href, attrs in parser.hrefs:
+            if href.startswith('#'):
+                fragment = href[1:]
+                if fragment:
+                    assert fragment in fragments, f'unresolved fragment: {href}'
+                else:
+                    assert attrs.get('data-nav') in fragments, 'bare fragment requires a known data-nav target'
+                continue
+            parsed = urlparse(href)
+            if parsed.scheme:
+                assert parsed.scheme in {'https', 'data'}, f'forbidden URL scheme: {href}'
+                continue
+            relative = href.split('#', 1)[0].split('?', 1)[0]
+            assert relative and Path(relative.lstrip('/')).is_file(), f'unresolved relative link: {href}'
+
+        assert re.search(r"\{slug:'lifeos',name:'LifeOS',lifecycle:'live'", html_text)
+        public_text = readme_text + '\n' + html_text
+        for label, pattern in {
+            'venture-studio': r'\bventure studio\b',
+            'three-products': r'\b3 products\b',
+            'lifeos-coming-soon': r'lifeos\s*(?:[-—·:|]|</?[^>]+>|\s)*\s*coming[ -]soon',
+            'shap': r'\bshap\b',
+            '611': r'(?<!\d)611(?!\d)',
+            '13587': r'(?<!\d)13[,.]587(?!\d)',
+            '130930': r'(?<!\d)130[,.]930(?!\d)',
+        }.items():
+            assert not re.search(pattern, public_text, re.IGNORECASE), f'prohibited stale claim: {label}'
+
+        root = ET.parse('sitemap.xml').getroot()
+        assert root.tag == '{http://www.sitemaps.org/schemas/sitemap/0.9}urlset'
+        locations = [node.text for node in root.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+        assert locations == ['https://links.yulalab.com/']
+        lastmods = [node.text for node in root.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod')]
+        assert len(lastmods) == 1
+        date.fromisoformat(lastmods[0])
+        assert 'Sitemap: https://links.yulalab.com/sitemap.xml' in robots_text
+        assert re.search(r'^Allow:\s*/\s*$', robots_text, re.MULTILINE)
+
+        vercel = json.loads(Path('vercel.json').read_text(encoding='utf-8'))
+        assert vercel['cleanUrls'] is True and vercel['trailingSlash'] is False
+        redirects = vercel['redirects']
+        sources = [item['source'] for item in redirects]
+        assert len(sources) == len(set(sources))
+        redirect_fragments = set()
+        for item in redirects:
+            assert item['permanent'] is False
+            destination = item['destination']
+            assert destination.startswith('/#'), f'non-local redirect: {destination}'
+            fragment = destination[2:]
+            assert fragment in fragments, f'unknown redirect fragment: {fragment}'
+            redirect_fragments.add(fragment)
+        assert fragments <= redirect_fragments
+        headers = {entry['key']: entry['value'] for rule in vercel['headers'] for entry in rule['headers']}
+        csp = headers['Content-Security-Policy']
+        for directive in ("default-src 'none'", "object-src 'none'", "frame-ancestors 'none'", "form-action 'none'"):
+            assert directive in csp
+        assert headers['X-Frame-Options'] == 'DENY'
+        print('static-contract: PASS')
+        PY
