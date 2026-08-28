@@ -87,8 +87,8 @@ jobs:
                     yield from strings(item)
 
         text = '\n'.join(strings(workflow)).lower()
-        secret_marker = '${{' + ' secrets.'
-        token_marker = '${{' + ' github.token'
+        secret_marker = '${' + '{' + ' secrets.'
+        token_marker = '${' + '{' + ' github.token'
         assert secret_marker not in text
         assert token_marker not in text
         shell_blocked = (
