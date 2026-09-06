@@ -56,3 +56,11 @@ Beklenen kontroller: canonical registry parity, fallback/challenge/malformed pay
 ## Deploy sınırı
 
 Lokal inceleme manuel gate gerektirmez. `develop` push, Vercel preview veya production deploy yalnız `MANUAL-YULA-DEPLOY` ile yapılır. Bu repo için production dış sistem mutasyonu otomatik değildir.
+
+### Yayın hazırlığı — 2026-09-06
+
+TR/EN düğmesi `?lang=tr` / `?lang=en` ile aynı ürün hash hedefini korur. Ortak destek `support@yulalab.com`; holding, ürün ve JavaScript kapalı yüzeylerinde erişilebilir. Mağaza bağlantıları güncel doğrulamaya göre açılır; süresi dolmuş kayıtlar, listelenmeyen platformlar ve gerçek “yakında” kayıtları ayrı etiketlenir. Registry yenilemesi odak ve kaydırma konumunu korur.
+
+`netlify.toml`, `_redirects` ve `_headers` statik Netlify hazırlığıdır. 19 kısa yol mevcut Vercel yönlendirmeleriyle eşleşir. Yayın paketine yalnız `index.html`, `robots.txt`, `sitemap.xml`, `_redirects` ve `_headers` alınır; build komutu/Next eklentisi/function gerekmez. Bu yapılandırma henüz Netlify provider üzerinde kabul edilmiş veya genel olarak yayımlanmış değildir.
+
+Son yerel doğrulama: 21 JSDOM normal kullanım kontrolü ve mevcut statik HTML/rota sözleşmesi geçti. Bunlar gerçek tarayıcı yerleşimi, canlı yönlendirme veya final güvenlik kabulü değildir. Gerçek tarayıcı isteği yerel HTTP sunucusuna ulaşamadığı için mobil ve provider kabulü açık kaldı.

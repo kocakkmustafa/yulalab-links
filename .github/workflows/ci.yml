@@ -346,6 +346,8 @@ jobs:
                 else:
                     assert attrs.get('data-nav') in fragments, 'bare fragment requires a known data-nav target'
                 continue
+            if href == 'mailto:support@yulalab.com':
+                continue
             parsed = urlparse(href)
             if parsed.scheme:
                 assert parsed.scheme in {'https', 'data'}, f'forbidden URL scheme: {href}'
