@@ -1,0 +1,3 @@
+[build]
+  publish = "."
+# Pure static HTML; no framework plugin, functions or paid build required.

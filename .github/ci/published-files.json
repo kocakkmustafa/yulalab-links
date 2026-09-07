@@ -1,0 +1,44 @@
+{
+  "publishedSourceManifestSha256": "f80b945f5927e99d44826eddcc96eb96ad0294ea68ed91d67d576d99bc4c49e1",
+  "allowedHarnessChanges": [
+    ".github/workflows/ci.yml"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "edd4650c7b1df8aef317e7c3bf17c397a306a707d2eb32d3eb07f741977fb2fd"
+    },
+    {
+      "path": "README.md",
+      "sha256": "90ebeeeb2c904007cc44b3f9751122896d95f0eb49a70bece0c17a4d65d81960"
+    },
+    {
+      "path": "_headers",
+      "sha256": "0f6051800957b20302493f430e280b63b6644b9fdd9b01d6fd2e98c3985d0112"
+    },
+    {
+      "path": "_redirects",
+      "sha256": "0d2fb9bd922821b27249b8022fae49f54162c07bd362b4f5d03ce27e39173474"
+    },
+    {
+      "path": "index.html",
+      "sha256": "ebee1ff537d9007dd22fcad3aa0ddf09576076c926db424c36302c0162c4db87"
+    },
+    {
+      "path": "netlify.toml",
+      "sha256": "11f894239d0fc8e18bffffc758238fd53c1407f795e3c08c015d3e6f9d0e05a6"
+    },
+    {
+      "path": "robots.txt",
+      "sha256": "a11ad5a55f9698a050fb04ecc6b68a88a73764a0be1c3e6e3cbbd2b9d87aa52c"
+    },
+    {
+      "path": "sitemap.xml",
+      "sha256": "0f38b3e85a92cb649df1edcfcaf51963055c224f2d035b23130ffd5da1c2f2da"
+    },
+    {
+      "path": "vercel.json",
+      "sha256": "1d62512ea66d29b3d27f2941f83cde605af32524ebebe3b36d96ff813fee310f"
+    }
+  ]
+}

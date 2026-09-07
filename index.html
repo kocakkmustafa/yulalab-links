@@ -8,7 +8,7 @@
 <title>YULA Lab — Links</title>
 <meta name="description" content="YULA Lab ürün dizini: canlı ve beta ürünler önce, araştırma ürünleri açık etiketle, doğrulanmış bağlantılar tek sayfada.">
 <meta name="robots" content="index,follow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-RkNN/dYcAF9/FejCdhchtSy8XoOzvvQXKQBkfnfnZgY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-8M9puXFD8jN4Y1PsA7yRn089kXhUYy7qY4971otfbMc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -129,7 +129,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 
 /* Product grid — 2 sütun (2026-07-26: 8 üründe tek-sütun çok uzun oldu) */
 .sb-prod-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;
   margin-bottom:14px;
 }
 
@@ -175,6 +175,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 
 /* Grid içinde kompakt varyant — 2 sütunda taşma olmasın */
 .sb-prod-grid .sb-prod{
+  min-width:0;
   padding:14px 12px 12px;
   margin-bottom:0;
   box-shadow:3px 3px 0 var(--ink);
@@ -207,6 +208,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 }
 .sb-url:hover{transform:translateY(-1px)}
 .sb-url:active{transform:translateY(0)}
+.sb-url>div{min-width:0;overflow-wrap:anywhere}
+.sb-url>span{flex-shrink:0}
 .sb-url-name{
   font-family:'Anton','Bebas Neue',sans-serif;
   font-size:24px;line-height:1;text-transform:uppercase;
@@ -378,6 +381,10 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
   .sb-back{display:none}
 }
 
+.sb-lang{background:transparent;color:inherit;border:1px solid currentColor;padding:10px 12px;min-height:44px;font:inherit;cursor:pointer}
+.sb-foot{flex-wrap:wrap;gap:12px}
+.sb-foot a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.sb-platbtn-s{overflow-wrap:anywhere}
 /* No-JS fallback */
 .noscript-warn{display:none;background:#FAB81F;color:#0A0A0A;text-align:center;padding:12px;font-size:13px;font-weight:700;border-bottom:2px solid #0A0A0A}
 .noscript-links{max-width:440px;margin:0 auto;padding:24px;font:13px/1.6 'Inter',system-ui,sans-serif}
@@ -390,21 +397,22 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 <body>
 
 <noscript>
-  <div class="noscript-warn" style="display:block">JavaScript kapalı — güvenli son bilinen ürün dizini gösteriliyor.</div>
+  <div class="noscript-warn" style="display:block">JavaScript kapalı / disabled — YULA Lab ürün dizini / product directory.</div>
   <section class="noscript-links" aria-labelledby="noscript-title">
     <h1 id="noscript-title">YULA / LAB.</h1>
-    <p>Canlı/beta ürünler önce, araştırma ürünleri açık etiketle listelenir. Güncel mağaza durumu için ürün sayfasını kullanın.</p>
+    <p>Güncel ürün ve mağaza bilgisi için ürün sayfasını kullanın. / Visit each product page for current product and store information.</p>
     <ul>
-      <li><a href="https://yulalab.com/projects/braavolabs">Braavolabs</a><span>Beta</span></li>
-      <li><a href="https://yulalab.com/projects/burunfarki">Burun Farkı</a><span>Canlı · 18+</span></li>
-      <li><a href="https://yulalab.com/projects/lifeos">LifeOS</a><span>Canlı</span></li>
-      <li><a href="https://yulalab.com/projects/gravita">Gravita</a><span>Araştırma</span></li>
-      <li><a href="https://yulalab.com/projects/lissom">Lissom</a><span>Araştırma</span></li>
-      <li><a href="https://yulalab.com/projects/jablab">JabLab</a><span>Araştırma</span></li>
-      <li><a href="https://yulalab.com/projects/ostinato">Ostinato</a><span>Araştırma</span></li>
-      <li><a href="https://yulalab.com/projects/choreia">Choreia</a><span>Araştırma</span></li>
+      <li><a href="https://yulalab.com/projects/braavolabs">Braavolabs</a><span>Ürün bilgisi / Product info</span></li>
+      <li><a href="https://yulalab.com/projects/burunfarki">Burun Farkı</a><span>Ürün bilgisi / Product info · 18+</span></li>
+      <li><a href="https://yulalab.com/projects/lifeos">LifeOS</a><span>Ürün bilgisi / Product info</span></li>
+      <li><a href="https://yulalab.com/projects/gravita">Gravita</a><span>Araştırma / Research</span></li>
+      <li><a href="https://yulalab.com/projects/lissom">Lissom</a><span>Araştırma / Research</span></li>
+      <li><a href="https://yulalab.com/projects/jablab">JabLab</a><span>Araştırma / Research</span></li>
+      <li><a href="https://yulalab.com/projects/ostinato">Ostinato</a><span>Araştırma / Research</span></li>
+      <li><a href="https://yulalab.com/projects/choreia">Choreia</a><span>Araştırma / Research</span></li>
     </ul>
-    <p class="noscript-meta">Son doğrulama: 2026-08-21 · Kaynak registry SHA-256: 95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab</p>
+    <p><a href="https://yulalab.com">YULA Lab</a> · <a href="mailto:support@yulalab.com">Destek / Support</a> · <a href="https://yulalab.com/privacy">Gizlilik</a> · <a href="https://yulalab.com/en/privacy" lang="en">Privacy</a></p>
+    <p class="noscript-meta">Son doğrulama / Last checked: 2026-08-21 · Kaynak registry SHA-256: 95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab</p>
   </section>
 </noscript>
 
@@ -413,6 +421,29 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 <script>
 (function(){
 'use strict';
+let locale = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'tr';
+function textFor(tr, en){ return locale === 'tr' ? tr : en; }
+function siteUrl(path){ return 'https://yulalab.com' + (locale === 'en' ? '/en' : '') + (path || ''); }
+function languageHTML(){
+  return '<button type="button" class="sb-lang" data-language aria-label="'
+    + textFor('Switch to English', 'Türkçeye geç') + '">' + textFor('EN', 'TR') + '</button>';
+}
+function footerLinksHTML(){
+  return '<span><a href="mailto:support@yulalab.com">' + textFor('DESTEK', 'SUPPORT') + '</a></span>'
+    + '<span><a href="' + siteUrl('/privacy') + '" target="_blank" rel="noopener noreferrer">'
+    + textFor('GİZLİLİK', 'PRIVACY') + '</a></span>';
+}
+function updateMetadata(){
+  document.documentElement.lang = locale;
+  const description = textFor('YULA Lab ürün dizini: güncellik durumuyla ürün ve mağaza bağlantıları.',
+    'YULA Lab product directory: product and store links with their verification status.');
+  ['meta[name="description"]','meta[property="og:description"]','meta[name="twitter:description"]'].forEach(function(selector){
+    document.querySelector(selector).content = description;
+  });
+  document.querySelector('meta[property="og:locale"]').content = textFor('tr_TR','en_US');
+  document.querySelector('meta[property="og:locale:alternate"]').content = textFor('en_US','tr_TR');
+}
+
 
 // ─── ICONS (inline SVG) ──────────────────────────────────────────────
 const ICON = {
@@ -451,6 +482,16 @@ const PRESENTATION = {
   ostinato: { key:'ostinato', sub:'Music practice coach', tagline:'Practice smarter, not just longer.', color:'#38BDF8', category:'Music Practice' },
   choreia: { key:'choreia', sub:'Learn to dance coach', tagline:"Learn to dance like your teacher's right there.", color:'#F472B6', category:'Dance' },
 };
+const PRESENTATION_TR = {
+  braavolabs:{sub:'Otonom yapay zekâ şirket işletim sistemi',tagline:'Yapay zekâ odaklı şirket çalışma alanınızı kurun ve yönetin.',category:'Şirketler için yazılım'},
+  burunfarki:{sub:'Şeffaf yapay zekâ at yarışı analizi',tagline:'Sezgiler yerine sayılar.',category:'Bireysel · Türkiye 18+'},
+  lifeos:{sub:'Hayatınızı bir sistem gibi yönetin',tagline:'Kişisel yaşamınız için sistem odaklı çalışma alanı.',category:'Bireysel'},
+  gravita:{sub:'Kamerayla beceri ve kuvvet koçu',tagline:'Vücut ağırlığı antrenmanında adım adım ilerleyin.',category:'Beceri + Kuvvet'},
+  lissom:{sub:'Hareketlilik, esneklik ve yoga koçu',tagline:'Ölçün. Çalışın. Yeniden ölçün.',category:'Hareketlilik + Yoga'},
+  jablab:{sub:'Bireysel gölge boksu koçu',tagline:'Gölge boksunda tekniğinize odaklanın.',category:'Gölge Boksu'},
+  ostinato:{sub:'Müzik çalışma koçu',tagline:'Yalnız daha uzun değil, daha bilinçli çalışın.',category:'Müzik Çalışması'},
+  choreia:{sub:'Dans öğrenme koçu',tagline:'Dans çalışırken öğretmen rehberliğini hedefleyen bir deneyim.',category:'Dans'}
+};
 const REQUIRED_SLUGS = Object.freeze(Object.keys(PRESENTATION));
 const FALLBACK_REGISTRY_META = Object.freeze({
   sha256:'95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab',
@@ -481,6 +522,9 @@ let PRODUCT_MODELS = [];
 let PRODUCTS_BY_KEY = {};
 let PORTFOLIO_ORDER = [];
 let registryMeta = FALLBACK_REGISTRY_META;
+let registryData = FALLBACK_REGISTRY;
+let staleReason = null;
+let noticeDismissed = false;
 
 // ─── SOCIAL PLATFORM DEFINITIONS ─────────────────────────────────────
 const SOCIALS = [
@@ -506,7 +550,7 @@ const STAMP_BRAND_META = {
   ostinato: { num:'07', title:['OSTIN','ATO.'],   urlSub:'Product page · Coming Soon' },
   choreia:  { num:'08', title:['CHOR','EIA.'],    urlSub:'Product page · Coming Soon' },
 };
-const TOTAL_PRODUCTS = Object.keys(STAMP_BRAND_META).length;
+let TOTAL_PRODUCTS = Object.keys(STAMP_BRAND_META).length;
 
 // ─── HELPERS ──────────────────────────────────────────────────────────
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
@@ -562,7 +606,7 @@ function normaliseSurface(slug, surface, asOf){
   if(surface.verifiedAt > surface.expiresAt || surface.verifiedAt > asOf) throw new Error(slug + ': impossible surface date window');
   if((surface.status === 'live' || surface.status === 'beta') && !surface.source) throw new Error(slug + ': current surface lacks source');
   if(surface.status === 'coming-soon' && !surface.url){
-    return {kind:surface.kind,status:surface.status,url:null,verifiedAt:surface.verifiedAt,expiresAt:surface.expiresAt,current:false};
+    return {kind:surface.kind,status:surface.status,url:null,verifiedAt:surface.verifiedAt,expiresAt:surface.expiresAt,current:currentDateWindow(surface.verifiedAt,surface.expiresAt,asOf)};
   }
   const url = safeRegistryUrl(slug, surface.kind, surface.url);
   if(!url) throw new Error(slug + ': disallowed surface URL');
@@ -585,22 +629,28 @@ function percentLabel(value){
   const match = /^~%([0-9]+)$/.exec(value || '');
   return match ? '~' + match[1] + '%' : value;
 }
-function productStats(record){
-  if(record.lifecycle === 'research') return [PRESENTATION[record.slug].category, 'Araştırma'];
+function productStats(record, hasCurrentSurface){
+  const status = record.lifecycle === 'research' ? textFor('Araştırma','Research')
+    : !hasCurrentSurface ? textFor('Doğrulama gerekli','Verification needed')
+    : record.lifecycle === 'beta' ? 'Beta' : textFor('Canlı','Live');
+  if(record.lifecycle === 'research') return [status];
   if(record.slug === 'braavolabs'){
     const primitive = claimFigures(record, 'braavolabs-primitive-count')[0];
     const provider = claimFigures(record, 'braavolabs-provider-count')[0];
-    return [primitive && primitive + ' Primitives', provider && provider + ' LLMs', record.lifecycle === 'beta' ? 'Beta' : 'Canlı'].filter(Boolean);
+    return [primitive && primitive + textFor(' temel işlev',' primitives'), provider && provider + textFor(' sağlayıcı',' providers'), status].filter(Boolean);
   }
   if(record.slug === 'burunfarki'){
     const figures = claimFigures(record, 'burunfarki-topk-accuracy');
-    return [figures[0] && percentLabel(figures[0]) + ' Top-1', figures[1] && percentLabel(figures[1]) + ' Top-3', '18+'].filter(Boolean);
+    return [figures[0] && percentLabel(figures[0]) + ' Top-1', figures[1] && percentLabel(figures[1]) + ' Top-3', '18+', status].filter(Boolean);
   }
-  if(record.slug === 'lifeos'){
-    const encryption = claimFigures(record, 'lifeos-on-device-encryption')[0];
-    return [encryption, 'iOS', 'Canlı'].filter(Boolean);
-  }
-  return [record.lifecycle === 'beta' ? 'Beta' : 'Canlı'];
+  if(record.slug === 'lifeos') return [claimFigures(record, 'lifeos-on-device-encryption')[0], 'iOS', status].filter(Boolean);
+  return [status];
+}
+function storeState(surfaces, kind){
+  const surface = surfaces.find(function(item){ return item.kind === kind; });
+  if(!surface) return 'unlisted';
+  if(!surface.current) return 'stale';
+  return surface.status;
 }
 function normaliseProduct(record, asOf){
   if(!record || typeof record !== 'object' || !PRESENTATION[record.slug]) throw new Error('unknown product');
@@ -616,23 +666,25 @@ function normaliseProduct(record, asOf){
   const web = current.find(function(surface){ return surface.kind === 'web'; });
   const ios = current.find(function(surface){ return surface.kind === 'ios'; });
   const android = current.find(function(surface){ return surface.kind === 'android'; });
-  const p = PRESENTATION[record.slug];
-  const internalUrl = 'https://yulalab.com/projects/' + record.slug;
-  const currentLabel = record.lifecycle === 'research' ? 'Araştırma' : (record.lifecycle === 'beta' ? 'Beta' : 'Canlı');
+  const p = Object.assign({}, PRESENTATION[record.slug], locale === 'tr' ? PRESENTATION_TR[record.slug] : {});
+  const internalUrl = siteUrl('/projects/' + record.slug);
+  const currentLabel = record.lifecycle === 'research' ? textFor('Araştırma','Research') : (record.lifecycle === 'beta' ? 'Beta' : textFor('Canlı','Live'));
   const hasCurrentSurface = record.lifecycle === 'research' || current.length > 0;
   const model = {
     key:p.key, slug:record.slug, name:record.name.trim(), sub:p.sub, tagline:p.tagline,
-    color:p.color, legal:p.legal || null, lifecycle:record.lifecycle,
-    type:p.category + ' · ' + (hasCurrentSurface ? currentLabel : 'Doğrulama gerekli'),
+    color:p.color, legal:record.slug === 'burunfarki' ? textFor(p.legal, '18+ · Burun Farkı is an analytics platform, not a betting site.') : null, lifecycle:record.lifecycle,
+    type:p.category + ' · ' + (hasCurrentSurface ? currentLabel : textFor('Doğrulama gerekli','Verification needed')),
+    hasCurrentSurface:hasCurrentSurface,
+    storeStates:{ios:storeState(surfaces,'ios'),android:storeState(surfaces,'android')},
     soonProduct:record.lifecycle === 'research', stats:[], handles:{}, active:[],
     stores:{ios:ios ? ios.url : null,android:android ? android.url : null},
     url:web ? web.url : internalUrl,
-    displayUrl:web ? new URL(web.url).hostname : 'yulalab.com/projects/' + record.slug,
-    urlSub:web ? 'Doğrulanmış web yüzeyi · ' + web.verifiedAt : (record.lifecycle === 'research' ? 'Ürün sayfası · Araştırma' : 'YULA ürün sayfası · Son bilinen'),
+    displayUrl:web ? new URL(web.url).hostname : internalUrl.replace('https://',''),
+    urlSub:web ? textFor('Doğrulanmış web bağlantısı · ','Verified web link · ') + web.verifiedAt : (record.lifecycle === 'research' ? textFor('Ürün sayfası · Araştırma','Product page · Research') : textFor('YULA ürün sayfası · Son bilinen','YULA product page · Last known')),
     currentHosts:current.map(function(surface){ return new URL(surface.url).hostname; }),
     updatedAt:record.updatedAt,
   };
-  model.stats = productStats({slug:record.slug,lifecycle:record.lifecycle,claims:claims});
+  model.stats = productStats({slug:record.slug,lifecycle:record.lifecycle,claims:claims}, hasCurrentSurface);
   return model;
 }
 function normaliseRegistry(data, now){
@@ -659,7 +711,9 @@ function applyRegistry(data, meta){
   PRODUCTS_BY_KEY = Object.create(null);
   PRODUCT_MODELS.forEach(function(product){ PRODUCTS_BY_KEY[product.key] = product; });
   PORTFOLIO_ORDER = PRODUCT_MODELS.map(function(product){ return product.key; });
+  TOTAL_PRODUCTS = PRODUCT_MODELS.length;
   registryMeta = meta;
+  registryData = data;
 }
 
 // ─── TILE RENDERERS ──────────────────────────────────────────────────
@@ -675,11 +729,11 @@ function tileHTML(brand, social){
       </span>
     </a>`;
   } else {
-    return `<div class="sb-tile soon" aria-label="${esc(social.name)} — yakında">
+    return `<div class="sb-tile soon" aria-label="${esc(social.name)} — ${textFor("Listelenmedi","Not listed")}">
       <span class="sb-tile-icon" aria-hidden="true">${ICON[social.key]}</span>
       <span class="sb-tile-text">
         <span class="sb-tile-name">${esc(social.name)}</span>
-        <span class="sb-tile-handle">SOON</span>
+        <span class="sb-tile-handle">${textFor("LİSTELENMEDİ","NOT LISTED")}</span>
       </span>
     </div>`;
   }
@@ -695,35 +749,35 @@ function holdingHTML(){
   return `<div class="sb-root">
     <div class="sb-band">
       <span>● YULA / LAB</span>
-      <span>EST · 2025 · TR</span>
+      <span>EST · 2025 · TR</span>${languageHTML()}
     </div>
     <div class="sb-pad">
       <div class="sb-hero">
-        <div class="sb-eyebrow"><span>Product Lab</span><span>${String(TOTAL_PRODUCTS).padStart(2,'0')} Products</span></div>
+        <div class="sb-eyebrow"><span>${textFor("Ürün Laboratuvarı","Product Lab")}</span><span>${String(TOTAL_PRODUCTS).padStart(2,'0')} ${textFor("Ürün","Products")}</span></div>
         <h1 class="sb-name">YULA<br><span class="sb-slash">/</span>LAB.</h1>
-        <p class="sb-tag">${esc(LAB_PRESENTATION.tagline)}</p>
+        <p class="sb-tag">${esc(textFor("Yapay zekâ odaklı ürünler geliştiren bağımsız bir ürün laboratuvarı. Sekiz ürün, ortak bir çalışma alanı.",LAB_PRESENTATION.tagline))}</p>
       </div>
 
-      <div class="sb-section"><span class="sb-num">01</span><span>Channels</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">01</span><span>${textFor("Kanallar","Channels")}</span><span class="sb-rule"></span></div>
 
-      <a class="sb-url" href="https://yulalab.com" target="_blank" rel="noopener noreferrer" aria-label="yulalab.com">
+      <a class="sb-url" href="${siteUrl('')}" target="_blank" rel="noopener noreferrer" aria-label="yulalab.com">
         <div>
           <div class="sb-url-name">yulalab.com</div>
-          <div class="sb-url-sub">Home · Manifesto · Portfolio</div>
+          <div class="sb-url-sub">${textFor("Ana sayfa · Manifesto · Portföy","Home · Manifesto · Portfolio")}</div>
         </div>
         <span style="font-size:22px" aria-hidden="true">→</span>
       </a>
 
       ${gridHTML(LAB_PRESENTATION)}
 
-      <div class="sb-section"><span class="sb-num">02</span><span>Portfolio</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">02</span><span>${textFor("Portföy","Portfolio")}</span><span class="sb-rule"></span></div>
 
       <div class="sb-prod-grid">
       ${PORTFOLIO_ORDER.map((key, i) => {
         const p = PRODUCTS_BY_KEY[key];
         const slug = REVERSE_MAP[key] || key;
-        const soonBadge = p.soonProduct ? `<span class="sb-prod-soon" style="--c:${p.color}">Yakında</span>` : '';
-        return `<a class="sb-prod" data-nav="${slug}" href="#${slug}" style="--c:${p.color};background:${p.color};color:#0A0A0A" aria-label="${esc(p.name)} sayfasına git">
+        const soonBadge = p.soonProduct ? `<span class="sb-prod-soon" style="--c:${p.color}">${textFor("Araştırma","Research")}</span>` : '';
+        return `<a class="sb-prod" data-nav="${slug}" href="#${slug}" style="--c:${p.color};background:${p.color};color:#0A0A0A" aria-label="${esc(p.name)} — ${textFor("Ürün sayfası","Product page")}">
           ${soonBadge}
           <div class="sb-prod-head">
             <span class="sb-prod-tag" style="color:${p.color}">No. ${String(i+1).padStart(2,'0')}</span>
@@ -743,17 +797,13 @@ function holdingHTML(){
       <span>© 2026</span>
       <span>M. K. KOÇAK</span>
       <span>YULALAB.COM</span>
-      <!-- This hub writes two sessionStorage keys and (when attribution is
-           switched on) posts funnel events to yulalab.com/api/events. It had
-           no notice of its own, and the site's notice was scoped by name to
-           yulalab.com — so this surface collected without disclosing. -->
-      <span><a href="https://yulalab.com/privacy" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">GİZLİLİK</a></span>
+      ${footerLinksHTML()}
     </div>
   </div>`;
 }
 
 // ─── BRAND PAGE ──────────────────────────────────────────────────────
-function platBtnHTML(kind, url){
+function platBtnHTML(kind, url, state){
   const isIOS = kind === 'ios';
   const icon = isIOS ? ICON.apple : ICON.play;
   const n = isIOS ? 'iOS' : 'Android';
@@ -767,8 +817,10 @@ function platBtnHTML(kind, url){
       </div>
     </a>`;
   }
-  const ariaLabel = isIOS ? 'App Store — yakında' : 'Google Play — yakında';
-  const subText = isIOS ? 'App Store · Soon' : 'Play Store · Soon';
+  const status = state === 'coming-soon' ? textFor('Yakında','Coming soon')
+    : state === 'stale' ? textFor('Doğrulama gerekli','Verification needed') : textFor('Listelenmedi','Not listed');
+  const ariaLabel = n + ' — ' + status;
+  const subText = status;
   return `<div class="sb-platbtn soon" aria-label="${ariaLabel}">
     <span class="sb-platbtn-icon" aria-hidden="true">${icon}</span>
     <div class="sb-platbtn-text">
@@ -781,17 +833,18 @@ function platBtnHTML(kind, url){
 function brandHTML(brandKey){
   const b = PRODUCTS_BY_KEY[brandKey];
   const meta = STAMP_BRAND_META[brandKey];
-  const upperName = b.name.toUpperCase();
+  const upperName = b.name.toLocaleUpperCase(locale);
+  const number = String(PORTFOLIO_ORDER.indexOf(brandKey) + 1).padStart(2,'0');
   const tagline = b.line2 ? esc(b.tagline) + '<br>' + esc(b.line2) : esc(b.tagline);
   return `<div class="sb-root" style="--accent:${b.color}">
     <div class="sb-band" style="background:${b.color};color:#0A0A0A">
       <span>● ${esc(upperName)}</span>
-      <span>NO · ${esc(meta.num)} / ${String(TOTAL_PRODUCTS).padStart(2,'0')}</span>
+      <span>NO · ${number} / ${String(TOTAL_PRODUCTS).padStart(2,'0')}</span>${languageHTML()}
     </div>
     <div class="sb-pad">
       <div class="sb-brandhero">
-        <a class="sb-back" data-nav="holding" href="#" aria-label="YULA Lab ana sayfasına dön">← YULA / LAB</a>
-        <div class="sb-mark">PRODUCT · ${esc(meta.num)}</div>
+        <a class="sb-back" data-nav="holding" href="#" aria-label="${textFor('YULA Lab ana sayfasına dön','Back to YULA Lab home')}">← YULA / LAB</a>
+        <div class="sb-mark">${textFor("ÜRÜN","PRODUCT")} · ${number}</div>
         <h1 class="sb-name">${esc(meta.title[0])}<br>${esc(meta.title[1])}</h1>
         <p class="sb-tag">${tagline}</p>
         <div class="sb-stats">
@@ -810,19 +863,20 @@ function brandHTML(brandKey){
       </a>
 
       <div class="sb-plat">
-        ${platBtnHTML('ios', b.stores && b.stores.ios)}
-        ${platBtnHTML('android', b.stores && b.stores.android)}
+        ${platBtnHTML('ios', b.stores && b.stores.ios, b.storeStates.ios)}
+        ${platBtnHTML('android', b.stores && b.stores.android, b.storeStates.android)}
       </div>
 
-      <div class="sb-section"><span class="sb-num">02</span><span>Social</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">02</span><span>${textFor("Sosyal","Social")}</span><span class="sb-rule"></span></div>
 
       ${gridHTML(b)}
 
-      ${b.legal ? `<div class="sb-legal">${esc(b.legal)}<span class="sb-legal-2">Yeşilay 182 · <a href="https://yesilay.org.tr" target="_blank" rel="noopener noreferrer">yesilay.org.tr</a></span></div>` : ''}
+      ${b.legal ? `<div class="sb-legal">${esc(b.legal)}<span class="sb-legal-2">YEDAM <a href="tel:115">115</a> · <a href="https://www.yedam.org.tr/hizmetler" target="_blank" rel="noopener noreferrer">yedam.org.tr</a></span></div>` : ''}
     </div>
     <div class="sb-foot" style="background:${b.color};color:#0A0A0A">
       <span>${esc(b.displayUrl.toUpperCase())}</span>
-      <span>BY <a data-nav="holding" href="#" style="color:inherit;opacity:1">YULA LAB</a></span>
+      <span><a data-nav="holding" data-focus="footer-home" href="#" style="color:inherit;opacity:1">YULA LAB</a></span>
+      ${footerLinksHTML()}
     </div>
   </div>`;
 }
@@ -885,7 +939,7 @@ function showPage(key, push){
     const url = h ? '#' + h : window.location.pathname + window.location.search;
     try { history.pushState({page:key}, '', url); } catch(e){ window.location.hash = h; }
   }
-  document.title = TITLES[key] || 'YULA Lab — Links';
+  document.title = key === 'holding' ? textFor('YULA Lab — Bağlantılar','YULA Lab — Links') : TITLES[key];
   // The funnel's view event is reported from HERE, not from a hashchange
   // listener. showPage uses history.pushState, and pushState does NOT fire
   // hashchange — so an in-hub card click produced an outbound event with no
@@ -896,13 +950,50 @@ function showPage(key, push){
 }
 
 function routeFromHash(){
+  const nextLocale = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'tr';
+  if(nextLocale !== locale){ locale = nextLocale; applyRegistry(registryData, registryMeta); buildAllPages(); updateMetadata(); refreshNotice(); }
   const h = (window.location.hash || '').replace('#','').toLowerCase();
   showPage(HASH_MAP[h] || 'holding', false);
 }
 
 function navigate(key){ showPage(key, true); }
 
+function refreshPages(){
+  const active = document.querySelector('.page.active');
+  let key = active ? active.id.slice(3) : 'holding';
+  const focused = document.activeElement;
+  const focusInfo = focused && active && active.contains(focused) ? {
+    focusKey:focused.getAttribute('data-focus'), language:focused.hasAttribute('data-language'), nav:focused.getAttribute('data-nav'), href:focused.getAttribute('href')
+  } : null;
+  const x = window.scrollX, y = window.scrollY;
+  buildAllPages();
+  if(!document.getElementById('pg-' + key)){
+    key = 'holding';
+    history.replaceState({page:key},'',window.location.pathname + window.location.search);
+  }
+  const page = document.getElementById('pg-' + key);
+  page.classList.add('active');
+  if(focusInfo){
+    const match = Array.from(page.querySelectorAll('a,button')).find(function(el){
+      return focusInfo.focusKey ? el.getAttribute('data-focus') === focusInfo.focusKey
+        : focusInfo.language ? el.hasAttribute('data-language')
+        : focusInfo.nav !== null ? el.getAttribute('data-nav') === focusInfo.nav
+        : focusInfo.href !== null && el.getAttribute('href') === focusInfo.href;
+    });
+    (match || app).focus({preventScroll:true});
+  }
+  window.scrollTo({left:x,top:y,behavior:'instant'});
+  document.title = key === 'holding' ? textFor('YULA Lab — Bağlantılar','YULA Lab — Links') : TITLES[key];
+  updateMetadata();
+}
+function refreshNotice(){
+  const notice = document.getElementById('sb-stale-notice');
+  if(notice) notice.remove();
+  if(staleReason && !noticeDismissed) showRegistryStaleNotice(staleReason);
+}
+
 // ─── INIT ────────────────────────────────────────────────────────────
+updateMetadata();
 applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
 buildAllPages();
 routeFromHash();
@@ -918,7 +1009,8 @@ window.addEventListener('hashchange', routeFromHash);
 const REGISTRY_URL = 'https://yulalab.com/portfolio-registry.json';
 
 function showRegistryStaleNotice(reason){
-  if(document.getElementById('sb-stale-notice')) return;
+  staleReason = reason;
+  if(noticeDismissed || document.getElementById('sb-stale-notice')) return;
   const notice = document.createElement('div');
   notice.id = 'sb-stale-notice';
   notice.setAttribute('role', 'status');
@@ -928,15 +1020,17 @@ function showRegistryStaleNotice(reason){
     + 'display:flex;align-items:center;justify-content:center;gap:10px;'
     + 'border-top:1px solid rgba(255,207,107,.35)';
   const text = document.createElement('span');
-  const shortHash = registryMeta.sha256 ? registryMeta.sha256.slice(0,12) : 'hesaplanamadı';
-  text.textContent = 'Registry doğrulanamadı (' + reason + '). Güvenli son bilinen kayıt gösteriliyor · son doğrulama '
+  const shortHash = registryMeta.sha256 ? registryMeta.sha256.slice(0,12) : textFor('hesaplanamadı','unavailable');
+  const reasonText = reason === 'stale' ? textFor('güncellik süresi dolmuş','verification expired') : textFor('ağ veya veri hatası','network or data error');
+  text.textContent = textFor('Bağlantı bilgileri güncellenemedi (','Link information could not be refreshed (') + reasonText
+    + textFor('). Son bilinen kayıt gösteriliyor · son doğrulama ','). Showing the last known record · last checked ')
     + registryMeta.verifiedAt + ' · SHA-256 ' + shortHash + '…';
   const dismiss = document.createElement('button');
   dismiss.type = 'button';
-  dismiss.setAttribute('aria-label', 'Uyarıyı kapat');
+  dismiss.setAttribute('aria-label', textFor('Uyarıyı kapat','Dismiss notice'));
   dismiss.textContent = '✕';
   dismiss.style.cssText = 'background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0 4px';
-  dismiss.onclick = function(){ notice.remove(); };
+  dismiss.onclick = function(){ noticeDismissed = true; notice.remove(); };
   notice.appendChild(text);
   notice.appendChild(dismiss);
   document.body.appendChild(notice);
@@ -979,22 +1073,28 @@ fetch(REGISTRY_URL, fetchOptions)
   })
   .then(function(result){
     applyRegistry(result.data, {sha256:result.hash,verifiedAt:registryVerifiedAt(result.data),source:'network'});
-    buildAllPages();
-    routeFromHash();
-    if(PRODUCT_MODELS.some(function(product){ return /Doğrulama gerekli/.test(product.type); })){
-      showRegistryStaleNotice('güncellik penceresi dolmuş');
-    }
+    refreshPages();
+    staleReason = PRODUCT_MODELS.some(function(product){ return !product.hasCurrentSurface; }) ? 'stale' : null;
+    refreshNotice();
   })
   .catch(function(error){
     applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
-    buildAllPages();
-    routeFromHash();
-    const reason = /challenge|non-JSON/.test(error.message) ? 'challenge/non-JSON' : 'ağ veya veri hatası';
-    showRegistryStaleNotice(reason);
+    refreshPages();
+    showRegistryStaleNotice('network');
   });
 
 // Delegated click for internal nav (data-nav attribute)
 document.addEventListener('click', function(e){
+  if(e.target.closest('[data-language]')){
+    locale = locale === 'tr' ? 'en' : 'tr';
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang',locale);
+    history.pushState(null,'',url.pathname + url.search + url.hash);
+    applyRegistry(registryData,registryMeta);
+    refreshPages();
+    refreshNotice();
+    return;
+  }
   const t = e.target.closest('[data-nav]');
   if(!t) return;
   e.preventDefault();

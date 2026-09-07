@@ -1,0 +1,12 @@
+/*
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'none'; script-src 'sha256-8M9puXFD8jN4Y1PsA7yRn089kXhUYy7qY4971otfbMc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
