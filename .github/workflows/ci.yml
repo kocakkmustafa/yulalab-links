@@ -1,9 +1,9 @@
 name: Links static contract
 'on':
   pull_request:
-    branches: [develop]
+    branches: [main, develop]
   push:
-    branches: [develop]
+    branches: [main, develop]
   workflow_dispatch:
 permissions:
   contents: read
