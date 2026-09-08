@@ -8,7 +8,7 @@
 <title>YULA Lab — Links</title>
 <meta name="description" content="YULA Lab ürün dizini: canlı ve beta ürünler önce, araştırma ürünleri açık etiketle, doğrulanmış bağlantılar tek sayfada.">
 <meta name="robots" content="index,follow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-8M9puXFD8jN4Y1PsA7yRn089kXhUYy7qY4971otfbMc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-dTJhpSOzW+pb7yyYv4knDk2eFpPYEKmeE9EcdnmIFng='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -523,8 +523,6 @@ let PRODUCTS_BY_KEY = {};
 let PORTFOLIO_ORDER = [];
 let registryMeta = FALLBACK_REGISTRY_META;
 let registryData = FALLBACK_REGISTRY;
-let staleReason = null;
-let noticeDismissed = false;
 
 // ─── SOCIAL PLATFORM DEFINITIONS ─────────────────────────────────────
 const SOCIALS = [
@@ -951,7 +949,7 @@ function showPage(key, push){
 
 function routeFromHash(){
   const nextLocale = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'tr';
-  if(nextLocale !== locale){ locale = nextLocale; applyRegistry(registryData, registryMeta); buildAllPages(); updateMetadata(); refreshNotice(); }
+  if(nextLocale !== locale){ locale = nextLocale; applyRegistry(registryData, registryMeta); buildAllPages(); updateMetadata(); }
   const h = (window.location.hash || '').replace('#','').toLowerCase();
   showPage(HASH_MAP[h] || 'holding', false);
 }
@@ -986,12 +984,6 @@ function refreshPages(){
   document.title = key === 'holding' ? textFor('YULA Lab — Bağlantılar','YULA Lab — Links') : TITLES[key];
   updateMetadata();
 }
-function refreshNotice(){
-  const notice = document.getElementById('sb-stale-notice');
-  if(notice) notice.remove();
-  if(staleReason && !noticeDismissed) showRegistryStaleNotice(staleReason);
-}
-
 // ─── INIT ────────────────────────────────────────────────────────────
 updateMetadata();
 applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
@@ -1007,34 +999,6 @@ window.addEventListener('hashchange', routeFromHash);
 // boundary: a challenge page, malformed JSON, impossible date or unknown
 // URL can never become an href or an asserted current status.
 const REGISTRY_URL = 'https://yulalab.com/portfolio-registry.json';
-
-function showRegistryStaleNotice(reason){
-  staleReason = reason;
-  if(noticeDismissed || document.getElementById('sb-stale-notice')) return;
-  const notice = document.createElement('div');
-  notice.id = 'sb-stale-notice';
-  notice.setAttribute('role', 'status');
-  notice.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:999;'
-    + 'font:11px/1.5 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.03em;'
-    + 'background:#2a1c00;color:#ffcf6b;padding:9px 16px;text-align:center;'
-    + 'display:flex;align-items:center;justify-content:center;gap:10px;'
-    + 'border-top:1px solid rgba(255,207,107,.35)';
-  const text = document.createElement('span');
-  const shortHash = registryMeta.sha256 ? registryMeta.sha256.slice(0,12) : textFor('hesaplanamadı','unavailable');
-  const reasonText = reason === 'stale' ? textFor('güncellik süresi dolmuş','verification expired') : textFor('ağ veya veri hatası','network or data error');
-  text.textContent = textFor('Bağlantı bilgileri güncellenemedi (','Link information could not be refreshed (') + reasonText
-    + textFor('). Son bilinen kayıt gösteriliyor · son doğrulama ','). Showing the last known record · last checked ')
-    + registryMeta.verifiedAt + ' · SHA-256 ' + shortHash + '…';
-  const dismiss = document.createElement('button');
-  dismiss.type = 'button';
-  dismiss.setAttribute('aria-label', textFor('Uyarıyı kapat','Dismiss notice'));
-  dismiss.textContent = '✕';
-  dismiss.style.cssText = 'background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0 4px';
-  dismiss.onclick = function(){ noticeDismissed = true; notice.remove(); };
-  notice.appendChild(text);
-  notice.appendChild(dismiss);
-  document.body.appendChild(notice);
-}
 
 function sha256Text(value){
   if(typeof crypto === 'undefined' || !crypto.subtle || typeof TextEncoder === 'undefined') return Promise.resolve(null);
@@ -1074,13 +1038,10 @@ fetch(REGISTRY_URL, fetchOptions)
   .then(function(result){
     applyRegistry(result.data, {sha256:result.hash,verifiedAt:registryVerifiedAt(result.data),source:'network'});
     refreshPages();
-    staleReason = PRODUCT_MODELS.some(function(product){ return !product.hasCurrentSurface; }) ? 'stale' : null;
-    refreshNotice();
   })
   .catch(function(error){
     applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
     refreshPages();
-    showRegistryStaleNotice('network');
   });
 
 // Delegated click for internal nav (data-nav attribute)
@@ -1092,7 +1053,6 @@ document.addEventListener('click', function(e){
     history.pushState(null,'',url.pathname + url.search + url.hash);
     applyRegistry(registryData,registryMeta);
     refreshPages();
-    refreshNotice();
     return;
   }
   const t = e.target.closest('[data-nav]');

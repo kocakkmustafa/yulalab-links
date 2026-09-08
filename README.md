@@ -7,7 +7,7 @@ YULA Lab ürün dizini ve doğrulanmış bağlantı hub'ı. Vanilla HTML/CSS/JS 
 - Ürün adı, lifecycle, güncel web/store yüzeyleri ve gösterilen sayısal claim'ler `https://yulalab.com/portfolio-registry.json` kaynağından gelir.
 - Canlı/beta ürünler önce; araştırma ürünleri açıkça `Araştırma` olarak render edilir. Archived kayıtlar gösterilmez.
 - Ağ cevabı JSON değilse, Vercel Attack Challenge içeriyorsa, tarih/şema/URL doğrulaması geçmiyorsa veya fetch başarısızsa sayfa fail-closed son bilinen snapshot'a döner.
-- Fallback bildirimi son doğrulama tarihini ve kaynak registry SHA-256 özetini görünür gösterir. Tarihi dolmuş web/store yüzeyi `current/live` kabul edilmez ve dış CTA olarak render edilmez.
+- Teknik registry uyarısı sabit bir alt şerit olarak gösterilmez; ağ/veri hatalarında güvenli fallback davranışı korunur. Tarihi dolmuş web/store yüzeyi `current/live` kabul edilmez ve dış CTA olarak render edilmez.
 - Registry metni HTML olarak işlenmez; text escape edilir. Yüzey URL'leri ürün + yüzey türü bazlı HTTPS host allowlist'inden geçer. Registry sosyal hesap üretemez.
 - Doğrulanmış sosyal allowlist yalnız YULA Lab X ve Instagram hesaplarını içerir. Diğer kutular güvenli `SOON` durumundadır.
 
