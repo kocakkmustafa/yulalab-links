@@ -36,7 +36,7 @@ jobs:
           else
             git show --format= --check HEAD
           fi
-      - name: Verify published product bytes
+      - name: Verify publication baseline and reviewed candidate delta
         run: python3 .github/ci/verify-published-source.py
       - name: Validate existing static Links contract
         run: python3 .github/ci/static-contract.py
