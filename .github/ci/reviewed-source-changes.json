@@ -12,23 +12,23 @@
     {
       "path": "_headers",
       "publishedSha256": "0f6051800957b20302493f430e280b63b6644b9fdd9b01d6fd2e98c3985d0112",
-      "candidateSha256": "67a1bbf330049b1739af6f422d4219e56199eee8c7b1ba15f0e5ec899ecb9353",
+      "candidateSha256": "9001889b8b7e476b487351b2cf12c722e235b13d6ff9539fa6fd85f02456b5e8",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Match the changed inline script SHA-256; preserve all CSP directives."
+      "reason": "Match the inline script SHA-256 after the narrow Motion TR/EN presentation copy update; preserve all CSP directives."
     },
     {
       "path": "index.html",
       "publishedSha256": "ebee1ff537d9007dd22fcad3aa0ddf09576076c926db424c36302c0162c4db87",
-      "candidateSha256": "356c9dcc3caf9362c416cc41b6bfbaafc33e5bc326cd9f2fb94daa2e9ba2cee2",
+      "candidateSha256": "1b8110cc190750032034ea8666b11cc88f5982f208fa09a79328f28c2b70b2b0",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Remove only the technical stale/fetch-error notice state, DOM creation and calls; retain registry validation, fallback, freshness filtering and social URLs."
+      "reason": "Preserve the prior technical-banner removal and registry/fallback/freshness behavior; align five Motion TR/EN presentations with guitar, Solo Salsa On1, solo boxing, calisthenics and Hatha yoga courses, self-reported progress, closed camera coaching/paid sales and optional on-device-memory Ostinato single-note observation."
     },
     {
       "path": "vercel.json",
       "publishedSha256": "1d62512ea66d29b3d27f2941f83cde605af32524ebebe3b36d96ff813fee310f",
-      "candidateSha256": "5be818f8e0d6de156149deb228616dc8a8155ab1f6138002016609de6fedab0b",
+      "candidateSha256": "5302d70dcb56554de3c9e4eba6ee7d7a8a827e52564c05ac18d2290822db2367",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Match the changed inline script SHA-256; preserve all CSP directives."
+      "reason": "Match the inline script SHA-256 after the narrow Motion TR/EN presentation copy update; preserve all CSP directives."
     }
   ]
 }
