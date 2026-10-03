@@ -8,7 +8,7 @@
 <title>YULA Lab — Links</title>
 <meta name="description" content="YULA Lab ürün dizini: canlı ve beta ürünler önce, araştırma ürünleri açık etiketle, doğrulanmış bağlantılar tek sayfada.">
 <meta name="robots" content="index,follow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-dTJhpSOzW+pb7yyYv4knDk2eFpPYEKmeE9EcdnmIFng='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wS2UIGHF7zCe6UeXkNu2H49HiMSxXGMSpph8KHe89Vw='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -476,21 +476,21 @@ const PRESENTATION = {
   braavolabs: { key:'bl', sub:'Autonomous AI Company OS', tagline:'Build and operate an AI-first company workspace.', color:'#00D1FF', category:'B2B SaaS' },
   burunfarki: { key:'bf', sub:'Transparent AI horse racing analytics', tagline:'Numbers over hunches.', color:'#FAB81F', category:'B2C · Türkiye 18+', legal:'18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir.' },
   lifeos: { key:'lo', sub:'Run your life like a system', tagline:'A system-oriented personal life workspace.', color:'#C3F400', category:'B2C' },
-  gravita: { key:'gravita', sub:'Camera-based skills & strength coach', tagline:'Master your bodyweight, one rep at a time.', color:'#FF6B4A', category:'Skills + Strength' },
-  lissom: { key:'lissom', sub:'Mobility, flexibility & yoga coach', tagline:'Measure. Train. Remeasure.', color:'#B8A9FF', category:'Mobility + Yoga' },
-  jablab: { key:'jablab', sub:'Solo shadow boxing coach', tagline:"Shadow box like someone's watching your form.", color:'#FF3B5C', category:'Shadow Boxing' },
-  ostinato: { key:'ostinato', sub:'Music practice coach', tagline:'Practice smarter, not just longer.', color:'#38BDF8', category:'Music Practice' },
-  choreia: { key:'choreia', sub:'Learn to dance coach', tagline:"Learn to dance like your teacher's right there.", color:'#F472B6', category:'Dance' },
+  gravita: { key:'gravita', sub:"Calisthenics course", tagline:"Lessons, practice and self-reported progress. Camera coaching and paid sales are closed.", color:'#FF6B4A', category:"Calisthenics" },
+  lissom: { key:'lissom', sub:"Hatha yoga course", tagline:"Lessons, practice and self-reported progress. Camera coaching and paid sales are closed.", color:'#B8A9FF', category:"Hatha Yoga" },
+  jablab: { key:'jablab', sub:"Solo boxing course", tagline:"Lessons, practice and self-reported progress. Camera coaching and paid sales are closed.", color:'#FF3B5C', category:"Solo Boxing" },
+  ostinato: { key:'ostinato', sub:"Guitar course", tagline:"Lessons, practice and self-reported progress. Optional single-note observation runs in device memory. Camera coaching and paid sales are closed.", color:'#38BDF8', category:"Guitar" },
+  choreia: { key:'choreia', sub:"Solo Salsa On1 course", tagline:"Lessons, practice and self-reported progress. Camera coaching and paid sales are closed.", color:'#F472B6', category:"Solo Salsa On1" },
 };
 const PRESENTATION_TR = {
   braavolabs:{sub:'Otonom yapay zekâ şirket işletim sistemi',tagline:'Yapay zekâ odaklı şirket çalışma alanınızı kurun ve yönetin.',category:'Şirketler için yazılım'},
   burunfarki:{sub:'Şeffaf yapay zekâ at yarışı analizi',tagline:'Sezgiler yerine sayılar.',category:'Bireysel · Türkiye 18+'},
   lifeos:{sub:'Hayatınızı bir sistem gibi yönetin',tagline:'Kişisel yaşamınız için sistem odaklı çalışma alanı.',category:'Bireysel'},
-  gravita:{sub:'Kamerayla beceri ve kuvvet koçu',tagline:'Vücut ağırlığı antrenmanında adım adım ilerleyin.',category:'Beceri + Kuvvet'},
-  lissom:{sub:'Hareketlilik, esneklik ve yoga koçu',tagline:'Ölçün. Çalışın. Yeniden ölçün.',category:'Hareketlilik + Yoga'},
-  jablab:{sub:'Bireysel gölge boksu koçu',tagline:'Gölge boksunda tekniğinize odaklanın.',category:'Gölge Boksu'},
-  ostinato:{sub:'Müzik çalışma koçu',tagline:'Yalnız daha uzun değil, daha bilinçli çalışın.',category:'Müzik Çalışması'},
-  choreia:{sub:'Dans öğrenme koçu',tagline:'Dans çalışırken öğretmen rehberliğini hedefleyen bir deneyim.',category:'Dans'}
+  gravita:{sub:"Calisthenics kursu",tagline:"Dersler, pratik ve öz bildirimli ilerleme. Kamera koçluğu ve ücretli satış kapalı.",category:"Calisthenics"},
+  lissom:{sub:"Hatha yoga kursu",tagline:"Dersler, pratik ve öz bildirimli ilerleme. Kamera koçluğu ve ücretli satış kapalı.",category:"Hatha Yoga"},
+  jablab:{sub:"Solo boks kursu",tagline:"Dersler, pratik ve öz bildirimli ilerleme. Kamera koçluğu ve ücretli satış kapalı.",category:"Solo Boks"},
+  ostinato:{sub:"Gitar kursu",tagline:"Dersler, pratik ve öz bildirimli ilerleme. İsteğe bağlı tek nota gözlemi cihaz belleğinde işlenir. Kamera koçluğu ve ücretli satış kapalı.",category:"Gitar"},
+  choreia:{sub:"Solo Salsa On1 kursu",tagline:"Dersler, pratik ve öz bildirimli ilerleme. Kamera koçluğu ve ücretli satış kapalı.",category:"Solo Salsa On1"}
 };
 const REQUIRED_SLUGS = Object.freeze(Object.keys(PRESENTATION));
 const FALLBACK_REGISTRY_META = Object.freeze({
