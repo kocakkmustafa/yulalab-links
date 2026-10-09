@@ -55,12 +55,14 @@ Beklenen kontroller: canonical registry parity, fallback/challenge/malformed pay
 
 ## Deploy sınırı
 
-Lokal inceleme manuel gate gerektirmez. `develop` push, Vercel preview veya production deploy yalnız `MANUAL-YULA-DEPLOY` ile yapılır. Bu repo için production dış sistem mutasyonu otomatik değildir.
+Kaynak dalı `main`; public `links.yulalab.com` Netlify üzerinden sunulur. GitHub PR4 (`3362e2f`) draft ve unmerged durumundadır; GitHub static CI ve otomatik Vercel preview kaydı Netlify production yayını değildir. 6 Ekim public HTTP okumasında ürün inline script'i `43524f61` ile eş; domain HTML'sine ayrıca 184 bayt Netlify HUD script etiketi eklenmiştir. Tam domain HTML bayt eşliği geçmez; mevcut hash-only CSP bu harici script'i izinlendirmez. Ayar/kök neden ve gerçek tarayıcı sonucu burada doğrulanmadı.
+
+Son Netlify integration metadata kaydı (3 Ekim) boş Git settings ve sıfır build hook, 4 Ekim UI kaydı “Not linked” gösterir; bunlar güncel ayar garantisi değildir. Vercel production dalı, hesap/rol ve merge etkisi önceki 403/2FA erişim sınırı nedeniyle UNKNOWN/HOLD kalır. Kaynak push/merge, provider ayarı veya deploy ayrı somut yayın onayı gerektirir; bu kayıt hiçbiri için yetki yaratmaz.
 
 ### Yayın hazırlığı — 2026-09-06
 
 TR/EN düğmesi `?lang=tr` / `?lang=en` ile aynı ürün hash hedefini korur. Ortak destek `support@yulalab.com`; holding, ürün ve JavaScript kapalı yüzeylerinde erişilebilir. Mağaza bağlantıları güncel doğrulamaya göre açılır; süresi dolmuş kayıtlar, listelenmeyen platformlar ve gerçek “yakında” kayıtları ayrı etiketlenir. Registry yenilemesi odak ve kaydırma konumunu korur.
 
-`netlify.toml`, `_redirects` ve `_headers` statik Netlify hazırlığıdır. 19 kısa yol mevcut Vercel yönlendirmeleriyle eşleşir. Yayın paketine yalnız `index.html`, `robots.txt`, `sitemap.xml`, `_redirects` ve `_headers` alınır; build komutu/Next eklentisi/function gerekmez. Bu yapılandırma henüz Netlify provider üzerinde kabul edilmiş veya genel olarak yayımlanmış değildir.
+`netlify.toml`, `_redirects` ve `_headers` statik Netlify sözleşmesidir. 19 kısa yol Vercel yönlendirmeleriyle eşleşir. Yayın paketine yalnız `index.html`, `robots.txt`, `sitemap.xml`, `_redirects` ve `_headers` alınır; build komutu/Next eklentisi/function gerekmez. Mevcut domain'in HTTP/header/redirect kabulü yeni kaynak adayının yayını değildir; yeni aday production'a alınmadı.
 
 Son yerel doğrulama: 21 JSDOM normal kullanım kontrolü ve mevcut statik HTML/rota sözleşmesi geçti. Bunlar gerçek tarayıcı yerleşimi, canlı yönlendirme veya final güvenlik kabulü değildir. Gerçek tarayıcı isteği yerel HTTP sunucusuna ulaşamadığı için mobil ve provider kabulü açık kaldı.
