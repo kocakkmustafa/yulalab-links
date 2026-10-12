@@ -5,9 +5,9 @@
     {
       "path": "README.md",
       "publishedSha256": "90ebeeeb2c904007cc44b3f9751122896d95f0eb49a70bece0c17a4d65d81960",
-      "candidateSha256": "d0b0515c09f085c31b2d5d62b2a5275550b334c6500b81f7b34f0c401252e687",
+      "candidateSha256": "785838ba9d9e8bda33eec506e33f0d6d43dadd77966abe12a12a037fdec0e9e2",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Correct historical main/Netlify/public evidence and PR4 preview/merge boundaries; no provider action or new publication acceptance."
+      "reason": "Correct historical main/Netlify/public evidence and PR4 preview/merge boundaries; no provider action or new publication acceptance. 2026-10-12 local public-copy correction: Record fresh live HTML/source parity and distinguish the unpublished local candidate; preserve registry dates, CSP and provider hold. Local candidate only; no publication or provider acceptance."
     },
     {
       "path": "_headers",
