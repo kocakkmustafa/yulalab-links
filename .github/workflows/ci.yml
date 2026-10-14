@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
       - name: Record runner and source identity
         run: |
@@ -42,12 +43,11 @@ jobs:
         run: python3 .github/ci/static-contract.py
       - name: Validate Netlify hosting and package parity
         run: python3 .github/ci/netlify-contract.py "$RUNNER_TEMP/links-static" > "$RUNNER_TEMP/links-static-manifest.json"
-      - name: Upload static package and manifest
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: links-static-${{ github.sha }}
-          path: |
-            ${{ runner.temp }}/links-static/
-            ${{ runner.temp }}/links-static-manifest.json
-          if-no-files-found: error
-          retention-days: 7
+      - name: Record static package identity in free job logs
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          git rev-parse HEAD^{tree}
+          cat "$RUNNER_TEMP/links-static-manifest.json"
+          sha256sum "$RUNNER_TEMP/links-static"/*
+          echo "No Actions artifact or cache upload; exact static package and source guards remain mandatory."
