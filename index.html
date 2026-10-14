@@ -8,7 +8,7 @@
 <title>YULA Lab — Links</title>
 <meta name="description" content="YULA Lab ürün dizini: canlı ve beta ürünler önce, araştırma ürünleri açık etiketle, doğrulanmış bağlantılar tek sayfada.">
 <meta name="robots" content="index,follow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-dTJhpSOzW+pb7yyYv4knDk2eFpPYEKmeE9EcdnmIFng='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XQeYnrmnEur0weZCY2BAWIuizk1/sP0aO3p0mUmLXO8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -462,35 +462,36 @@ const ICON = {
 };
 
 // ─── FROZEN PRESENTATION + CANONICAL PUBLIC TRUTH ───────────────────
-// Colours, taglines and card geometry belong to this frozen visual surface.
+// Colours and card geometry belong to this frozen visual surface.
+// Presentation copy describes development scope, not release acceptance.
 // Names, lifecycle, current URLs, store availability and measured figures do
 // not: those fields are derived from the public registry below and refreshed
 // from the canonical generated artifact at runtime.
 const LAB_PRESENTATION = {
   slug: 'yulalab', name: 'YULA Lab',
-  tagline: 'An independent product lab shipping AI-first products. Eight products, one workbench.',
+  tagline: 'An independent product lab. Products at different stages of development.',
   handles: { x:'yulalab', instagram:'yulalab' },
   active: ['x','instagram'],
 };
 const PRESENTATION = {
-  braavolabs: { key:'bl', sub:'Autonomous AI Company OS', tagline:'Build and operate an AI-first company workspace.', color:'#00D1FF', category:'B2B SaaS' },
-  burunfarki: { key:'bf', sub:'Transparent AI horse racing analytics', tagline:'Numbers over hunches.', color:'#FAB81F', category:'B2C · Türkiye 18+', legal:'18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir.' },
-  lifeos: { key:'lo', sub:'Run your life like a system', tagline:'A system-oriented personal life workspace.', color:'#C3F400', category:'B2C' },
-  gravita: { key:'gravita', sub:'Camera-based skills & strength coach', tagline:'Master your bodyweight, one rep at a time.', color:'#FF6B4A', category:'Skills + Strength' },
-  lissom: { key:'lissom', sub:'Mobility, flexibility & yoga coach', tagline:'Measure. Train. Remeasure.', color:'#B8A9FF', category:'Mobility + Yoga' },
-  jablab: { key:'jablab', sub:'Solo shadow boxing coach', tagline:"Shadow box like someone's watching your form.", color:'#FF3B5C', category:'Shadow Boxing' },
-  ostinato: { key:'ostinato', sub:'Music practice coach', tagline:'Practice smarter, not just longer.', color:'#38BDF8', category:'Music Practice' },
-  choreia: { key:'choreia', sub:'Learn to dance coach', tagline:"Learn to dance like your teacher's right there.", color:'#F472B6', category:'Dance' },
+  braavolabs: { key:'bl', sub:'AI workspace & model orchestration', tagline:'In development; earlier releases may differ. Account, provider and device validation is ongoing.', color:'#00D1FF', category:'B2B SaaS' },
+  burunfarki: { key:'bf', sub:'Horse racing analytics · On hold', tagline:'Development is on hold. Earlier public versions may remain available.', color:'#FAB81F', category:'B2C · Türkiye 18+', legal:'18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir.' },
+  lifeos: { key:'lo', sub:'Life tracking workspace', tagline:'In development; earlier releases may differ. Device and release validation is ongoing.', color:'#C3F400', category:'B2C' },
+  gravita: { key:'gravita', sub:"Skills & strength course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#FF6B4A', category:"Skills + Strength" },
+  lissom: { key:'lissom', sub:"Yoga & mobility course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#B8A9FF', category:"Mobility + Yoga" },
+  jablab: { key:'jablab', sub:"Solo martial arts course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#FF3B5C', category:"Solo Martial Arts" },
+  ostinato: { key:'ostinato', sub:"Music practice course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#38BDF8', category:"Music Practice" },
+  choreia: { key:'choreia', sub:"Dance course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#F472B6', category:"Dance" },
 };
 const PRESENTATION_TR = {
-  braavolabs:{sub:'Otonom yapay zekâ şirket işletim sistemi',tagline:'Yapay zekâ odaklı şirket çalışma alanınızı kurun ve yönetin.',category:'Şirketler için yazılım'},
-  burunfarki:{sub:'Şeffaf yapay zekâ at yarışı analizi',tagline:'Sezgiler yerine sayılar.',category:'Bireysel · Türkiye 18+'},
-  lifeos:{sub:'Hayatınızı bir sistem gibi yönetin',tagline:'Kişisel yaşamınız için sistem odaklı çalışma alanı.',category:'Bireysel'},
-  gravita:{sub:'Kamerayla beceri ve kuvvet koçu',tagline:'Vücut ağırlığı antrenmanında adım adım ilerleyin.',category:'Beceri + Kuvvet'},
-  lissom:{sub:'Hareketlilik, esneklik ve yoga koçu',tagline:'Ölçün. Çalışın. Yeniden ölçün.',category:'Hareketlilik + Yoga'},
-  jablab:{sub:'Bireysel gölge boksu koçu',tagline:'Gölge boksunda tekniğinize odaklanın.',category:'Gölge Boksu'},
-  ostinato:{sub:'Müzik çalışma koçu',tagline:'Yalnız daha uzun değil, daha bilinçli çalışın.',category:'Müzik Çalışması'},
-  choreia:{sub:'Dans öğrenme koçu',tagline:'Dans çalışırken öğretmen rehberliğini hedefleyen bir deneyim.',category:'Dans'}
+  braavolabs:{sub:'Yapay zekâ çalışma alanı ve model orkestrasyonu',tagline:'Geliştirme sürüyor; eski yayınlar farklı olabilir. Hesap, sağlayıcı ve cihaz doğrulamaları sürüyor.',category:'Şirketler için yazılım'},
+  burunfarki:{sub:'At yarışı analizi · Geliştirme beklemede',tagline:'Geliştirme beklemede. Eski canlı sürümler erişilebilir olabilir.',category:'Bireysel · Türkiye 18+'},
+  lifeos:{sub:'Yaşam takibi çalışma alanı',tagline:'Geliştirme sürüyor; eski yayınlar farklı olabilir. Cihaz ve yayın doğrulamaları sürüyor.',category:'Bireysel'},
+  gravita:{sub:"Beceri ve kuvvet kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Beceri + Kuvvet"},
+  lissom:{sub:"Yoga ve hareketlilik kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Hareketlilik + Yoga"},
+  jablab:{sub:"Solo dövüş sanatları kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Solo Dövüş Sanatları"},
+  ostinato:{sub:"Müzik pratiği kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Müzik Pratiği"},
+  choreia:{sub:"Dans kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Dans"}
 };
 const REQUIRED_SLUGS = Object.freeze(Object.keys(PRESENTATION));
 const FALLBACK_REGISTRY_META = Object.freeze({
@@ -753,7 +754,7 @@ function holdingHTML(){
       <div class="sb-hero">
         <div class="sb-eyebrow"><span>${textFor("Ürün Laboratuvarı","Product Lab")}</span><span>${String(TOTAL_PRODUCTS).padStart(2,'0')} ${textFor("Ürün","Products")}</span></div>
         <h1 class="sb-name">YULA<br><span class="sb-slash">/</span>LAB.</h1>
-        <p class="sb-tag">${esc(textFor("Yapay zekâ odaklı ürünler geliştiren bağımsız bir ürün laboratuvarı. Sekiz ürün, ortak bir çalışma alanı.",LAB_PRESENTATION.tagline))}</p>
+        <p class="sb-tag">${esc(textFor("Bağımsız bir ürün laboratuvarı. Ürünler farklı geliştirme aşamalarında.",LAB_PRESENTATION.tagline))}</p>
       </div>
 
       <div class="sb-section"><span class="sb-num">01</span><span>${textFor("Kanallar","Channels")}</span><span class="sb-rule"></span></div>
