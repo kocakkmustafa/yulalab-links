@@ -41,6 +41,10 @@ jobs:
         run: python3 .github/ci/verify-published-source.py
       - name: Validate existing static Links contract
         run: python3 .github/ci/static-contract.py
+      - name: Validate eight-language behavior and generated markup
+        run: |
+          node --test .github/ci/locale-contract.test.cjs
+          python3 .github/ci/locale-html-contract.py
       - name: Validate Netlify hosting and package parity
         run: python3 .github/ci/netlify-contract.py "$RUNNER_TEMP/links-static" > "$RUNNER_TEMP/links-static-manifest.json"
       - name: Record static package identity in free job logs
