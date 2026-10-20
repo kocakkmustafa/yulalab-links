@@ -44,7 +44,7 @@ parser.close()
 assert not parser.duplicate_ids, f'duplicate ids: {sorted(parser.duplicate_ids)}'
 assert {'app', 'noscript-title'} <= parser.ids
 assert '<main id="app"' in html_text
-assert '<title>YULA Lab — Links</title>' in html_text
+assert '<title>YULA Lab — Bağlantılar</title>' in html_text
 
 external_hrefs = {href for _, href, _ in parser.hrefs if href.startswith('https://')}
 for slug in slugs:

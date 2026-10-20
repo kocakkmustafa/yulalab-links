@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#F5F3EE">
 <meta name="color-scheme" content="light">
-<title>YULA Lab — Links</title>
-<meta name="description" content="YULA Lab ürün dizini: canlı ve beta ürünler önce, araştırma ürünleri açık etiketle, doğrulanmış bağlantılar tek sayfada.">
+<title>YULA Lab — Bağlantılar</title>
+<meta name="description" content="YULA Lab ürün dizini: güncellik durumuyla ürün ve mağaza bağlantıları.">
 <meta name="robots" content="index,follow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XQeYnrmnEur0weZCY2BAWIuizk1/sP0aO3p0mUmLXO8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LAyuegcP9Lip5kN49A3EnP6ZLl0QTtS4MUDxRc095a4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://links.yulalab.com/">
-<meta property="og:title" content="YULA Lab — Links">
-<meta property="og:description" content="YULA Lab ürün dizini — canlı, beta ve araştırma durumlarıyla doğrulanmış bağlantılar.">
+<meta property="og:title" content="YULA Lab — Bağlantılar">
+<meta property="og:description" content="YULA Lab ürün dizini: güncellik durumuyla ürün ve mağaza bağlantıları.">
 <meta property="og:image" content="https://yulalab.com/brand/yulalab-banner.png">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_LA">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ar_AR">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@yulalab">
-<meta name="twitter:title" content="YULA Lab — Links">
-<meta name="twitter:description" content="YULA Lab ürün dizini — doğrulanmış ürün ve mağaza bağlantıları.">
+<meta name="twitter:title" content="YULA Lab — Bağlantılar">
+<meta name="twitter:description" content="YULA Lab ürün dizini: güncellik durumuyla ürün ve mağaza bağlantıları.">
 <meta name="twitter:image" content="https://yulalab.com/brand/yulalab-banner.png">
 
 <!-- Favicon (inline SVG: YL stamp) -->
@@ -109,8 +115,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 .sb-tag{
   font-size:14px;line-height:1.5;
   color:var(--ink);max-width:280px;
-  border-left:3px solid var(--ink);
-  padding-left:12px;
+  border-inline-start:3px solid var(--ink);
+  padding-inline-start:12px;
 }
 
 /* Section heading */
@@ -191,7 +197,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
   font-size:7px;letter-spacing:.08em;padding-top:8px;
 }
 .sb-prod-grid .sb-prod-foot span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sb-prod-grid .sb-prod-soon{right:12px;font-size:7.5px;padding:3px 6px}
+.sb-prod-grid .sb-prod-soon{inset-inline-end:12px;font-size:7.5px;padding:3px 6px}
 @media (max-width:340px){
   .sb-prod-grid{grid-template-columns:1fr}
 }
@@ -351,7 +357,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 
 /* Soon tag for brand product cards (LifeOS) */
 .sb-prod-soon{
-  position:absolute;top:0;right:22px;
+  position:absolute;top:0;inset-inline-end:22px;
   transform:translateY(-50%);
   background:var(--ink);color:var(--c);
   font-family:'JetBrains Mono',monospace;
@@ -392,28 +398,102 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 .noscript-links li{border-top:1px solid #0A0A0A;padding:10px 0;display:flex;justify-content:space-between;gap:12px}
 .noscript-links a{text-decoration:underline;text-underline-offset:2px}
 .noscript-meta{font:10px/1.6 'JetBrains Mono',ui-monospace,monospace;word-break:break-all;color:#595550}
+/* Locale controls and long copy must wrap rather than hide meaning. */
+select{font:inherit;color:inherit}
+select:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.sb-band{flex-wrap:wrap;gap:12px}
+.sb-language{max-width:100%;min-width:0}
+.sb-lang{max-width:100%;min-width:0;min-height:44px;background:var(--bg,#F5F3EE);color:var(--ink,#0A0A0A);font-size:12px;letter-spacing:normal;text-transform:none}
+.sb-registry-status{font-size:12px;line-height:1.55;overflow-wrap:anywhere;margin:12px 0}
+.sb-prod-grid .sb-prod-sub{display:block;overflow:visible;-webkit-line-clamp:unset}
+.sb-prod-grid .sb-prod-foot span{overflow:visible;text-overflow:clip;white-space:normal;overflow-wrap:anywhere}
+.sb-prod-tag,.sb-prod-soon,.sb-platbtn-text,.sb-back{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.sb-prod-head{gap:8px}
+.sb-tile.soon .sb-tile-handle{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+.sb-brandhero .sb-name{direction:ltr;unicode-bidi:isolate;text-align:start}
+.sb-url-name,.sb-tile-handle{direction:ltr;unicode-bidi:isolate}
+.sb-platbtn{min-width:0}.sb-platbtn-text{min-width:0}.sb-foot>span{overflow-wrap:anywhere}
+html[lang="ja"]{line-break:strict}
+html[lang="ja"] body{font-family:system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif}
+html[lang="ar"] body{font-family:Tahoma,Arial,system-ui,sans-serif}
+html[lang="ar"] .sb-band,html[lang="ar"] .sb-section,html[lang="ar"] .sb-prod-tag,html[lang="ar"] .sb-prod-foot,html[lang="ar"] .sb-stat,html[lang="ar"] .sb-foot{letter-spacing:normal}
+.noscript-language{margin:14px 0;border:1px solid currentColor;padding:10px}
+.noscript-language summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:700}
+.noscript-language summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.noscript-language li{flex-wrap:wrap;overflow-wrap:anywhere}
+.noscript-language p{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 
 <noscript>
-  <div class="noscript-warn" style="display:block">JavaScript kapalı / disabled — YULA Lab ürün dizini / product directory.</div>
-  <section class="noscript-links" aria-labelledby="noscript-title">
-    <h1 id="noscript-title">YULA / LAB.</h1>
-    <p>Güncel ürün ve mağaza bilgisi için ürün sayfasını kullanın. / Visit each product page for current product and store information.</p>
-    <ul>
-      <li><a href="https://yulalab.com/projects/braavolabs">Braavolabs</a><span>Ürün bilgisi / Product info</span></li>
-      <li><a href="https://yulalab.com/projects/burunfarki">Burun Farkı</a><span>Ürün bilgisi / Product info · 18+</span></li>
-      <li><a href="https://yulalab.com/projects/lifeos">LifeOS</a><span>Ürün bilgisi / Product info</span></li>
-      <li><a href="https://yulalab.com/projects/gravita">Gravita</a><span>Araştırma / Research</span></li>
-      <li><a href="https://yulalab.com/projects/lissom">Lissom</a><span>Araştırma / Research</span></li>
-      <li><a href="https://yulalab.com/projects/jablab">JabLab</a><span>Araştırma / Research</span></li>
-      <li><a href="https://yulalab.com/projects/ostinato">Ostinato</a><span>Araştırma / Research</span></li>
-      <li><a href="https://yulalab.com/projects/choreia">Choreia</a><span>Araştırma / Research</span></li>
-    </ul>
-    <p><a href="https://yulalab.com">YULA Lab</a> · <a href="mailto:support@yulalab.com">Destek / Support</a> · <a href="https://yulalab.com/privacy">Gizlilik</a> · <a href="https://yulalab.com/en/privacy" lang="en">Privacy</a></p>
-    <p class="noscript-meta">Son doğrulama / Last checked: 2026-08-21 · Kaynak registry SHA-256: 95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab</p>
-  </section>
+<style>main#app{display:none}</style>
+<section class="noscript-links" aria-labelledby="noscript-title"><h1 id="noscript-title" dir="ltr">YULA / LAB.</h1>
+<details class="noscript-language" lang="tr" dir="ltr" open><summary>Türkçe</summary><p>JavaScript kapalı — Canlı bağlantı kontrolü kullanılamıyor. Aşağıdan dilinizi seçin; güncel ürün ve mağaza bilgisi için ürün sayfasını açın.</p><ul><li><a href="https://yulalab.com/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>Ürün bilgisi</span></li>
+<li><a href="https://yulalab.com/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>Ürün bilgisi · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>Ürün bilgisi</span></li>
+<li><a href="https://yulalab.com/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>Araştırma</span></li>
+<li><a href="https://yulalab.com/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>Araştırma</span></li>
+<li><a href="https://yulalab.com/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>Araştırma</span></li>
+<li><a href="https://yulalab.com/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>Araştırma</span></li>
+<li><a href="https://yulalab.com/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>Araştırma</span></li></ul><p><a href="https://yulalab.com"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">Destek</a> · <a href="https://yulalab.com/privacy">Gizlilik</a></p><p>Kayıtlı dizinin doğrulama tarihi: <bdi dir="ltr">2026-08-21</bdi></p></details>
+<details class="noscript-language" lang="en" dir="ltr"><summary>English</summary><p>JavaScript is disabled — Live link checks are unavailable. Choose your language below; open each product page for current product and store information.</p><ul><li><a href="https://yulalab.com/en/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>Product information</span></li>
+<li><a href="https://yulalab.com/en/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>Product information · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/en/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>Product information</span></li>
+<li><a href="https://yulalab.com/en/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>Research</span></li>
+<li><a href="https://yulalab.com/en/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>Research</span></li>
+<li><a href="https://yulalab.com/en/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>Research</span></li>
+<li><a href="https://yulalab.com/en/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>Research</span></li>
+<li><a href="https://yulalab.com/en/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>Research</span></li></ul><p><a href="https://yulalab.com/en"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">Support</a> · <a href="https://yulalab.com/en/privacy">Privacy</a></p><p>Saved directory checked on: <bdi dir="ltr">2026-08-21</bdi></p></details>
+<details class="noscript-language" lang="es-419" dir="ltr"><summary>Español (Latinoamérica)</summary><p>JavaScript está desactivado — No es posible comprobar los enlaces en tiempo real. Elige tu idioma abajo; abre la página de cada producto para consultar la información actual del producto y las tiendas.</p><ul><li><a href="https://yulalab.com/es-419/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>Información del producto</span></li>
+<li><a href="https://yulalab.com/es-419/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>Información del producto · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/es-419/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>Información del producto</span></li>
+<li><a href="https://yulalab.com/es-419/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>Investigación</span></li>
+<li><a href="https://yulalab.com/es-419/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>Investigación</span></li>
+<li><a href="https://yulalab.com/es-419/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>Investigación</span></li>
+<li><a href="https://yulalab.com/es-419/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>Investigación</span></li>
+<li><a href="https://yulalab.com/es-419/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>Investigación</span></li></ul><p><a href="https://yulalab.com/es-419"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">Soporte</a> · <a href="https://yulalab.com/es-419/privacy">Privacidad</a></p><p>Fecha de verificación de la copia guardada: <bdi dir="ltr">2026-08-21</bdi></p></details>
+<details class="noscript-language" lang="pt-BR" dir="ltr"><summary>Português (Brasil)</summary><p>O JavaScript está desativado — A verificação de links em tempo real não está disponível. Escolha seu idioma abaixo; abra a página de cada produto para consultar as informações atuais do produto e das lojas.</p><ul><li><a href="https://yulalab.com/pt-BR/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>Informações do produto</span></li>
+<li><a href="https://yulalab.com/pt-BR/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>Informações do produto · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/pt-BR/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>Informações do produto</span></li>
+<li><a href="https://yulalab.com/pt-BR/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>Pesquisa</span></li>
+<li><a href="https://yulalab.com/pt-BR/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>Pesquisa</span></li>
+<li><a href="https://yulalab.com/pt-BR/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>Pesquisa</span></li>
+<li><a href="https://yulalab.com/pt-BR/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>Pesquisa</span></li>
+<li><a href="https://yulalab.com/pt-BR/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>Pesquisa</span></li></ul><p><a href="https://yulalab.com/pt-BR"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">Suporte</a> · <a href="https://yulalab.com/pt-BR/privacy">Privacidade</a></p><p>Data de verificação da cópia salva: <bdi dir="ltr">2026-08-21</bdi></p></details>
+<details class="noscript-language" lang="de" dir="ltr"><summary>Deutsch</summary><p>JavaScript ist deaktiviert — Eine aktuelle Linkprüfung ist nicht möglich. Wähle unten deine Sprache. Aktuelle Produkt- und Store-Informationen stehen auf der jeweiligen Produktseite.</p><ul><li><a href="https://yulalab.com/de/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>Produktinformationen</span></li>
+<li><a href="https://yulalab.com/de/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>Produktinformationen · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/de/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>Produktinformationen</span></li>
+<li><a href="https://yulalab.com/de/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>Forschung</span></li>
+<li><a href="https://yulalab.com/de/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>Forschung</span></li>
+<li><a href="https://yulalab.com/de/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>Forschung</span></li>
+<li><a href="https://yulalab.com/de/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>Forschung</span></li>
+<li><a href="https://yulalab.com/de/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>Forschung</span></li></ul><p><a href="https://yulalab.com/de"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">Support</a> · <a href="https://yulalab.com/de/privacy">Datenschutz</a></p><p>Prüfdatum des gespeicherten Stands: <bdi dir="ltr">2026-08-21</bdi></p></details>
+<details class="noscript-language" lang="fr" dir="ltr"><summary>Français</summary><p>JavaScript est désactivé — La vérification des liens en temps réel est indisponible. Choisissez votre langue ci-dessous ; ouvrez la page de chaque produit pour consulter les informations actuelles sur le produit et les boutiques.</p><ul><li><a href="https://yulalab.com/fr/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>Informations sur le produit</span></li>
+<li><a href="https://yulalab.com/fr/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>Informations sur le produit · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/fr/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>Informations sur le produit</span></li>
+<li><a href="https://yulalab.com/fr/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>Recherche</span></li>
+<li><a href="https://yulalab.com/fr/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>Recherche</span></li>
+<li><a href="https://yulalab.com/fr/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>Recherche</span></li>
+<li><a href="https://yulalab.com/fr/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>Recherche</span></li>
+<li><a href="https://yulalab.com/fr/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>Recherche</span></li></ul><p><a href="https://yulalab.com/fr"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">Assistance</a> · <a href="https://yulalab.com/fr/privacy">Confidentialité</a></p><p>Date de vérification de la copie enregistrée: <bdi dir="ltr">2026-08-21</bdi></p></details>
+<details class="noscript-language" lang="ja" dir="ltr"><summary>日本語</summary><p>JavaScriptが無効です — リンクの最新状態は確認できません。下から言語を選び、製品とストアの最新情報は各製品ページでご確認ください。</p><ul><li><a href="https://yulalab.com/ja/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>製品情報</span></li>
+<li><a href="https://yulalab.com/ja/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>製品情報 · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/ja/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>製品情報</span></li>
+<li><a href="https://yulalab.com/ja/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>研究段階</span></li>
+<li><a href="https://yulalab.com/ja/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>研究段階</span></li>
+<li><a href="https://yulalab.com/ja/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>研究段階</span></li>
+<li><a href="https://yulalab.com/ja/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>研究段階</span></li>
+<li><a href="https://yulalab.com/ja/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>研究段階</span></li></ul><p><a href="https://yulalab.com/ja"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">サポート</a> · <a href="https://yulalab.com/ja/privacy">プライバシー</a></p><p>保存済み情報の確認日: <bdi dir="ltr">2026-08-21</bdi></p></details>
+<details class="noscript-language" lang="ar" dir="rtl"><summary>العربية</summary><p>JavaScript معطّل — التحقق المباشر من الروابط غير متاح. اختر لغتك أدناه؛ وافتح صفحة كل منتج للاطلاع على معلومات المنتج والمتاجر الحالية.</p><ul><li><a href="https://yulalab.com/ar/projects/braavolabs"><bdi dir="ltr">Braavolabs</bdi></a><span>معلومات المنتج</span></li>
+<li><a href="https://yulalab.com/ar/projects/burunfarki"><bdi dir="ltr">Burun Farkı</bdi></a><span>معلومات المنتج · <bdi dir="ltr">18+</bdi></span></li>
+<li><a href="https://yulalab.com/ar/projects/lifeos"><bdi dir="ltr">LifeOS</bdi></a><span>معلومات المنتج</span></li>
+<li><a href="https://yulalab.com/ar/projects/gravita"><bdi dir="ltr">Gravita</bdi></a><span>مرحلة البحث</span></li>
+<li><a href="https://yulalab.com/ar/projects/lissom"><bdi dir="ltr">Lissom</bdi></a><span>مرحلة البحث</span></li>
+<li><a href="https://yulalab.com/ar/projects/jablab"><bdi dir="ltr">JabLab</bdi></a><span>مرحلة البحث</span></li>
+<li><a href="https://yulalab.com/ar/projects/ostinato"><bdi dir="ltr">Ostinato</bdi></a><span>مرحلة البحث</span></li>
+<li><a href="https://yulalab.com/ar/projects/choreia"><bdi dir="ltr">Choreia</bdi></a><span>مرحلة البحث</span></li></ul><p><a href="https://yulalab.com/ar"><bdi dir="ltr">YULA Lab</bdi></a> · <a href="mailto:support@yulalab.com">الدعم</a> · <a href="https://yulalab.com/ar/privacy">الخصوصية</a></p><p>تاريخ التحقق من النسخة المحفوظة: <bdi dir="ltr">2026-08-21</bdi></p></details>
+</section>
 </noscript>
 
 <main id="app" tabindex="-1"><p class="sb-sr-only" role="status">Ürün dizini yükleniyor.</p></main>
@@ -421,29 +501,731 @@ a:focus-visible,button:focus-visible{outline:2px solid #0A0A0A;outline-offset:3p
 <script>
 (function(){
 'use strict';
-let locale = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'tr';
-function textFor(tr, en){ return locale === 'tr' ? tr : en; }
-function siteUrl(path){ return 'https://yulalab.com' + (locale === 'en' ? '/en' : '') + (path || ''); }
+const L10N = {
+  "tr": {
+    "name": "Türkçe",
+    "dir": "ltr",
+    "og": "tr_TR",
+    "ui": {
+      "title": "YULA Lab — Bağlantılar",
+      "description": "YULA Lab ürün dizini: güncellik durumuyla ürün ve mağaza bağlantıları.",
+      "chooseLanguage": "Dil seçin",
+      "support": "Destek",
+      "privacy": "Gizlilik",
+      "research": "Araştırma",
+      "verificationNeeded": "Doğrulama gerekli",
+      "live": "Canlı",
+      "beta": "Beta",
+      "primitives": "Temel işlevler",
+      "providers": "Sağlayıcılar",
+      "verifiedWeb": "Doğrulanmış web bağlantısı",
+      "productResearch": "Ürün sayfası · Araştırma",
+      "lastKnown": "YULA ürün sayfası · Son bilinen",
+      "notListed": "Listelenmedi",
+      "productLab": "Ürün Laboratuvarı",
+      "products": "ürün",
+      "labTagline": "Bağımsız bir ürün laboratuvarı. Ürünler farklı geliştirme aşamalarında.",
+      "channels": "Kanallar",
+      "homePortfolio": "Ana sayfa · Manifesto · Portföy",
+      "portfolio": "Portföy",
+      "productPage": "Ürün sayfası",
+      "comingSoon": "Yakında",
+      "backHome": "YULA Lab ana sayfasına dön",
+      "product": "Ürün",
+      "social": "Sosyal",
+      "platform": "Platform",
+      "loading": "Ürün dizini yükleniyor.",
+      "registryLoading": "Bağlantılar kontrol ediliyor; bu sırada kayıtlı dizin gösteriliyor.",
+      "registryUnavailable": "Güncel bağlantılar kontrol edilemedi. Kayıtlı dizin gösteriliyor; güncel bilgi için ürün sayfasını açın.",
+      "registryReady": "Dizin yenilendi. Her bağlantının kullanılabilirliği kendi doğrulama tarihine bağlıdır.",
+      "noJS": "JavaScript kapalı",
+      "noJSIntro": "Canlı bağlantı kontrolü kullanılamıyor. Aşağıdan dilinizi seçin; güncel ürün ve mağaza bilgisi için ürün sayfasını açın.",
+      "productInfo": "Ürün bilgisi",
+      "checkedAt": "Kayıtlı dizinin doğrulama tarihi",
+      "established": "Kuruluş",
+      "numberLabel": "No.",
+      "braavoTagline": "Geliştirme sürüyor; eski yayınlar farklı olabilir. Hesap, sağlayıcı ve cihaz doğrulamaları sürüyor.",
+      "heldTagline": "Geliştirme beklemede. Eski canlı sürümler erişilebilir olabilir.",
+      "lifeTagline": "Geliştirme sürüyor; eski yayınlar farklı olabilir. Cihaz ve yayın doğrulamaları sürüyor.",
+      "courseTagline": "Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",
+      "burunLegal": "18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir."
+    },
+    "products": {
+      "braavolabs": [
+        "Yapay zekâ çalışma alanı ve model orkestrasyonu",
+        "Şirketler için yazılım"
+      ],
+      "burunfarki": [
+        "At yarışı analizi · Geliştirme beklemede",
+        "Bireysel · Türkiye 18+"
+      ],
+      "lifeos": [
+        "Yaşam takibi çalışma alanı",
+        "Bireysel"
+      ],
+      "gravita": [
+        "Beceri ve kuvvet kurs içerikleri",
+        "Beceri + Kuvvet"
+      ],
+      "lissom": [
+        "Yoga ve hareketlilik kurs içerikleri",
+        "Hareketlilik + Yoga"
+      ],
+      "jablab": [
+        "Solo dövüş sanatları kurs içerikleri",
+        "Solo Dövüş Sanatları"
+      ],
+      "ostinato": [
+        "Müzik pratiği kurs içerikleri",
+        "Müzik Pratiği"
+      ],
+      "choreia": [
+        "Dans kurs içerikleri",
+        "Dans"
+      ]
+    }
+  },
+  "en": {
+    "name": "English",
+    "dir": "ltr",
+    "og": "en_US",
+    "ui": {
+      "title": "YULA Lab — Links",
+      "description": "YULA Lab product directory: product and store links with their verification status.",
+      "chooseLanguage": "Choose a language",
+      "support": "Support",
+      "privacy": "Privacy",
+      "research": "Research",
+      "verificationNeeded": "Verification needed",
+      "live": "Live",
+      "beta": "Beta",
+      "primitives": "Core functions",
+      "providers": "Providers",
+      "verifiedWeb": "Verified web link",
+      "productResearch": "Product page · Research",
+      "lastKnown": "YULA product page · Last known",
+      "notListed": "Not listed",
+      "productLab": "Product Lab",
+      "products": "products",
+      "labTagline": "An independent product lab. Products at different stages of development.",
+      "channels": "Channels",
+      "homePortfolio": "Home · Manifesto · Portfolio",
+      "portfolio": "Portfolio",
+      "productPage": "Product page",
+      "comingSoon": "Coming soon",
+      "backHome": "Back to YULA Lab home",
+      "product": "Product",
+      "social": "Social",
+      "platform": "Platform",
+      "loading": "Loading the product directory.",
+      "registryLoading": "Checking links; the saved directory is shown in the meantime.",
+      "registryUnavailable": "Current links could not be checked. The saved directory is shown; open a product page for current information.",
+      "registryReady": "Directory refreshed. Each link’s availability depends on its own verification date.",
+      "noJS": "JavaScript is disabled",
+      "noJSIntro": "Live link checks are unavailable. Choose your language below; open each product page for current product and store information.",
+      "productInfo": "Product information",
+      "checkedAt": "Saved directory checked on",
+      "established": "Est.",
+      "numberLabel": "No.",
+      "braavoTagline": "In development; earlier releases may differ. Account, provider and device validation is ongoing.",
+      "heldTagline": "Development is on hold. Earlier public versions may remain available.",
+      "lifeTagline": "In development; earlier releases may differ. Device and release validation is ongoing.",
+      "courseTagline": "Course materials are in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.",
+      "burunLegal": "18+ · Burun Farkı is an analytics platform, not a betting site."
+    },
+    "products": {
+      "braavolabs": [
+        "AI workspace and model orchestration",
+        "Business software"
+      ],
+      "burunfarki": [
+        "Horse racing analytics · Development on hold",
+        "Consumer · Türkiye 18+"
+      ],
+      "lifeos": [
+        "Life tracking workspace",
+        "Consumer"
+      ],
+      "gravita": [
+        "Skills and strength course materials",
+        "Skills + Strength"
+      ],
+      "lissom": [
+        "Yoga and mobility course materials",
+        "Mobility + Yoga"
+      ],
+      "jablab": [
+        "Solo martial arts course materials",
+        "Solo Martial Arts"
+      ],
+      "ostinato": [
+        "Music practice course materials",
+        "Music Practice"
+      ],
+      "choreia": [
+        "Dance course materials",
+        "Dance"
+      ]
+    }
+  },
+  "es-419": {
+    "name": "Español (Latinoamérica)",
+    "dir": "ltr",
+    "og": "es_LA",
+    "ui": {
+      "title": "YULA Lab — Enlaces",
+      "description": "Directorio de productos de YULA Lab: enlaces a productos y tiendas con su estado de verificación.",
+      "chooseLanguage": "Elige un idioma",
+      "support": "Soporte",
+      "privacy": "Privacidad",
+      "research": "Investigación",
+      "verificationNeeded": "Requiere verificación",
+      "live": "Disponible",
+      "beta": "Beta",
+      "primitives": "Funciones principales",
+      "providers": "Proveedores",
+      "verifiedWeb": "Enlace web verificado",
+      "productResearch": "Página del producto · Investigación",
+      "lastKnown": "Página de YULA · Última información conocida",
+      "notListed": "Sin enlace publicado",
+      "productLab": "Laboratorio de productos",
+      "products": "productos",
+      "labTagline": "Un laboratorio de productos independiente. Los productos están en distintas etapas de desarrollo.",
+      "channels": "Canales",
+      "homePortfolio": "Inicio · Manifiesto · Portafolio",
+      "portfolio": "Portafolio",
+      "productPage": "Página del producto",
+      "comingSoon": "Próximamente",
+      "backHome": "Volver al inicio de YULA Lab",
+      "product": "Producto",
+      "social": "Redes sociales",
+      "platform": "Plataforma",
+      "loading": "Cargando el directorio de productos.",
+      "registryLoading": "Estamos comprobando los enlaces; mientras tanto, se muestra el directorio guardado.",
+      "registryUnavailable": "No se pudieron comprobar los enlaces actuales. Se muestra el directorio guardado; abre la página del producto para consultar la información actual.",
+      "registryReady": "Directorio actualizado. La disponibilidad de cada enlace depende de su propia fecha de verificación.",
+      "noJS": "JavaScript está desactivado",
+      "noJSIntro": "No es posible comprobar los enlaces en tiempo real. Elige tu idioma abajo; abre la página de cada producto para consultar la información actual del producto y las tiendas.",
+      "productInfo": "Información del producto",
+      "checkedAt": "Fecha de verificación de la copia guardada",
+      "established": "Desde",
+      "numberLabel": "N.º",
+      "braavoTagline": "En desarrollo; las versiones anteriores pueden ser distintas. Continúan las validaciones de cuentas, proveedores y dispositivos.",
+      "heldTagline": "El desarrollo está en pausa. Es posible que las versiones públicas anteriores sigan disponibles.",
+      "lifeTagline": "En desarrollo; las versiones anteriores pueden ser distintas. Continúan las validaciones de dispositivos y versiones.",
+      "courseTagline": "Los materiales del curso están en desarrollo. El entrenamiento con cámara y las ventas de pago están desactivados; la enseñanza y la publicación en dispositivos y tiendas siguen pendientes de validación.",
+      "burunLegal": "18+ · Burun Farkı es una plataforma de análisis, no un sitio de apuestas."
+    },
+    "products": {
+      "braavolabs": [
+        "Espacio de trabajo con IA y orquestación de modelos",
+        "Software para empresas"
+      ],
+      "burunfarki": [
+        "Análisis de carreras de caballos · Desarrollo en pausa",
+        "Uso personal · Türkiye 18+"
+      ],
+      "lifeos": [
+        "Espacio para el seguimiento de tu vida diaria",
+        "Uso personal"
+      ],
+      "gravita": [
+        "Materiales de cursos de habilidades y fuerza",
+        "Habilidades + Fuerza"
+      ],
+      "lissom": [
+        "Materiales de cursos de yoga y movilidad",
+        "Movilidad + Yoga"
+      ],
+      "jablab": [
+        "Materiales de cursos de artes marciales en solitario",
+        "Artes marciales en solitario"
+      ],
+      "ostinato": [
+        "Materiales de cursos de práctica musical",
+        "Práctica musical"
+      ],
+      "choreia": [
+        "Materiales de cursos de danza",
+        "Danza"
+      ]
+    }
+  },
+  "pt-BR": {
+    "name": "Português (Brasil)",
+    "dir": "ltr",
+    "og": "pt_BR",
+    "ui": {
+      "title": "YULA Lab — Links",
+      "description": "Diretório de produtos da YULA Lab: links de produtos e lojas com o status de verificação.",
+      "chooseLanguage": "Escolha um idioma",
+      "support": "Suporte",
+      "privacy": "Privacidade",
+      "research": "Pesquisa",
+      "verificationNeeded": "Verificação necessária",
+      "live": "Disponível",
+      "beta": "Beta",
+      "primitives": "Funções principais",
+      "providers": "Provedores",
+      "verifiedWeb": "Link da web verificado",
+      "productResearch": "Página do produto · Pesquisa",
+      "lastKnown": "Página da YULA · Última informação conhecida",
+      "notListed": "Sem link publicado",
+      "productLab": "Laboratório de produtos",
+      "products": "produtos",
+      "labTagline": "Um laboratório de produtos independente. Os produtos estão em diferentes fases de desenvolvimento.",
+      "channels": "Canais",
+      "homePortfolio": "Início · Manifesto · Portfólio",
+      "portfolio": "Portfólio",
+      "productPage": "Página do produto",
+      "comingSoon": "Em breve",
+      "backHome": "Voltar ao início da YULA Lab",
+      "product": "Produto",
+      "social": "Redes sociais",
+      "platform": "Plataforma",
+      "loading": "Carregando o diretório de produtos.",
+      "registryLoading": "Verificando os links; enquanto isso, o diretório salvo é exibido.",
+      "registryUnavailable": "Não foi possível verificar os links atuais. O diretório salvo é exibido; abra a página do produto para consultar as informações atuais.",
+      "registryReady": "Diretório atualizado. A disponibilidade de cada link depende da própria data de verificação.",
+      "noJS": "O JavaScript está desativado",
+      "noJSIntro": "A verificação de links em tempo real não está disponível. Escolha seu idioma abaixo; abra a página de cada produto para consultar as informações atuais do produto e das lojas.",
+      "productInfo": "Informações do produto",
+      "checkedAt": "Data de verificação da cópia salva",
+      "established": "Desde",
+      "numberLabel": "N.º",
+      "braavoTagline": "Em desenvolvimento; as versões anteriores podem ser diferentes. A validação de contas, provedores e dispositivos continua em andamento.",
+      "heldTagline": "O desenvolvimento está pausado. As versões públicas anteriores podem continuar disponíveis.",
+      "lifeTagline": "Em desenvolvimento; as versões anteriores podem ser diferentes. A validação de dispositivos e versões continua em andamento.",
+      "courseTagline": "Os materiais do curso estão em desenvolvimento. A orientação por câmera e as vendas pagas estão desativadas; o ensino e a publicação para dispositivos e lojas aguardam validação.",
+      "burunLegal": "18+ · Burun Farkı é uma plataforma de análise, não um site de apostas."
+    },
+    "products": {
+      "braavolabs": [
+        "Espaço de trabalho com IA e orquestração de modelos",
+        "Software para empresas"
+      ],
+      "burunfarki": [
+        "Análise de corridas de cavalos · Desenvolvimento pausado",
+        "Uso pessoal · Türkiye 18+"
+      ],
+      "lifeos": [
+        "Espaço para acompanhar a vida diária",
+        "Uso pessoal"
+      ],
+      "gravita": [
+        "Materiais de cursos de habilidades e força",
+        "Habilidades + Força"
+      ],
+      "lissom": [
+        "Materiais de cursos de ioga e mobilidade",
+        "Mobilidade + Ioga"
+      ],
+      "jablab": [
+        "Materiais de cursos de artes marciais individuais",
+        "Artes marciais individuais"
+      ],
+      "ostinato": [
+        "Materiais de cursos de prática musical",
+        "Prática musical"
+      ],
+      "choreia": [
+        "Materiais de cursos de dança",
+        "Dança"
+      ]
+    }
+  },
+  "de": {
+    "name": "Deutsch",
+    "dir": "ltr",
+    "og": "de_DE",
+    "ui": {
+      "title": "YULA Lab — Links",
+      "description": "Das Produktverzeichnis von YULA Lab: Produkt- und Store-Links mit ihrem Prüfstatus.",
+      "chooseLanguage": "Sprache auswählen",
+      "support": "Support",
+      "privacy": "Datenschutz",
+      "research": "Forschung",
+      "verificationNeeded": "Prüfung erforderlich",
+      "live": "Verfügbar",
+      "beta": "Beta",
+      "primitives": "Kernfunktionen",
+      "providers": "Anbieter",
+      "verifiedWeb": "Geprüfter Weblink",
+      "productResearch": "Produktseite · Forschung",
+      "lastKnown": "YULA-Produktseite · Letzter bekannter Stand",
+      "notListed": "Nicht aufgeführt",
+      "productLab": "Produktlabor",
+      "products": "Produkte",
+      "labTagline": "Ein unabhängiges Produktlabor. Die Produkte befinden sich in unterschiedlichen Entwicklungsphasen.",
+      "channels": "Kanäle",
+      "homePortfolio": "Startseite · Manifest · Portfolio",
+      "portfolio": "Portfolio",
+      "productPage": "Produktseite",
+      "comingSoon": "Demnächst",
+      "backHome": "Zurück zur YULA-Lab-Startseite",
+      "product": "Produkt",
+      "social": "Soziale Netzwerke",
+      "platform": "Plattform",
+      "loading": "Produktverzeichnis wird geladen.",
+      "registryLoading": "Links werden geprüft. Bis dahin wird das gespeicherte Verzeichnis angezeigt.",
+      "registryUnavailable": "Die aktuellen Links konnten nicht geprüft werden. Das gespeicherte Verzeichnis wird angezeigt. Aktuelle Informationen stehen auf der Produktseite.",
+      "registryReady": "Verzeichnis aktualisiert. Die Verfügbarkeit jedes Links hängt von seinem jeweiligen Prüfdatum ab.",
+      "noJS": "JavaScript ist deaktiviert",
+      "noJSIntro": "Eine aktuelle Linkprüfung ist nicht möglich. Wähle unten deine Sprache. Aktuelle Produkt- und Store-Informationen stehen auf der jeweiligen Produktseite.",
+      "productInfo": "Produktinformationen",
+      "checkedAt": "Prüfdatum des gespeicherten Stands",
+      "established": "Seit",
+      "numberLabel": "Nr.",
+      "braavoTagline": "In Entwicklung; frühere Veröffentlichungen können abweichen. Konten, Anbieter und Geräte werden weiterhin geprüft.",
+      "heldTagline": "Die Entwicklung ist pausiert. Frühere öffentliche Versionen können weiterhin verfügbar sein.",
+      "lifeTagline": "In Entwicklung; frühere Veröffentlichungen können abweichen. Geräte und Veröffentlichungen werden weiterhin geprüft.",
+      "courseTagline": "Die Kursmaterialien werden entwickelt. Kameracoaching und kostenpflichtiger Verkauf sind deaktiviert. Lehrinhalte sowie die Veröffentlichung für Geräte und Stores müssen noch validiert werden.",
+      "burunLegal": "18+ · Burun Farkı ist eine Analyseplattform, keine Wettseite."
+    },
+    "products": {
+      "braavolabs": [
+        "KI-Arbeitsbereich und Modellorchestrierung",
+        "Unternehmenssoftware"
+      ],
+      "burunfarki": [
+        "Pferderennanalyse · Entwicklung pausiert",
+        "Privatnutzung · Türkiye 18+"
+      ],
+      "lifeos": [
+        "Arbeitsbereich zur Alltagserfassung",
+        "Privatnutzung"
+      ],
+      "gravita": [
+        "Kursmaterialien zu Fertigkeiten und Kraft",
+        "Fertigkeiten + Kraft"
+      ],
+      "lissom": [
+        "Kursmaterialien zu Yoga und Beweglichkeit",
+        "Beweglichkeit + Yoga"
+      ],
+      "jablab": [
+        "Kursmaterialien für eigenständiges Kampfkunsttraining",
+        "Eigenständiges Kampfkunsttraining"
+      ],
+      "ostinato": [
+        "Kursmaterialien zum Musiküben",
+        "Musikpraxis"
+      ],
+      "choreia": [
+        "Kursmaterialien zum Tanzen",
+        "Tanz"
+      ]
+    }
+  },
+  "fr": {
+    "name": "Français",
+    "dir": "ltr",
+    "og": "fr_FR",
+    "ui": {
+      "title": "YULA Lab — Liens",
+      "description": "Le répertoire des produits YULA Lab : liens vers les produits et les boutiques avec leur état de vérification.",
+      "chooseLanguage": "Choisir une langue",
+      "support": "Assistance",
+      "privacy": "Confidentialité",
+      "research": "Recherche",
+      "verificationNeeded": "Vérification nécessaire",
+      "live": "Disponible",
+      "beta": "Bêta",
+      "primitives": "Fonctions principales",
+      "providers": "Fournisseurs",
+      "verifiedWeb": "Lien web vérifié",
+      "productResearch": "Page produit · Recherche",
+      "lastKnown": "Page produit YULA · Dernier état connu",
+      "notListed": "Non répertorié",
+      "productLab": "Laboratoire de produits",
+      "products": "produits",
+      "labTagline": "Un laboratoire de produits indépendant. Les produits se trouvent à différents stades de développement.",
+      "channels": "Canaux",
+      "homePortfolio": "Accueil · Manifeste · Portfolio",
+      "portfolio": "Portfolio",
+      "productPage": "Page produit",
+      "comingSoon": "Prochainement",
+      "backHome": "Revenir à l’accueil de YULA Lab",
+      "product": "Produit",
+      "social": "Réseaux sociaux",
+      "platform": "Plateforme",
+      "loading": "Chargement du répertoire des produits.",
+      "registryLoading": "Vérification des liens en cours ; le répertoire enregistré est affiché en attendant.",
+      "registryUnavailable": "Les liens actuels n’ont pas pu être vérifiés. Le répertoire enregistré est affiché ; ouvrez la page du produit pour consulter les informations actuelles.",
+      "registryReady": "Répertoire actualisé. La disponibilité de chaque lien dépend de sa propre date de vérification.",
+      "noJS": "JavaScript est désactivé",
+      "noJSIntro": "La vérification des liens en temps réel est indisponible. Choisissez votre langue ci-dessous ; ouvrez la page de chaque produit pour consulter les informations actuelles sur le produit et les boutiques.",
+      "productInfo": "Informations sur le produit",
+      "checkedAt": "Date de vérification de la copie enregistrée",
+      "established": "Depuis",
+      "numberLabel": "Nº",
+      "braavoTagline": "En développement ; les versions précédentes peuvent être différentes. La validation des comptes, des fournisseurs et des appareils se poursuit.",
+      "heldTagline": "Le développement est en pause. Des versions publiques antérieures peuvent rester accessibles.",
+      "lifeTagline": "En développement ; les versions précédentes peuvent être différentes. La validation des appareils et des versions se poursuit.",
+      "courseTagline": "Les supports de cours sont en développement. Le coaching par caméra et les ventes payantes sont désactivés ; l’enseignement et la publication sur appareils et boutiques restent à valider.",
+      "burunLegal": "18+ · Burun Farkı est une plateforme d’analyse, pas un site de paris."
+    },
+    "products": {
+      "braavolabs": [
+        "Espace de travail IA et orchestration de modèles",
+        "Logiciels pour les entreprises"
+      ],
+      "burunfarki": [
+        "Analyse des courses hippiques · Développement en pause",
+        "Usage personnel · Türkiye 18+"
+      ],
+      "lifeos": [
+        "Espace de suivi du quotidien",
+        "Usage personnel"
+      ],
+      "gravita": [
+        "Supports de cours de maîtrise corporelle et de force",
+        "Maîtrise corporelle + Force"
+      ],
+      "lissom": [
+        "Supports de cours de yoga et de mobilité",
+        "Mobilité + Yoga"
+      ],
+      "jablab": [
+        "Supports de cours d’arts martiaux en solo",
+        "Arts martiaux en solo"
+      ],
+      "ostinato": [
+        "Supports de cours de pratique musicale",
+        "Pratique musicale"
+      ],
+      "choreia": [
+        "Supports de cours de danse",
+        "Danse"
+      ]
+    }
+  },
+  "ja": {
+    "name": "日本語",
+    "dir": "ltr",
+    "og": "ja_JP",
+    "ui": {
+      "title": "YULA Lab — リンク集",
+      "description": "YULA Labの製品一覧。製品ページとストアへのリンクを確認状況とともに掲載しています。",
+      "chooseLanguage": "言語を選択",
+      "support": "サポート",
+      "privacy": "プライバシー",
+      "research": "研究段階",
+      "verificationNeeded": "確認が必要",
+      "live": "公開中",
+      "beta": "ベータ版",
+      "primitives": "基本機能",
+      "providers": "プロバイダー",
+      "verifiedWeb": "確認済みのウェブリンク",
+      "productResearch": "製品ページ · 研究段階",
+      "lastKnown": "YULA製品ページ · 最後に確認された情報",
+      "notListed": "掲載なし",
+      "productLab": "製品ラボ",
+      "products": "製品",
+      "labTagline": "独立した製品ラボです。各製品はそれぞれ異なる開発段階にあります。",
+      "channels": "公式チャンネル",
+      "homePortfolio": "ホーム · マニフェスト · 製品一覧",
+      "portfolio": "製品一覧",
+      "productPage": "製品ページ",
+      "comingSoon": "近日公開",
+      "backHome": "YULA Labのホームに戻る",
+      "product": "製品",
+      "social": "ソーシャルメディア",
+      "platform": "プラットフォーム",
+      "loading": "製品一覧を読み込んでいます。",
+      "registryLoading": "リンクを確認しています。その間は保存済みの一覧を表示します。",
+      "registryUnavailable": "最新のリンクを確認できませんでした。保存済みの一覧を表示しています。最新情報は各製品ページをご覧ください。",
+      "registryReady": "一覧を更新しました。各リンクの利用可否は、それぞれの確認日によって異なります。",
+      "noJS": "JavaScriptが無効です",
+      "noJSIntro": "リンクの最新状態は確認できません。下から言語を選び、製品とストアの最新情報は各製品ページでご確認ください。",
+      "productInfo": "製品情報",
+      "checkedAt": "保存済み情報の確認日",
+      "established": "設立",
+      "numberLabel": "番号",
+      "braavoTagline": "開発中です。過去の公開版とは異なる場合があります。アカウント、プロバイダー、端末の検証を続けています。",
+      "heldTagline": "開発を保留しています。過去の公開版を引き続き利用できる場合があります。",
+      "lifeTagline": "開発中です。過去の公開版とは異なる場合があります。端末と公開版の検証を続けています。",
+      "courseTagline": "コース教材を開発中です。カメラによるコーチングと有料販売は無効です。指導内容と端末・ストア向けの公開は、今後の検証が必要です。",
+      "burunLegal": "18+ · Burun Farkıは分析プラットフォームであり、賭け事のサイトではありません。"
+    },
+    "products": {
+      "braavolabs": [
+        "AIワークスペースとモデルの統合管理",
+        "企業向けソフトウェア"
+      ],
+      "burunfarki": [
+        "競馬分析 · 開発保留中",
+        "個人向け · Türkiye 18+"
+      ],
+      "lifeos": [
+        "日常生活を記録するワークスペース",
+        "個人向け"
+      ],
+      "gravita": [
+        "身体スキルと筋力のコース教材",
+        "身体スキル + 筋力"
+      ],
+      "lissom": [
+        "ヨガとモビリティのコース教材",
+        "モビリティ + ヨガ"
+      ],
+      "jablab": [
+        "一人で行う武術練習のコース教材",
+        "一人での武術練習"
+      ],
+      "ostinato": [
+        "音楽練習のコース教材",
+        "音楽練習"
+      ],
+      "choreia": [
+        "ダンスのコース教材",
+        "ダンス"
+      ]
+    }
+  },
+  "ar": {
+    "name": "العربية",
+    "dir": "rtl",
+    "og": "ar_AR",
+    "ui": {
+      "title": "YULA Lab — الروابط",
+      "description": "دليل منتجات YULA Lab: روابط المنتجات والمتاجر مع حالة التحقق منها.",
+      "chooseLanguage": "اختر اللغة",
+      "support": "الدعم",
+      "privacy": "الخصوصية",
+      "research": "مرحلة البحث",
+      "verificationNeeded": "يلزم التحقق",
+      "live": "متاح",
+      "beta": "نسخة تجريبية",
+      "primitives": "الوظائف الأساسية",
+      "providers": "مزوّدو الخدمة",
+      "verifiedWeb": "رابط ويب تم التحقق منه",
+      "productResearch": "صفحة المنتج · مرحلة البحث",
+      "lastKnown": "صفحة منتج YULA · آخر معلومات معروفة",
+      "notListed": "غير مُدرج",
+      "productLab": "مختبر منتجات",
+      "products": "منتجات",
+      "labTagline": "مختبر منتجات مستقل. المنتجات في مراحل مختلفة من التطوير.",
+      "channels": "القنوات",
+      "homePortfolio": "الرئيسية · البيان · المنتجات",
+      "portfolio": "المنتجات",
+      "productPage": "صفحة المنتج",
+      "comingSoon": "قريبًا",
+      "backHome": "العودة إلى الصفحة الرئيسية لـ YULA Lab",
+      "product": "منتج",
+      "social": "الشبكات الاجتماعية",
+      "platform": "المنصة",
+      "loading": "جارٍ تحميل دليل المنتجات.",
+      "registryLoading": "جارٍ التحقق من الروابط؛ يُعرض الدليل المحفوظ في هذه الأثناء.",
+      "registryUnavailable": "تعذّر التحقق من الروابط الحالية. يُعرض الدليل المحفوظ؛ افتح صفحة المنتج للاطلاع على المعلومات الحالية.",
+      "registryReady": "تم تحديث الدليل. يعتمد توفّر كل رابط على تاريخ التحقق الخاص به.",
+      "noJS": "JavaScript معطّل",
+      "noJSIntro": "التحقق المباشر من الروابط غير متاح. اختر لغتك أدناه؛ وافتح صفحة كل منتج للاطلاع على معلومات المنتج والمتاجر الحالية.",
+      "productInfo": "معلومات المنتج",
+      "checkedAt": "تاريخ التحقق من النسخة المحفوظة",
+      "established": "تأسس",
+      "numberLabel": "رقم",
+      "braavoTagline": "قيد التطوير؛ قد تختلف الإصدارات السابقة. لا يزال التحقق من الحسابات ومزوّدي الخدمة والأجهزة جاريًا.",
+      "heldTagline": "التطوير معلّق. قد تظل الإصدارات العامة السابقة متاحة.",
+      "lifeTagline": "قيد التطوير؛ قد تختلف الإصدارات السابقة. لا يزال التحقق من الأجهزة والإصدارات جاريًا.",
+      "courseTagline": "مواد الدورات قيد التطوير. التدريب بالكاميرا والمبيعات المدفوعة معطّلان؛ ولا يزال التحقق من المحتوى التعليمي والإصدار للأجهزة والمتاجر مطلوبًا.",
+      "burunLegal": "18+ · Burun Farkı منصة تحليل وليست موقعًا للمراهنات."
+    },
+    "products": {
+      "braavolabs": [
+        "مساحة عمل للذكاء الاصطناعي وتنسيق النماذج",
+        "برمجيات للشركات"
+      ],
+      "burunfarki": [
+        "تحليل سباقات الخيل · التطوير معلّق",
+        "استخدام شخصي · Türkiye 18+"
+      ],
+      "lifeos": [
+        "مساحة عمل لتتبّع الحياة اليومية",
+        "استخدام شخصي"
+      ],
+      "gravita": [
+        "مواد دورات المهارات والقوة",
+        "المهارات + القوة"
+      ],
+      "lissom": [
+        "مواد دورات اليوغا والحركة",
+        "الحركة + اليوغا"
+      ],
+      "jablab": [
+        "مواد دورات الفنون القتالية الفردية",
+        "الفنون القتالية الفردية"
+      ],
+      "ostinato": [
+        "مواد دورات الممارسة الموسيقية",
+        "الممارسة الموسيقية"
+      ],
+      "choreia": [
+        "مواد دورات الرقص",
+        "الرقص"
+      ]
+    }
+  }
+};
+const SUPPORTED_LOCALES = Object.freeze(Object.keys(L10N));
+const LOCALE_STORAGE_KEY = 'yula.links.locale';
+function canonicalLocale(value){
+  return typeof value === 'string' ? SUPPORTED_LOCALES.find(function(item){ return item.toLowerCase() === value.toLowerCase(); }) || null : null;
+}
+function localeFromLocation(){
+  const requested = new URLSearchParams(window.location.search).get('lang');
+  if(requested !== null) return canonicalLocale(requested) || 'tr';
+  try { return canonicalLocale(localStorage.getItem(LOCALE_STORAGE_KEY)) || 'tr'; } catch(e){ return 'tr'; }
+}
+let locale = localeFromLocation();
+function t(key){ return L10N[locale].ui[key]; }
+function siteUrl(path){ return 'https://yulalab.com' + (locale === 'tr' ? '' : '/' + locale) + (path || ''); }
+function localeURL(){
+  const url = new URL(window.location.href);
+  url.searchParams.set('lang',locale);
+  return url;
+}
+function writeLocaleURL(push){
+  const url = localeURL();
+  try { history[push ? 'pushState' : 'replaceState']({locale:locale},'',url.pathname + url.search + url.hash); } catch(e){ /* selection still works when history is unavailable */ }
+}
 function languageHTML(){
-  return '<button type="button" class="sb-lang" data-language aria-label="'
-    + textFor('Switch to English', 'Türkçeye geç') + '">' + textFor('EN', 'TR') + '</button>';
+  return '<label class="sb-language"><span class="sb-sr-only">' + esc(t('chooseLanguage')) + '</span><select class="sb-lang" data-language aria-label="' + esc(t('chooseLanguage')) + '">'
+    + SUPPORTED_LOCALES.map(function(code){ return '<option value="' + code + '" lang="' + code + '" dir="' + L10N[code].dir + '"' + (code === locale ? ' selected' : '') + '>' + esc(L10N[code].name) + '</option>'; }).join('') + '</select></label>';
 }
 function footerLinksHTML(){
-  return '<span><a href="mailto:support@yulalab.com">' + textFor('DESTEK', 'SUPPORT') + '</a></span>'
-    + '<span><a href="' + siteUrl('/privacy') + '" target="_blank" rel="noopener noreferrer">'
-    + textFor('GİZLİLİK', 'PRIVACY') + '</a></span>';
+  return '<span><a href="mailto:support@yulalab.com">' + esc(t('support')) + '</a></span>'
+    + '<span><a href="' + siteUrl('/privacy') + '" target="_blank" rel="noopener noreferrer">' + esc(t('privacy')) + '</a></span>';
 }
 function updateMetadata(){
   document.documentElement.lang = locale;
-  const description = textFor('YULA Lab ürün dizini: güncellik durumuyla ürün ve mağaza bağlantıları.',
-    'YULA Lab product directory: product and store links with their verification status.');
+  document.documentElement.dir = L10N[locale].dir;
+  const description = t('description');
   ['meta[name="description"]','meta[property="og:description"]','meta[name="twitter:description"]'].forEach(function(selector){
-    document.querySelector(selector).content = description;
+    const node = document.querySelector(selector); if(node) node.content = description;
   });
-  document.querySelector('meta[property="og:locale"]').content = textFor('tr_TR','en_US');
-  document.querySelector('meta[property="og:locale:alternate"]').content = textFor('en_US','tr_TR');
+  ['meta[property="og:title"]','meta[name="twitter:title"]'].forEach(function(selector){
+    const node = document.querySelector(selector); if(node) node.content = document.title || t('title');
+  });
+  document.querySelector('meta[property="og:locale"]').content = L10N[locale].og;
+  const alternatives = SUPPORTED_LOCALES.filter(function(code){ return code !== locale; });
+  document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(function(node,i){ node.content = L10N[alternatives[i]].og; });
+  document.querySelector('meta[property="og:url"]').content = 'https://links.yulalab.com/?lang=' + locale;
 }
-
+let registrySyncState = 'loading';
+function registryStatusHTML(){
+  const key = registrySyncState === 'network' ? 'registryReady' : registrySyncState === 'fallback' ? 'registryUnavailable' : 'registryLoading';
+  return '<p class="sb-registry-status" role="status">' + esc(t(key)) + '</p>';
+}
+function changeLocale(value){
+  const next = canonicalLocale(value);
+  if(!next || next === locale) return;
+  locale = next;
+  try { localStorage.setItem(LOCALE_STORAGE_KEY,locale); } catch(e){ /* URL remains the shareable preference */ }
+  writeLocaleURL(true);
+  applyRegistry(registryData,registryMeta);
+  refreshPages();
+}
 
 // ─── ICONS (inline SVG) ──────────────────────────────────────────────
 const ICON = {
@@ -474,25 +1256,20 @@ const LAB_PRESENTATION = {
   active: ['x','instagram'],
 };
 const PRESENTATION = {
-  braavolabs: { key:'bl', sub:'AI workspace & model orchestration', tagline:'In development; earlier releases may differ. Account, provider and device validation is ongoing.', color:'#00D1FF', category:'B2B SaaS' },
-  burunfarki: { key:'bf', sub:'Horse racing analytics · On hold', tagline:'Development is on hold. Earlier public versions may remain available.', color:'#FAB81F', category:'B2C · Türkiye 18+', legal:'18+ · Burun Farkı bir analitik platformudur, bahis sitesi değildir.' },
-  lifeos: { key:'lo', sub:'Life tracking workspace', tagline:'In development; earlier releases may differ. Device and release validation is ongoing.', color:'#C3F400', category:'B2C' },
-  gravita: { key:'gravita', sub:"Skills & strength course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#FF6B4A', category:"Skills + Strength" },
-  lissom: { key:'lissom', sub:"Yoga & mobility course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#B8A9FF', category:"Mobility + Yoga" },
-  jablab: { key:'jablab', sub:"Solo martial arts course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#FF3B5C', category:"Solo Martial Arts" },
-  ostinato: { key:'ostinato', sub:"Music practice course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#38BDF8', category:"Music Practice" },
-  choreia: { key:'choreia', sub:"Dance course materials", tagline:"Course materials in development. Camera coaching and paid sales are closed; teaching and device/store release await validation.", color:'#F472B6', category:"Dance" },
+  braavolabs: {key:'bl',color:'#00D1FF'},
+  burunfarki: {key:'bf',color:'#FAB81F'},
+  lifeos: {key:'lo',color:'#C3F400'},
+  gravita: {key:'gravita',color:'#FF6B4A'},
+  lissom: {key:'lissom',color:'#B8A9FF'},
+  jablab: {key:'jablab',color:'#FF3B5C'},
+  ostinato: {key:'ostinato',color:'#38BDF8'},
+  choreia: {key:'choreia',color:'#F472B6'},
 };
-const PRESENTATION_TR = {
-  braavolabs:{sub:'Yapay zekâ çalışma alanı ve model orkestrasyonu',tagline:'Geliştirme sürüyor; eski yayınlar farklı olabilir. Hesap, sağlayıcı ve cihaz doğrulamaları sürüyor.',category:'Şirketler için yazılım'},
-  burunfarki:{sub:'At yarışı analizi · Geliştirme beklemede',tagline:'Geliştirme beklemede. Eski canlı sürümler erişilebilir olabilir.',category:'Bireysel · Türkiye 18+'},
-  lifeos:{sub:'Yaşam takibi çalışma alanı',tagline:'Geliştirme sürüyor; eski yayınlar farklı olabilir. Cihaz ve yayın doğrulamaları sürüyor.',category:'Bireysel'},
-  gravita:{sub:"Beceri ve kuvvet kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Beceri + Kuvvet"},
-  lissom:{sub:"Yoga ve hareketlilik kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Hareketlilik + Yoga"},
-  jablab:{sub:"Solo dövüş sanatları kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Solo Dövüş Sanatları"},
-  ostinato:{sub:"Müzik pratiği kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Müzik Pratiği"},
-  choreia:{sub:"Dans kurs içerikleri",tagline:"Kurs içerikleri geliştiriliyor. Kamera koçluğu ve ücretli satış kapalı; öğretim ile cihaz/mağaza yayını doğrulanmayı bekliyor.",category:"Dans"}
-};
+function presentationFor(slug){
+  const values = L10N[locale].products[slug];
+  const taglineKey = slug === 'braavolabs' ? 'braavoTagline' : slug === 'burunfarki' ? 'heldTagline' : slug === 'lifeos' ? 'lifeTagline' : 'courseTagline';
+  return Object.assign({},PRESENTATION[slug],{sub:values[0],category:values[1],tagline:t(taglineKey),legal:slug === 'burunfarki' ? t('burunLegal') : null});
+}
 const REQUIRED_SLUGS = Object.freeze(Object.keys(PRESENTATION));
 const FALLBACK_REGISTRY_META = Object.freeze({
   sha256:'95768aac9494edaa01372f9a714ffc25f6c32d655436b776d8e2e0a555db7cab',
@@ -553,6 +1330,7 @@ let TOTAL_PRODUCTS = Object.keys(STAMP_BRAND_META).length;
 
 // ─── HELPERS ──────────────────────────────────────────────────────────
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
+function isolatedTextHTML(value){ return esc(value).replace(/Burun Farkı|18\+|\d{4}-\d{2}-\d{2}/g,function(token){ return '<bdi dir="ltr">' + token + '</bdi>'; }); }
 function handleFor(brand, platformKey){
   return brand.handles[platformKey] || '';
 }
@@ -629,14 +1407,14 @@ function percentLabel(value){
   return match ? '~' + match[1] + '%' : value;
 }
 function productStats(record, hasCurrentSurface){
-  const status = record.lifecycle === 'research' ? textFor('Araştırma','Research')
-    : !hasCurrentSurface ? textFor('Doğrulama gerekli','Verification needed')
-    : record.lifecycle === 'beta' ? 'Beta' : textFor('Canlı','Live');
+  const status = record.lifecycle === 'research' ? t('research')
+    : !hasCurrentSurface ? t('verificationNeeded')
+    : record.lifecycle === 'beta' ? t('beta') : t('live');
   if(record.lifecycle === 'research') return [status];
   if(record.slug === 'braavolabs'){
     const primitive = claimFigures(record, 'braavolabs-primitive-count')[0];
     const provider = claimFigures(record, 'braavolabs-provider-count')[0];
-    return [primitive && primitive + textFor(' temel işlev',' primitives'), provider && provider + textFor(' sağlayıcı',' providers'), status].filter(Boolean);
+    return [primitive && t('primitives') + ': ' + primitive, provider && t('providers') + ': ' + provider, status].filter(Boolean);
   }
   if(record.slug === 'burunfarki'){
     const figures = claimFigures(record, 'burunfarki-topk-accuracy');
@@ -665,21 +1443,21 @@ function normaliseProduct(record, asOf){
   const web = current.find(function(surface){ return surface.kind === 'web'; });
   const ios = current.find(function(surface){ return surface.kind === 'ios'; });
   const android = current.find(function(surface){ return surface.kind === 'android'; });
-  const p = Object.assign({}, PRESENTATION[record.slug], locale === 'tr' ? PRESENTATION_TR[record.slug] : {});
+  const p = presentationFor(record.slug);
   const internalUrl = siteUrl('/projects/' + record.slug);
-  const currentLabel = record.lifecycle === 'research' ? textFor('Araştırma','Research') : (record.lifecycle === 'beta' ? 'Beta' : textFor('Canlı','Live'));
+  const currentLabel = record.lifecycle === 'research' ? t('research') : (record.lifecycle === 'beta' ? t('beta') : t('live'));
   const hasCurrentSurface = record.lifecycle === 'research' || current.length > 0;
   const model = {
     key:p.key, slug:record.slug, name:record.name.trim(), sub:p.sub, tagline:p.tagline,
-    color:p.color, legal:record.slug === 'burunfarki' ? textFor(p.legal, '18+ · Burun Farkı is an analytics platform, not a betting site.') : null, lifecycle:record.lifecycle,
-    type:p.category + ' · ' + (hasCurrentSurface ? currentLabel : textFor('Doğrulama gerekli','Verification needed')),
+    color:p.color, legal:p.legal, lifecycle:record.lifecycle,
+    type:p.category + ' · ' + (hasCurrentSurface ? currentLabel : t('verificationNeeded')),
     hasCurrentSurface:hasCurrentSurface,
     storeStates:{ios:storeState(surfaces,'ios'),android:storeState(surfaces,'android')},
     soonProduct:record.lifecycle === 'research', stats:[], handles:{}, active:[],
     stores:{ios:ios ? ios.url : null,android:android ? android.url : null},
     url:web ? web.url : internalUrl,
     displayUrl:web ? new URL(web.url).hostname : internalUrl.replace('https://',''),
-    urlSub:web ? textFor('Doğrulanmış web bağlantısı · ','Verified web link · ') + web.verifiedAt : (record.lifecycle === 'research' ? textFor('Ürün sayfası · Araştırma','Product page · Research') : textFor('YULA ürün sayfası · Son bilinen','YULA product page · Last known')),
+    urlSub:web ? t('verifiedWeb') + ' · ' + web.verifiedAt : (record.lifecycle === 'research' ? t('productResearch') : t('lastKnown')),
     currentHosts:current.map(function(surface){ return new URL(surface.url).hostname; }),
     updatedAt:record.updatedAt,
   };
@@ -728,11 +1506,11 @@ function tileHTML(brand, social){
       </span>
     </a>`;
   } else {
-    return `<div class="sb-tile soon" aria-label="${esc(social.name)} — ${textFor("Listelenmedi","Not listed")}">
+    return `<div class="sb-tile soon" aria-label="${esc(social.name)} — ${t('notListed')}">
       <span class="sb-tile-icon" aria-hidden="true">${ICON[social.key]}</span>
       <span class="sb-tile-text">
         <span class="sb-tile-name">${esc(social.name)}</span>
-        <span class="sb-tile-handle">${textFor("LİSTELENMEDİ","NOT LISTED")}</span>
+        <span class="sb-tile-handle">${t('notListed')}</span>
       </span>
     </div>`;
   }
@@ -747,55 +1525,56 @@ function holdingHTML(){
   // Portfolio sırası: PORTFOLIO_ORDER'dan (canlı 3 + Motion ailesi 5) — bkz. routing bölümü
   return `<div class="sb-root">
     <div class="sb-band">
-      <span>● YULA / LAB</span>
-      <span>EST · 2025 · TR</span>${languageHTML()}
+      <span dir="ltr">● YULA / LAB</span>
+      <span>${esc(t('established'))} · <bdi dir="ltr">2025 · TR</bdi></span>${languageHTML()}
     </div>
     <div class="sb-pad">
+      ${registryStatusHTML()}
       <div class="sb-hero">
-        <div class="sb-eyebrow"><span>${textFor("Ürün Laboratuvarı","Product Lab")}</span><span>${String(TOTAL_PRODUCTS).padStart(2,'0')} ${textFor("Ürün","Products")}</span></div>
+        <div class="sb-eyebrow"><span>${t('productLab')}</span><span>${String(TOTAL_PRODUCTS).padStart(2,'0')} ${t('products')}</span></div>
         <h1 class="sb-name">YULA<br><span class="sb-slash">/</span>LAB.</h1>
-        <p class="sb-tag">${esc(textFor("Bağımsız bir ürün laboratuvarı. Ürünler farklı geliştirme aşamalarında.",LAB_PRESENTATION.tagline))}</p>
+        <p class="sb-tag">${esc(t('labTagline'))}</p>
       </div>
 
-      <div class="sb-section"><span class="sb-num">01</span><span>${textFor("Kanallar","Channels")}</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">01</span><span>${t('channels')}</span><span class="sb-rule"></span></div>
 
       <a class="sb-url" href="${siteUrl('')}" target="_blank" rel="noopener noreferrer" aria-label="yulalab.com">
         <div>
-          <div class="sb-url-name">yulalab.com</div>
-          <div class="sb-url-sub">${textFor("Ana sayfa · Manifesto · Portföy","Home · Manifesto · Portfolio")}</div>
+          <div class="sb-url-name" dir="ltr">yulalab.com</div>
+          <div class="sb-url-sub">${t('homePortfolio')}</div>
         </div>
         <span style="font-size:22px" aria-hidden="true">→</span>
       </a>
 
       ${gridHTML(LAB_PRESENTATION)}
 
-      <div class="sb-section"><span class="sb-num">02</span><span>${textFor("Portföy","Portfolio")}</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">02</span><span>${t('portfolio')}</span><span class="sb-rule"></span></div>
 
       <div class="sb-prod-grid">
       ${PORTFOLIO_ORDER.map((key, i) => {
         const p = PRODUCTS_BY_KEY[key];
         const slug = REVERSE_MAP[key] || key;
-        const soonBadge = p.soonProduct ? `<span class="sb-prod-soon" style="--c:${p.color}">${textFor("Araştırma","Research")}</span>` : '';
-        return `<a class="sb-prod" data-nav="${slug}" href="#${slug}" style="--c:${p.color};background:${p.color};color:#0A0A0A" aria-label="${esc(p.name)} — ${textFor("Ürün sayfası","Product page")}">
+        const soonBadge = p.soonProduct ? `<span class="sb-prod-soon" style="--c:${p.color}">${t('research')}</span>` : '';
+        return `<a class="sb-prod" data-nav="${slug}" href="#${slug}" style="--c:${p.color};background:${p.color};color:#0A0A0A" aria-label="${esc(p.name)} — ${t('productPage')}">
           ${soonBadge}
           <div class="sb-prod-head">
-            <span class="sb-prod-tag" style="color:${p.color}">No. ${String(i+1).padStart(2,'0')}</span>
+            <span class="sb-prod-tag" style="color:${p.color}">${esc(t('numberLabel'))} ${String(i+1).padStart(2,'0')}</span>
             <span class="sb-prod-mark">↗</span>
           </div>
-          <div class="sb-prod-name">${esc(p.name)}</div>
+          <div class="sb-prod-name"><bdi dir="ltr">${esc(p.name)}</bdi></div>
           <div class="sb-prod-sub">${esc(p.sub)}</div>
           <div class="sb-prod-foot">
             <span>${esc(p.type)}</span>
-            <span>${esc(p.displayUrl)}</span>
+            <span dir="ltr">${esc(p.displayUrl)}</span>
           </div>
         </a>`;
       }).join('')}
       </div>
     </div>
     <div class="sb-foot">
-      <span>© 2026</span>
-      <span>M. K. KOÇAK</span>
-      <span>YULALAB.COM</span>
+      <span dir="ltr">© 2026</span>
+      <span dir="ltr">M. K. KOÇAK</span>
+      <span dir="ltr">YULALAB.COM</span>
       ${footerLinksHTML()}
     </div>
   </div>`;
@@ -816,8 +1595,8 @@ function platBtnHTML(kind, url, state){
       </div>
     </a>`;
   }
-  const status = state === 'coming-soon' ? textFor('Yakında','Coming soon')
-    : state === 'stale' ? textFor('Doğrulama gerekli','Verification needed') : textFor('Listelenmedi','Not listed');
+  const status = state === 'coming-soon' ? t('comingSoon')
+    : state === 'stale' ? t('verificationNeeded') : t('notListed');
   const ariaLabel = n + ' — ' + status;
   const subText = status;
   return `<div class="sb-platbtn soon" aria-label="${ariaLabel}">
@@ -837,26 +1616,27 @@ function brandHTML(brandKey){
   const tagline = b.line2 ? esc(b.tagline) + '<br>' + esc(b.line2) : esc(b.tagline);
   return `<div class="sb-root" style="--accent:${b.color}">
     <div class="sb-band" style="background:${b.color};color:#0A0A0A">
-      <span>● ${esc(upperName)}</span>
-      <span>NO · ${number} / ${String(TOTAL_PRODUCTS).padStart(2,'0')}</span>${languageHTML()}
+      <span dir="ltr">● ${esc(upperName)}</span>
+      <span>${esc(t('numberLabel'))} <bdi dir="ltr">${number} / ${String(TOTAL_PRODUCTS).padStart(2,'0')}</bdi></span>${languageHTML()}
     </div>
     <div class="sb-pad">
+      ${registryStatusHTML()}
       <div class="sb-brandhero">
-        <a class="sb-back" data-nav="holding" href="#" aria-label="${textFor('YULA Lab ana sayfasına dön','Back to YULA Lab home')}">← YULA / LAB</a>
-        <div class="sb-mark">${textFor("ÜRÜN","PRODUCT")} · ${number}</div>
+        <a class="sb-back" data-nav="holding" href="#" aria-label="${t('backHome')}"><span aria-hidden="true">${locale === 'ar' ? '→' : '←'}</span> <bdi dir="ltr">YULA / LAB</bdi></a>
+        <div class="sb-mark">${t('product')} · ${number}</div>
         <h1 class="sb-name">${esc(meta.title[0])}<br>${esc(meta.title[1])}</h1>
         <p class="sb-tag">${tagline}</p>
         <div class="sb-stats">
-          ${b.stats.map((s,i)=>`<span class="${i%2?'sb-stat sb-stat-line':'sb-stat'}">${esc(s)}</span>`).join('')}
+          ${b.stats.map((s,i)=>`<span class="${i%2?'sb-stat sb-stat-line':'sb-stat'}"><bdi dir="auto">${esc(s)}</bdi></span>`).join('')}
         </div>
       </div>
 
-      <div class="sb-section"><span class="sb-num">01</span><span>Platform</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">01</span><span>${esc(t('platform'))}</span><span class="sb-rule"></span></div>
 
       <a class="sb-url" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer" style="background:${b.color};color:#0A0A0A" aria-label="${esc(b.displayUrl)}">
         <div>
-          <div class="sb-url-name">${esc(b.displayUrl)}</div>
-          <div class="sb-url-sub" style="opacity:.65">${esc(b.urlSub)}</div>
+          <div class="sb-url-name" dir="ltr">${esc(b.displayUrl)}</div>
+          <div class="sb-url-sub" style="opacity:.65">${isolatedTextHTML(b.urlSub)}</div>
         </div>
         <span style="font-size:22px" aria-hidden="true">→</span>
       </a>
@@ -866,14 +1646,14 @@ function brandHTML(brandKey){
         ${platBtnHTML('android', b.stores && b.stores.android, b.storeStates.android)}
       </div>
 
-      <div class="sb-section"><span class="sb-num">02</span><span>${textFor("Sosyal","Social")}</span><span class="sb-rule"></span></div>
+      <div class="sb-section"><span class="sb-num">02</span><span>${t('social')}</span><span class="sb-rule"></span></div>
 
       ${gridHTML(b)}
 
-      ${b.legal ? `<div class="sb-legal">${esc(b.legal)}<span class="sb-legal-2">YEDAM <a href="tel:115">115</a> · <a href="https://www.yedam.org.tr/hizmetler" target="_blank" rel="noopener noreferrer">yedam.org.tr</a></span></div>` : ''}
+      ${b.legal ? `<div class="sb-legal">${isolatedTextHTML(b.legal)}<span class="sb-legal-2">YEDAM <a href="tel:115">115</a> · <a href="https://www.yedam.org.tr/hizmetler" target="_blank" rel="noopener noreferrer">yedam.org.tr</a></span></div>` : ''}
     </div>
     <div class="sb-foot" style="background:${b.color};color:#0A0A0A">
-      <span>${esc(b.displayUrl.toUpperCase())}</span>
+      <span dir="ltr">${esc(b.displayUrl.toUpperCase())}</span>
       <span><a data-nav="holding" data-focus="footer-home" href="#" style="color:inherit;opacity:1">YULA LAB</a></span>
       ${footerLinksHTML()}
     </div>
@@ -921,7 +1701,7 @@ function buildAllPages(){
   const pages = { holding: holdingHTML() };
   PORTFOLIO_ORDER.forEach(function(key){ pages[key] = brandHTML(key); });
   app.innerHTML = Object.keys(pages).map(key =>
-    `<section id="pg-${key}" class="page" aria-labelledby="pg-${key}-title"><h2 id="pg-${key}-title" class="sb-sr-only">${esc(TITLES[key])}</h2>${pages[key]}</section>`
+    `<section id="pg-${key}" class="page" aria-labelledby="pg-${key}-title"><h2 id="pg-${key}-title" class="sb-sr-only">${esc(key === 'holding' ? t('title') : TITLES[key])}</h2>${pages[key]}</section>`
   ).join('');
 }
 
@@ -938,7 +1718,8 @@ function showPage(key, push){
     const url = h ? '#' + h : window.location.pathname + window.location.search;
     try { history.pushState({page:key}, '', url); } catch(e){ window.location.hash = h; }
   }
-  document.title = key === 'holding' ? textFor('YULA Lab — Bağlantılar','YULA Lab — Links') : TITLES[key];
+  document.title = key === 'holding' ? t('title') : TITLES[key];
+  updateMetadata();
   // The funnel's view event is reported from HERE, not from a hashchange
   // listener. showPage uses history.pushState, and pushState does NOT fire
   // hashchange — so an in-hub card click produced an outbound event with no
@@ -949,7 +1730,7 @@ function showPage(key, push){
 }
 
 function routeFromHash(){
-  const nextLocale = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'tr';
+  const nextLocale = localeFromLocation();
   if(nextLocale !== locale){ locale = nextLocale; applyRegistry(registryData, registryMeta); buildAllPages(); updateMetadata(); }
   const h = (window.location.hash || '').replace('#','').toLowerCase();
   showPage(HASH_MAP[h] || 'holding', false);
@@ -973,7 +1754,7 @@ function refreshPages(){
   const page = document.getElementById('pg-' + key);
   page.classList.add('active');
   if(focusInfo){
-    const match = Array.from(page.querySelectorAll('a,button')).find(function(el){
+    const match = Array.from(page.querySelectorAll('a,button,select')).find(function(el){
       return focusInfo.focusKey ? el.getAttribute('data-focus') === focusInfo.focusKey
         : focusInfo.language ? el.hasAttribute('data-language')
         : focusInfo.nav !== null ? el.getAttribute('data-nav') === focusInfo.nav
@@ -982,10 +1763,13 @@ function refreshPages(){
     (match || app).focus({preventScroll:true});
   }
   window.scrollTo({left:x,top:y,behavior:'instant'});
-  document.title = key === 'holding' ? textFor('YULA Lab — Bağlantılar','YULA Lab — Links') : TITLES[key];
+  document.title = key === 'holding' ? t('title') : TITLES[key];
   updateMetadata();
 }
 // ─── INIT ────────────────────────────────────────────────────────────
+writeLocaleURL(false);
+const loadingStatus = app.querySelector('[role="status"]');
+if(loadingStatus) loadingStatus.textContent = t('loading');
 updateMetadata();
 applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
 buildAllPages();
@@ -1008,7 +1792,7 @@ function sha256Text(value){
   });
 }
 function registryVerifiedAt(data){
-  return data.products.map(function(product){ return product.updatedAt; }).filter(canonicalDate).sort().pop() || 'bilinmiyor';
+  return data.products.map(function(product){ return product.updatedAt; }).filter(canonicalDate).sort().pop() || null;
 }
 
 // AbortSignal.timeout is a 2022 API — Safari <16 and some older in-app
@@ -1038,24 +1822,17 @@ fetch(REGISTRY_URL, fetchOptions)
   })
   .then(function(result){
     applyRegistry(result.data, {sha256:result.hash,verifiedAt:registryVerifiedAt(result.data),source:'network'});
+    registrySyncState = 'network';
     refreshPages();
   })
   .catch(function(error){
+    registrySyncState = 'fallback';
     applyRegistry(FALLBACK_REGISTRY, FALLBACK_REGISTRY_META);
     refreshPages();
   });
 
 // Delegated click for internal nav (data-nav attribute)
 document.addEventListener('click', function(e){
-  if(e.target.closest('[data-language]')){
-    locale = locale === 'tr' ? 'en' : 'tr';
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang',locale);
-    history.pushState(null,'',url.pathname + url.search + url.hash);
-    applyRegistry(registryData,registryMeta);
-    refreshPages();
-    return;
-  }
   const t = e.target.closest('[data-nav]');
   if(!t) return;
   e.preventDefault();
@@ -1063,6 +1840,10 @@ document.addEventListener('click', function(e){
   if(HASH_MAP[key] || HASH_MAP[key.toLowerCase()]){
     navigate(HASH_MAP[key] || HASH_MAP[key.toLowerCase()]);
   }
+});
+
+document.addEventListener('change',function(e){
+  if(e.target && e.target.matches && e.target.matches('[data-language]')) changeLocale(e.target.value);
 });
 
 // Expose for inline onclick / debugging
@@ -1157,7 +1938,7 @@ window.go = navigate;
     if(!ENABLED) return;
     var s = session();
     if(!s) return;
-    var body = { v:1, event:event, locale:'tr', page:currentPage(), session:s };
+    var body = { v:1, event:event, locale:locale, page:currentPage(), session:s };
     var u = utm();
     ['source','medium','campaign','content'].forEach(function(k){ if(u[k]) body[k] = u[k]; });
     if(extra) Object.keys(extra).forEach(function(k){ if(extra[k] !== undefined) body[k] = extra[k]; });
