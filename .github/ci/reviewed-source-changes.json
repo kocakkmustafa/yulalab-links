@@ -5,30 +5,30 @@
     {
       "path": "README.md",
       "publishedSha256": "90ebeeeb2c904007cc44b3f9751122896d95f0eb49a70bece0c17a4d65d81960",
-      "candidateSha256": "785838ba9d9e8bda33eec506e33f0d6d43dadd77966abe12a12a037fdec0e9e2",
+      "candidateSha256": "7277023152943d733da2dab15f94d157bf013ea77cc3a726d61a4622612622a7",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Correct historical main/Netlify/public evidence and PR4 preview/merge boundaries; no provider action or new publication acceptance. 2026-10-12 local public-copy correction: Record fresh live HTML/source parity and distinguish the unpublished local candidate; preserve registry dates, CSP and provider hold. Local candidate only; no publication or provider acceptance."
+      "reason": "Correct historical main/Netlify/public evidence and PR4 preview/merge boundaries; no provider action or new publication acceptance. 2026-10-12 local public-copy correction: Record fresh live HTML/source parity and distinguish the unpublished local candidate; preserve registry dates, CSP and provider hold. Local candidate only; no publication or provider acceptance. 2026-10-20 approved theme and 14-language candidate: complete model source-to-target reviews, local synthetic tests and Next build evidence in workspace/implementation-01-2026-10-19/theme-14-acceptance. Browser theme/14-language acceptance remains open after user interruption; no native-speaker, real-device, provider, live DB/mail, security scan or publication acceptance."
     },
     {
       "path": "_headers",
       "publishedSha256": "0f6051800957b20302493f430e280b63b6644b9fdd9b01d6fd2e98c3985d0112",
-      "candidateSha256": "9e55e998364e579aff0d52ba408f33070f1b962bce0812ad0c5fd6eabae1be8e",
+      "candidateSha256": "0a6700b75f45db4820e6ddf744902cc1dfd9ef6908776ceaba3e8d9175117f02",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Regenerate only the inline script hash for the reviewed presentation-copy delta; preserve all CSP directives and header values. 2026-10-20 approved A3 candidate receipt alignment: user-approved eight-locale Links candidate and matching inline-script hash; candidate source only, not publication, provider, security or store acceptance. Immutable published baseline stays unchanged; final local receipt commit and web workflow pin are owned by root."
+      "reason": "Regenerate only the inline script hash for the reviewed presentation-copy delta; preserve all CSP directives and header values. 2026-10-20 approved A3 candidate receipt alignment: user-approved eight-locale Links candidate and matching inline-script hash; candidate source only, not publication, provider, security or store acceptance. Immutable published baseline stays unchanged; final local receipt commit and web workflow pin are owned by root. 2026-10-20 approved theme and 14-language candidate: complete model source-to-target reviews, local synthetic tests and Next build evidence in workspace/implementation-01-2026-10-19/theme-14-acceptance. Browser theme/14-language acceptance remains open after user interruption; no native-speaker, real-device, provider, live DB/mail, security scan or publication acceptance."
     },
     {
       "path": "index.html",
       "publishedSha256": "ebee1ff537d9007dd22fcad3aa0ddf09576076c926db424c36302c0162c4db87",
-      "candidateSha256": "4168571803c386bfee7b22823b52489392e92711f0aeeacf306ca5efe4b4aaa4",
+      "candidateSha256": "42a41de3b7925ec9d330b3c43227c3339cc9d1c7b172b3a011ee4fd8dbdb3cce",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Align TR/EN cards with current development scope: BF on hold; Braavo/LifeOS earlier release distinction; Motion course materials under development with teaching/device/store validation open; preserve registry, fallback, freshness, URLs and attribution gate. 2026-10-20 approved A3 candidate receipt alignment: user-approved eight-locale Links candidate and matching inline-script hash; candidate source only, not publication, provider, security or store acceptance. Immutable published baseline stays unchanged; final local receipt commit and web workflow pin are owned by root."
+      "reason": "Align TR/EN cards with current development scope: BF on hold; Braavo/LifeOS earlier release distinction; Motion course materials under development with teaching/device/store validation open; preserve registry, fallback, freshness, URLs and attribution gate. 2026-10-20 approved A3 candidate receipt alignment: user-approved eight-locale Links candidate and matching inline-script hash; candidate source only, not publication, provider, security or store acceptance. Immutable published baseline stays unchanged; final local receipt commit and web workflow pin are owned by root. 2026-10-20 approved theme and 14-language candidate: complete model source-to-target reviews, local synthetic tests and Next build evidence in workspace/implementation-01-2026-10-19/theme-14-acceptance. Browser theme/14-language acceptance remains open after user interruption; no native-speaker, real-device, provider, live DB/mail, security scan or publication acceptance."
     },
     {
       "path": "vercel.json",
       "publishedSha256": "1d62512ea66d29b3d27f2941f83cde605af32524ebebe3b36d96ff813fee310f",
-      "candidateSha256": "27491137f234c692e170bdb5d6aa4282d550f3408f09a446aa7db6e7f87018ec",
+      "candidateSha256": "2b2e3ab2b756e3378d3b6a1958ba4459351ef3df29532cd71c4741ba403f92f9",
       "evidenceClass": "CANDIDATE_ONLY_NOT_PUBLICATION_EVIDENCE",
-      "reason": "Regenerate only the inline script hash for the reviewed presentation-copy delta; preserve all CSP directives, headers and redirects. 2026-10-20 approved A3 candidate receipt alignment: user-approved eight-locale Links candidate and matching inline-script hash; candidate source only, not publication, provider, security or store acceptance. Immutable published baseline stays unchanged; final local receipt commit and web workflow pin are owned by root."
+      "reason": "Regenerate only the inline script hash for the reviewed presentation-copy delta; preserve all CSP directives, headers and redirects. 2026-10-20 approved A3 candidate receipt alignment: user-approved eight-locale Links candidate and matching inline-script hash; candidate source only, not publication, provider, security or store acceptance. Immutable published baseline stays unchanged; final local receipt commit and web workflow pin are owned by root. 2026-10-20 approved theme and 14-language candidate: complete model source-to-target reviews, local synthetic tests and Next build evidence in workspace/implementation-01-2026-10-19/theme-14-acceptance. Browser theme/14-language acceptance remains open after user interruption; no native-speaker, real-device, provider, live DB/mail, security scan or publication acceptance."
     }
   ]
 }

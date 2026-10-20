@@ -1,5 +1,10 @@
 # links.yulalab.com
 
+## Güncel yerel aday — 20 Ekim 2026
+
+Site ile aynı 14 arayüz dili: `tr,en,es-419,pt-BR,de,fr,ja,ar,it,ko,id,pl,hi,zh-Hans`. Native dil seçimi ürün hash'ini korur; açık/koyu/sistem seçimi yalnız bu origin'de `yula.appearance.v1` olarak tutulur. JavaScript kapalı yüzeyde 14 dilin ürün, ana site, destek ve gizlilik bağlantıları bulunur. Tarihli dizin kaydı, mağazanın canlı kontrolü veya yeni yayın kabulü değildir. [Güncel yerel kanıt ve açık kapılar](../workspace/implementation-01-2026-10-19/theme-14-acceptance/REPORT.tr.md). Aşağıdaki yayın/source/CI okumaları kendi tarihli checkpoint'leridir; yeni push veya deploy yapılmadı.
+
+
 YULA Lab ürün dizini ve doğrulanmış bağlantı hub'ı. Vanilla HTML/CSS/JS kullanır; build ve çalışma zamanı bağımlılığı yoktur. Görsel STAMP düzeni dondurulmuştur.
 
 ## Public truth sözleşmesi

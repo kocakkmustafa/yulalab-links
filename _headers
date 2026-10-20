@@ -1,6 +1,6 @@
 /*
   X-Content-Type-Options: nosniff
-  Content-Security-Policy: default-src 'none'; script-src 'sha256-LAyuegcP9Lip5kN49A3EnP6ZLl0QTtS4MUDxRc095a4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'none'; script-src 'sha256-5eE7tYnU8V3XCqa06PCsqpr11e2EPXTyH1sDz29EkgY=' 'sha256-MAqrUVxo6FZY82/7iKLkALZaf68wj8WuBKzlgUt5uUc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://yulalab.com; connect-src https://yulalab.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
