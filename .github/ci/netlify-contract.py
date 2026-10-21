@@ -64,9 +64,14 @@ class Scripts(HTMLParser):
 
 parser = Scripts()
 parser.feed((root / "index.html").read_text())
-assert len(parser.scripts) == 1
-script_hash = base64.b64encode(hashlib.sha256(parser.scripts[0].encode()).digest()).decode()
-assert f"script-src 'sha256-{script_hash}'" in rules["/*"]["Content-Security-Policy"]
+# The appearance bootstrap and the hub each ship as one inline script. Every
+# inline script must be hash-allowed, and script-src must allow nothing else.
+assert parser.scripts, "expected inline scripts"
+script_hashes = [base64.b64encode(hashlib.sha256(s.encode()).digest()).decode() for s in parser.scripts]
+script_src = next(d.split()[1:] for d in rules["/*"]["Content-Security-Policy"].split(";")
+                  if d.split() and d.split()[0] == "script-src")
+assert sorted(script_src) == sorted(f"'sha256-{h}'" for h in script_hashes), "script-src must list exactly the inline script hashes"
+script_hash = script_hashes[0] if len(script_hashes) == 1 else script_hashes
 
 files = ("index.html", "_headers", "_redirects", "robots.txt", "sitemap.xml")
 destination = Path(sys.argv[1]).resolve()
